@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci1633lte3uag"]
+
+[ext_resource type="Texture2D" uid="uid://s305xx3dy58" path="res://Sprites/Placeholeder/rect902.png" id="1_3xw5v"]
+[ext_resource type="Script" path="res://Scripts/WindTurbine.gd" id="1_4r7m8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfrr1"]
+size = Vector2(30, 30)
+
+[node name="WindTurbine" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("1_4r7m8")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_3xw5v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_vfrr1")
