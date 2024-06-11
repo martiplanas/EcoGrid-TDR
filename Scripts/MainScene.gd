@@ -3,7 +3,7 @@ extends Node2D
 # Reference to the building scene
 var WindTurbineScene = preload("res://Scenes/Placeholders/wind_turbine.tscn")
 
-const GRID_SIZE = 64  # Adjust this value to your grid size
+const GRID_SIZE = 32  # Adjust this value to your grid size
 
 func _ready():
 	set_process_input(true)
@@ -15,6 +15,7 @@ func _input(event):
 
 func place_building(position):
 	var new_building = WindTurbineScene.instantiate()
+	print("Building created on", str(position))
 	add_child(new_building)
 	new_building.position = snap_to_grid(position)
 
