@@ -17,7 +17,7 @@ var nc_avalible = 10
 #0=nobuilding/1=wt/2=sp/3=nc
 var button_selected = 0
 var buildmode = false
-@onready var ui_manager = get_node("Control")
+@onready var ui_manager = get_node("Camera2D/Control")
 
 func _ready():
 	set_process_input(true)
