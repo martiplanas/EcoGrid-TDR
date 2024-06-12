@@ -2,8 +2,10 @@ extends Node2D
 
 # Reference to the building scene
 var WindTurbineScene = preload("res://Scenes/Placeholders/wind_turbine.tscn")
+var SolarPanelScene = preload("res://Scenes/Placeholders/solar_panel.tscn")
+var NuclearPlantScene = preload("res://Scenes/Placeholders/nuclear_plant.tscn")
 
-const GRID_SIZE = 32  # Adjust this value to your grid size
+const GRID_SIZE = 64  # Adjust this value to your grid size
 
 var occupied_positions = {}
 
@@ -36,9 +38,7 @@ func _process(delta):
 
 func place_building(position):
 	var grid_position = snap_to_grid(position)
-	print("z")
 	if grid_position not in occupied_positions && !is_mouse_over_ui():
-		print("a")
 		if button_selected == 1:
 			if wt_avalible >= 1:
 				var new_building = WindTurbineScene.instantiate()
@@ -51,8 +51,7 @@ func place_building(position):
 				print("You don't have enough buildings of this type")
 		elif button_selected == 2:
 			if sp_avalible >= 1:
-				print("b")
-				var new_building = WindTurbineScene.instantiate()
+				var new_building = SolarPanelScene.instantiate()
 				sp_avalible -= 1
 				print("Building created on", str(position))
 				add_child(new_building)
@@ -62,7 +61,7 @@ func place_building(position):
 				print("You don't have enough buildings of this type")
 		elif button_selected == 3:
 			if nc_avalible >= 1:
-				var new_building = WindTurbineScene.instantiate()
+				var new_building = NuclearPlantScene.instantiate()
 				nc_avalible -= 1
 				print("Building created on", str(position))
 				add_child(new_building)

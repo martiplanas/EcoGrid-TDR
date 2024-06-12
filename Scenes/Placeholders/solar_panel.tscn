@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ci1633lte3uag"]
+[gd_scene load_steps=4 format=3 uid="uid://b2yt5r7sfpti"]
 
-[ext_resource type="Script" path="res://Scripts/WindTurbine.gd" id="1_4r7m8"]
-[ext_resource type="Texture2D" uid="uid://dbe42sy57364a" path="res://Sprites/Placeholeder/wind.png" id="2_w7gv2"]
+[ext_resource type="Script" path="res://Scripts/WindTurbine.gd" id="1_7kx6j"]
+[ext_resource type="Texture2D" uid="uid://bnplcq55hebag" path="res://Sprites/Placeholeder/solar.png" id="2_ghy0s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfrr1"]
 size = Vector2(48, 48)
@@ -10,12 +10,12 @@ size = Vector2(48, 48)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 scale = Vector2(1.25, 1.25)
-script = ExtResource("1_4r7m8")
+script = ExtResource("1_7kx6j")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(7.15256e-07, 3.09944e-06)
+position = Vector2(1.19209e-06, 4.05312e-06)
 scale = Vector2(0.048, 0.048)
-texture = ExtResource("2_w7gv2")
+texture = ExtResource("2_ghy0s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_vfrr1")
