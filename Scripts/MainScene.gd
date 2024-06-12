@@ -8,12 +8,14 @@ const GRID_SIZE = 32  # Adjust this value to your grid size
 var occupied_positions = {}
 
 #---Buildings Avalible---
-var wt_avalible = 0
-var sp_avalible = 0
-var nc_avalible = 0
+var wt_avalible = 1
+var sp_avalible = 3
+var nc_avalible = 10
 
 #0=nobuilding/1=wt/2=sp/3=nc
-var buildingSelected = 0
+var button_selected = 0
+var buildmode = false
+@onready var ui_manager = get_node("Control")
 
 func _ready():
 	set_process_input(true)
@@ -21,41 +23,59 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-			place_building(event.position)
+			if buildmode:
+				place_building(event.position)
+
+func _process(delta):
+	button_selected = ui_manager.current_button_selected
+	
+	if button_selected == 1 or button_selected == 2 or button_selected == 3:
+		buildmode = true
+	else:
+		buildmode = false
 
 func place_building(position):
-	if buildingSelected != 0:
-		var grid_position = snap_to_grid(position)
-		if grid_position not in occupied_positions && !is_mouse_over_ui():
-			if buildingSelected == 1:
-				if wt_avalible >= 1:
-					var new_building = WindTurbineScene.instantiate()
-					wt_avalible -= 1
-					print("Building created on", str(position))
-					add_child(new_building)
-					new_building.position = grid_position
-					occupied_positions[grid_position] = new_building
-		else:
-			print("Place ocupied")
+	var grid_position = snap_to_grid(position)
+	print("z")
+	if grid_position not in occupied_positions && !is_mouse_over_ui():
+		print("a")
+		if button_selected == 1:
+			if wt_avalible >= 1:
+				var new_building = WindTurbineScene.instantiate()
+				wt_avalible -= 1
+				print("Building created on", str(position))
+				add_child(new_building)
+				new_building.position = grid_position
+				occupied_positions[grid_position] = new_building
+			else:
+				print("You don't have enough buildings of this type")
+		elif button_selected == 2:
+			if sp_avalible >= 1:
+				print("b")
+				var new_building = WindTurbineScene.instantiate()
+				sp_avalible -= 1
+				print("Building created on", str(position))
+				add_child(new_building)
+				new_building.position = grid_position
+				occupied_positions[grid_position] = new_building
+			else:
+				print("You don't have enough buildings of this type")
+		elif button_selected == 3:
+			if nc_avalible >= 1:
+				var new_building = WindTurbineScene.instantiate()
+				nc_avalible -= 1
+				print("Building created on", str(position))
+				add_child(new_building)
+				new_building.position = grid_position
+				occupied_positions[grid_position] = new_building
+			else:
+				print("You don't have enough buildings of this type")
 
 func snap_to_grid(position):
 	# Calculate the nearest grid point
 	position.x = round(position.x / GRID_SIZE) * GRID_SIZE
 	position.y = round(position.y / GRID_SIZE) * GRID_SIZE
 	return position
-
-func _on_mousemode_pressed():
-	buildingSelected = 0
-	print("Building Selected: ", buildingSelected)
-
-func _on_wind_turbine_build_pressed():
-	buildingSelected = 1
-	print("Building Selected: ", buildingSelected)
-
-func _on_solar_panel_build_pressed():
-	buildingSelected = 0
-	#print("Building Selected: ", buildingSelected)
-	wt_avalible += 1
 
 func is_mouse_over_ui():
 	var ui_elements = get_tree().get_nodes_in_group("ui")

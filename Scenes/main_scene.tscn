@@ -1,10 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvvh6edgstumi"]
+[gd_scene load_steps=8 format=3 uid="uid://dvvh6edgstumi"]
 
 [ext_resource type="Script" path="res://Scripts/MainScene.gd" id="1_elhwb"]
 [ext_resource type="Script" path="res://Scenes/TileMap.gd" id="2_0gomw"]
+[ext_resource type="Script" path="res://Scenes/UIManager.gd" id="3_a0bf0"]
+[ext_resource type="Texture2D" uid="uid://bxsexoyqgbndc" path="res://icon.svg" id="4_l1n4s"]
 
 [sub_resource type="TileSet" id="TileSet_8bv0a"]
 tile_size = Vector2i(32, 32)
+
+[sub_resource type="Theme" id="Theme_yp0pv"]
+
+[sub_resource type="Theme" id="Theme_abvlt"]
+Button/constants/icon_max_width = 50
+Button/font_sizes/font_size = 11
+VBoxContainer/constants/separation = 10
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_elhwb")
@@ -19,18 +28,20 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
+script = ExtResource("3_a0bf0")
 
 [node name="GridContainer" type="GridContainer" parent="Control" groups=["ui"]]
+visible = false
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 11
+anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -84.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/h_separation = 100
-columns = 9
+offset_left = -86.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = SubResource("Theme_yp0pv")
+theme_override_constants/v_separation = 100
 
 [node name="Control" type="Control" parent="Control/GridContainer" groups=["ui"]]
 layout_mode = 2
@@ -41,6 +52,7 @@ offset_right = 80.0
 offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
+toggle_mode = true
 
 [node name="Control2" type="Control" parent="Control/GridContainer"]
 layout_mode = 2
@@ -62,6 +74,86 @@ offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+custom_minimum_size = Vector2(70, 600)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -22.0
+offset_bottom = 22.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_abvlt")
+alignment = 1
+
+[node name="MouseMode" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "mouse"
+icon = ExtResource("4_l1n4s")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Building_wt" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "wind turbine"
+icon = ExtResource("4_l1n4s")
+text_overrun_behavior = 3
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Building_sp" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "Solar Plant"
+icon = ExtResource("4_l1n4s")
+text_overrun_behavior = 3
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Building_nc" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "Nuclear central"
+icon = ExtResource("4_l1n4s")
+text_overrun_behavior = 3
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Line_creator" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "Line Creator"
+icon = ExtResource("4_l1n4s")
+text_overrun_behavior = 3
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Demolisher" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "Demolish"
+icon = ExtResource("4_l1n4s")
+text_overrun_behavior = 3
+icon_alignment = 1
+vertical_icon_alignment = 0
+
 [connection signal="pressed" from="Control/GridContainer/Control/Mousemode" to="." method="_on_mousemode_pressed"]
 [connection signal="pressed" from="Control/GridContainer/Control2/WindTurbineBuild" to="." method="_on_wind_turbine_build_pressed"]
 [connection signal="pressed" from="Control/GridContainer/Control3/SolarPanelBuild" to="." method="_on_solar_panel_build_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/VBoxContainer/MouseMode" to="Control" method="_on_mouse_mode_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/VBoxContainer/Building_wt" to="Control" method="_on_building_wt_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/VBoxContainer/Building_sp" to="Control" method="_on_building_sp_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/VBoxContainer/Building_nc" to="Control" method="_on_building_nc_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/VBoxContainer/Line_creator" to="Control" method="_on_line_creator_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/VBoxContainer/Demolisher" to="Control" method="_on_demolisher_pressed"]
