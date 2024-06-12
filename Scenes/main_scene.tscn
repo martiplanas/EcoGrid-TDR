@@ -13,3 +13,55 @@ script = ExtResource("1_elhwb")
 tile_set = SubResource("TileSet_8bv0a")
 format = 2
 script = ExtResource("2_0gomw")
+
+[node name="Control" type="Control" parent="." groups=["ui"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="GridContainer" type="GridContainer" parent="Control" groups=["ui"]]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -84.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/h_separation = 100
+columns = 9
+
+[node name="Control" type="Control" parent="Control/GridContainer" groups=["ui"]]
+layout_mode = 2
+
+[node name="Mousemode" type="Button" parent="Control/GridContainer/Control"]
+layout_mode = 2
+offset_right = 80.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control2" type="Control" parent="Control/GridContainer"]
+layout_mode = 2
+
+[node name="WindTurbineBuild" type="Button" parent="Control/GridContainer/Control2" groups=["ui"]]
+layout_mode = 2
+offset_right = 80.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control3" type="Control" parent="Control/GridContainer"]
+layout_mode = 2
+
+[node name="SolarPanelBuild" type="Button" parent="Control/GridContainer/Control3" groups=["ui"]]
+layout_mode = 2
+offset_right = 80.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Control/GridContainer/Control/Mousemode" to="." method="_on_mousemode_pressed"]
+[connection signal="pressed" from="Control/GridContainer/Control2/WindTurbineBuild" to="." method="_on_wind_turbine_build_pressed"]
+[connection signal="pressed" from="Control/GridContainer/Control3/SolarPanelBuild" to="." method="_on_solar_panel_build_pressed"]
