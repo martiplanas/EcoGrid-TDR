@@ -8,6 +8,8 @@ extends Camera2D
 @export var min_zoom: float = 0.5
 @export var max_zoom: float = 3.0
 
+@onready var ui = $Control
+
 func _process(delta: float) -> void:
 	# Handle camera movement
 	var move_speed = base_move_speed * (1/zoom.x)*2
@@ -29,3 +31,5 @@ func _process(delta: float) -> void:
 		zoom = (zoom - Vector2.ONE * zoom_speed).clamp(Vector2.ONE * min_zoom, Vector2.ONE * max_zoom)
 	if Input.is_action_just_pressed("zoom_out"):
 		zoom = (zoom + Vector2.ONE * zoom_speed).clamp(Vector2.ONE * min_zoom, Vector2.ONE * max_zoom)
+	
+	scale = Vector2(1 / zoom.x, 1 / zoom.y)
