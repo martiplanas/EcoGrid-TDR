@@ -51,7 +51,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_a0bf0")
 
-[node name="PanelContainer" type="PanelContainer" parent="Camera2D/Control"]
+[node name="PanelContainer" type="PanelContainer" parent="Camera2D/Control" groups=["ui"]]
 custom_minimum_size = Vector2(70, 600)
 layout_mode = 1
 anchors_preset = 11
@@ -122,9 +122,23 @@ text_overrun_behavior = 3
 icon_alignment = 1
 vertical_icon_alignment = 0
 
+[connection signal="mouse_entered" from="Camera2D/Control/PanelContainer" to="." method="_on_panel_container_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/Control/PanelContainer" to="." method="_on_panel_container_mouse_exited"]
+[connection signal="mouse_entered" from="Camera2D/Control/PanelContainer/VBoxContainer/MouseMode" to="." method="_on_mouse_mode_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/Control/PanelContainer/VBoxContainer/MouseMode" to="." method="_on_mouse_mode_mouse_exited"]
 [connection signal="pressed" from="Camera2D/Control/PanelContainer/VBoxContainer/MouseMode" to="Camera2D/Control" method="_on_mouse_mode_pressed"]
+[connection signal="mouse_entered" from="Camera2D/Control/PanelContainer/VBoxContainer/Building_wt" to="." method="_on_building_wt_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/Control/PanelContainer/VBoxContainer/Building_wt" to="." method="_on_building_wt_mouse_exited"]
 [connection signal="pressed" from="Camera2D/Control/PanelContainer/VBoxContainer/Building_wt" to="Camera2D/Control" method="_on_building_wt_pressed"]
+[connection signal="mouse_entered" from="Camera2D/Control/PanelContainer/VBoxContainer/Building_sp" to="." method="_on_building_sp_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/Control/PanelContainer/VBoxContainer/Building_sp" to="." method="_on_building_sp_mouse_exited"]
 [connection signal="pressed" from="Camera2D/Control/PanelContainer/VBoxContainer/Building_sp" to="Camera2D/Control" method="_on_building_sp_pressed"]
+[connection signal="mouse_entered" from="Camera2D/Control/PanelContainer/VBoxContainer/Building_nc" to="." method="_on_building_nc_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/Control/PanelContainer/VBoxContainer/Building_nc" to="." method="_on_building_nc_mouse_exited"]
 [connection signal="pressed" from="Camera2D/Control/PanelContainer/VBoxContainer/Building_nc" to="Camera2D/Control" method="_on_building_nc_pressed"]
+[connection signal="mouse_entered" from="Camera2D/Control/PanelContainer/VBoxContainer/Line_creator" to="." method="_on_line_creator_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/Control/PanelContainer/VBoxContainer/Line_creator" to="." method="_on_line_creator_mouse_exited"]
 [connection signal="pressed" from="Camera2D/Control/PanelContainer/VBoxContainer/Line_creator" to="Camera2D/Control" method="_on_line_creator_pressed"]
+[connection signal="mouse_entered" from="Camera2D/Control/PanelContainer/VBoxContainer/Demolisher" to="." method="_on_demolisher_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/Control/PanelContainer/VBoxContainer/Demolisher" to="." method="_on_demolisher_mouse_exited"]
 [connection signal="pressed" from="Camera2D/Control/PanelContainer/VBoxContainer/Demolisher" to="Camera2D/Control" method="_on_demolisher_pressed"]

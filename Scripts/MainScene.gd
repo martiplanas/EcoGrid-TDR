@@ -14,6 +14,8 @@ var wt_avalible = 1
 var sp_avalible = 3
 var nc_avalible = 10
 
+var is_mouse_over_ui = false
+
 #0=nobuilding/1=wt/2=sp/3=nc
 var button_selected = 0
 var buildmode = false
@@ -40,7 +42,7 @@ func _process(delta):
 
 func place_building(position):
 	var grid_position = snap_to_grid(position)
-	if grid_position not in occupied_positions and not is_mouse_over_ui():
+	if grid_position not in occupied_positions and !is_mouse_over_ui:
 		if button_selected == 1:
 			if wt_avalible >= 1:
 				var new_building = WindTurbineScene.instantiate()
@@ -77,9 +79,31 @@ func snap_to_grid(position: Vector2) -> Vector2:
 	var tile_center = tilemap.map_to_local(map_coords)
 	return tile_center
 
-func is_mouse_over_ui() -> bool:
-	var ui_elements = get_tree().get_nodes_in_group("ui")
-	for element in ui_elements:
-		if element is Button and element.get_rect().has_point(get_global_mouse_position()):
-			return true
-	return false
+func _on_panel_container_mouse_entered():
+	is_mouse_over_ui = true
+func _on_panel_container_mouse_exited():
+	is_mouse_over_ui = false
+func _on_mouse_mode_mouse_exited():
+	is_mouse_over_ui = false
+func _on_building_wt_mouse_exited():
+	is_mouse_over_ui = false
+func _on_building_wt_mouse_entered():
+	is_mouse_over_ui = true
+func _on_mouse_mode_mouse_entered():
+	is_mouse_over_ui = true
+func _on_building_sp_mouse_entered():
+	is_mouse_over_ui = true
+func _on_building_sp_mouse_exited():
+	is_mouse_over_ui = false
+func _on_building_nc_mouse_exited():
+	is_mouse_over_ui = false
+func _on_building_nc_mouse_entered():
+	is_mouse_over_ui = true
+func _on_line_creator_mouse_exited():
+	is_mouse_over_ui = false
+func _on_line_creator_mouse_entered():
+	is_mouse_over_ui = true
+func _on_demolisher_mouse_entered():
+	is_mouse_over_ui = true
+func _on_demolisher_mouse_exited():
+	is_mouse_over_ui = false
