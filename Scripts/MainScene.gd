@@ -18,6 +18,7 @@ var nc_avalible = 10
 var button_selected = 0
 var buildmode = false
 @onready var ui_manager = get_node("Camera2D/Control")
+@onready var tilemap = $TileMap  # Ensure you have a TileMap node in your scene
 
 func _ready():
 	set_process_input(true)
@@ -26,7 +27,8 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			if buildmode:
-				place_building(event.position)
+				var mouse_pos = get_global_mouse_position()
+				place_building(mouse_pos)
 
 func _process(delta):
 	button_selected = ui_manager.current_button_selected
@@ -37,8 +39,8 @@ func _process(delta):
 		buildmode = false
 
 func place_building(position):
-	var grid_position = snap_to_grid(position, $Camera2D)
-	if grid_position not in occupied_positions && !is_mouse_over_ui():
+	var grid_position = snap_to_grid(position)
+	if grid_position not in occupied_positions and not is_mouse_over_ui():
 		if button_selected == 1:
 			if wt_avalible >= 1:
 				var new_building = WindTurbineScene.instantiate()
@@ -70,21 +72,14 @@ func place_building(position):
 			else:
 				print("You don't have enough buildings of this type")
 
-func snap_to_grid(position:Vector2, camera: Camera2D) -> Vector2:
-	var adjusted_position = position + camera.get_position()
-	
-	var tile_x = int(adjusted_position.x / GRID_SIZE)
-	var tile_y = int(adjusted_position.y / GRID_SIZE)
-	
-	var tile_x_center = (tile_x * GRID_SIZE) + GRID_SIZE / 2
-	var tile_y_center = (tile_y * GRID_SIZE) + GRID_SIZE / 2
-	
-	return Vector2(tile_x_center, tile_y_center)
-	
+func snap_to_grid(position: Vector2) -> Vector2:
+	var map_coords = tilemap.local_to_map(position)
+	var tile_center = tilemap.map_to_local(map_coords)
+	return tile_center
 
-func is_mouse_over_ui():
+func is_mouse_over_ui() -> bool:
 	var ui_elements = get_tree().get_nodes_in_group("ui")
 	for element in ui_elements:
-		if element is Button and element.get_rect().has_point(element.get_global_mouse_position()):
+		if element is Button and element.get_rect().has_point(get_global_mouse_position()):
 			return true
 	return false
