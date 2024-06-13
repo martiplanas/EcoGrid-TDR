@@ -37,7 +37,7 @@ func _process(delta):
 		buildmode = false
 
 func place_building(position):
-	var grid_position = snap_to_grid(position)
+	var grid_position = snap_to_grid(position, $Camera2D)
 	if grid_position not in occupied_positions && !is_mouse_over_ui():
 		if button_selected == 1:
 			if wt_avalible >= 1:
@@ -70,11 +70,17 @@ func place_building(position):
 			else:
 				print("You don't have enough buildings of this type")
 
-func snap_to_grid(position):
-	# Calculate the nearest grid point
-	position.x = round(position.x / GRID_SIZE) * GRID_SIZE
-	position.y = round(position.y / GRID_SIZE) * GRID_SIZE
-	return position
+func snap_to_grid(position:Vector2, camera: Camera2D) -> Vector2:
+	var adjusted_position = position + camera.get_position()
+	
+	var tile_x = int(adjusted_position.x / GRID_SIZE)
+	var tile_y = int(adjusted_position.y / GRID_SIZE)
+	
+	var tile_x_center = (tile_x * GRID_SIZE) + GRID_SIZE / 2
+	var tile_y_center = (tile_y * GRID_SIZE) + GRID_SIZE / 2
+	
+	return Vector2(tile_x_center, tile_y_center)
+	
 
 func is_mouse_over_ui():
 	var ui_elements = get_tree().get_nodes_in_group("ui")

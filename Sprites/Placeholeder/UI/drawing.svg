@@ -24,8 +24,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="3.213364"
-     inkscape:cx="64.107271"
-     inkscape:cy="155.13337"
+     inkscape:cx="137.55055"
+     inkscape:cy="86.669297"
      inkscape:window-width="1280"
      inkscape:window-height="784"
      inkscape:window-x="171"
@@ -86,7 +86,10 @@
        width="10"
        height="10"
        x="33.829086"
-       y="19.242958" />
+       y="19.242958"
+       inkscape:export-filename="../grass.png"
+       inkscape:export-xdpi="160.95055"
+       inkscape:export-ydpi="160.95055" />
     <g
        id="g19"
        style="fill:#b2b2b2;fill-opacity:1"
