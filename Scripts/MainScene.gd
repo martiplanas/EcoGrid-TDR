@@ -10,8 +10,8 @@ const GRID_SIZE = 64  # Adjust this value to your grid size
 var occupied_positions = {}
 
 #---Buildings Avalible---
-var wt_avalible = 1
-var sp_avalible = 3
+var wt_avalible = 10
+var sp_avalible = 10
 var nc_avalible = 10
 
 var is_mouse_over_ui = false
@@ -19,6 +19,7 @@ var is_mouse_over_ui = false
 #0=nobuilding/1=wt/2=sp/3=nc
 var button_selected = 0
 var buildmode = false
+var demolishmode = false
 @onready var ui_manager = get_node("Camera2D/Control")
 @onready var tilemap = $TileMap  # Ensure you have a TileMap node in your scene
 
@@ -39,6 +40,11 @@ func _process(delta):
 		buildmode = true
 	else:
 		buildmode = false
+	
+	if button_selected == 5:
+		demolishmode = true
+	else:
+		demolishmode = false
 
 func place_building(position):
 	var grid_position = snap_to_grid(position)
@@ -47,7 +53,7 @@ func place_building(position):
 			if wt_avalible >= 1:
 				var new_building = WindTurbineScene.instantiate()
 				wt_avalible -= 1
-				print("Building created on", str(position))
+				
 				add_child(new_building)
 				new_building.position = grid_position
 				occupied_positions[grid_position] = new_building
