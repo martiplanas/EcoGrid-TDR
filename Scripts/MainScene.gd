@@ -8,6 +8,7 @@ var NuclearPlantScene = preload("res://Scenes/Placeholders/nuclear_plant.tscn")
 const GRID_SIZE = 64  # Adjust this value to your grid size
 
 var occupied_positions = {}
+var buildings_created = []
 
 #---Buildings Avalible---
 var wt_avalible = 10
@@ -32,6 +33,21 @@ func _input(event):
 			if buildmode:
 				var mouse_pos = get_global_mouse_position()
 				place_building(mouse_pos)
+			if demolishmode:
+				var mouse_pos = snap_to_grid(get_global_mouse_position())
+				for i in buildings_created:
+					var building_pos = i.position
+					if mouse_pos == building_pos:
+						if i.get_meta("Type") == "wt":
+							wt_avalible += 1
+						elif i.get_meta("Type") == "sp":
+							sp_avalible += 1
+						elif i.get_meta("Type") == "nc":
+							nc_avalible += 1
+						
+						occupied_positions.erase(building_pos)
+						i.queue_free()
+						buildings_created.erase(i)
 
 func _process(delta):
 	button_selected = ui_manager.current_button_selected
@@ -53,7 +69,8 @@ func place_building(position):
 			if wt_avalible >= 1:
 				var new_building = WindTurbineScene.instantiate()
 				wt_avalible -= 1
-				
+				print("Building created on", str(position))
+				buildings_created.append(new_building)
 				add_child(new_building)
 				new_building.position = grid_position
 				occupied_positions[grid_position] = new_building
@@ -66,6 +83,7 @@ func place_building(position):
 				print("Building created on", str(position))
 				add_child(new_building)
 				new_building.position = grid_position
+				buildings_created.append(new_building)
 				occupied_positions[grid_position] = new_building
 			else:
 				print("You don't have enough buildings of this type")
@@ -76,6 +94,7 @@ func place_building(position):
 				print("Building created on", str(position))
 				add_child(new_building)
 				new_building.position = grid_position
+				buildings_created.append(new_building)
 				occupied_positions[grid_position] = new_building
 			else:
 				print("You don't have enough buildings of this type")

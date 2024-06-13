@@ -2,6 +2,8 @@ extends Control
 
 var current_button_selected = 0;
 
+@onready var main = get_parent().get_parent()
+
 @onready var b0 = $PanelContainer/VBoxContainer/MouseMode
 @onready var b1 = $PanelContainer/VBoxContainer/Building_wt
 @onready var b2 = $PanelContainer/VBoxContainer/Building_sp
@@ -28,7 +30,10 @@ func _process(delta):
 		elif b == current_button_selected:
 			buttons[b].button_pressed = true
 
-
+	b1.set_text(str(main.wt_avalible))
+	b2.set_text(str(main.sp_avalible))
+	b3.set_text(str(main.nc_avalible))
+ 
 func _on_mouse_mode_pressed():
 	current_button_selected = 0;
 
