@@ -5,7 +5,7 @@ var WindTurbineScene = preload("res://Scenes/Placeholders/wind_turbine.tscn")
 var SolarPanelScene = preload("res://Scenes/Placeholders/solar_panel.tscn")
 var NuclearPlantScene = preload("res://Scenes/Placeholders/nuclear_plant.tscn")
 
-const GRID_SIZE = 64  # Adjust this value to your grid size
+const GRID_SIZE = 128  # Adjust this value to your grid size
 
 var occupied_positions = {}
 var buildings_created = []
