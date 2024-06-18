@@ -4,18 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://bnplcq55hebag" path="res://Sprites/Placeholeder/solar.png" id="2_ghy0s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfrr1"]
-size = Vector2(48, 48)
+size = Vector2(128, 128)
 
 [node name="SolarPanel" type="Node2D"]
 metadata/Type = "sp"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-scale = Vector2(1.25, 1.25)
 script = ExtResource("1_7kx6j")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(1.19209e-06, 4.05312e-06)
-scale = Vector2(0.048, 0.048)
+position = Vector2(-1.19209e-06, 7.39098e-06)
+scale = Vector2(0.24015, 0.24015)
 texture = ExtResource("2_ghy0s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
