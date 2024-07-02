@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="TDR-EcoTycoon"
+config/name="EcoGrid"
+config/version="0.1"
 run/main_scene="res://Scenes/main_scene.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Sprites/Icons/rounded icon.svg"
 
 [display]
 

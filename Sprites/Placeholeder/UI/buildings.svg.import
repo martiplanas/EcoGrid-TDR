@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxsexoyqgbndc"
-path="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+uid="uid://dr3xkov6noc0m"
+path="res://.godot/imported/buildings.svg-f21ce3548264bdd3fc66cf545674ada6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.svg"
-dest_files=["res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"]
+source_file="res://Sprites/Placeholeder/UI/buildings.svg"
+dest_files=["res://.godot/imported/buildings.svg-f21ce3548264bdd3fc66cf545674ada6.ctex"]
 
 [params]
 
