@@ -27,13 +27,13 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="0.99395249"
-     inkscape:cx="350.11734"
-     inkscape:cy="713.81682"
-     inkscape:window-width="1264"
-     inkscape:window-height="786"
-     inkscape:window-x="176"
-     inkscape:window-y="25"
+     inkscape:zoom="3.0643943"
+     inkscape:cx="276.40046"
+     inkscape:cy="105.56736"
+     inkscape:window-width="1440"
+     inkscape:window-height="900"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1">
     <inkscape:grid
@@ -41,8 +41,8 @@
        units="px"
        originx="0"
        originy="0"
-       spacingx="33.866667"
-       spacingy="33.866667"
+       spacingx="33.866666"
+       spacingy="33.866666"
        empcolor="#0099e5"
        empopacity="0.30196078"
        color="#0099e5"
@@ -59,18 +59,9 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <rect
-       style="fill:#70c49c;fill-opacity:0;stroke:#85f98d;stroke-width:0.14986;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.23876405"
-       id="rect2"
-       width="33.716808"
-       height="33.716808"
-       x="-33.791737"
-       y="0.074929997"
-       ry="0.99784887"
-       transform="scale(-1,1)" />
     <g
        id="g3"
-       inkscape:label="panels">
+       inkscape:label="B1. Small Solar panels">
       <g
          id="g2"
          inkscape:label="solar panel">
@@ -755,26 +746,96 @@
            id="path2-5-6-4-6-5-7-7-0" />
       </g>
     </g>
+    <g
+       id="g4"
+       inkscape:label="B2. Big solar panels">
+      <rect
+         style="fill:#516284;stroke-width:0.25;stroke-linejoin:round;fill-opacity:1;stroke:#070d1c;stroke-opacity:1;stroke-dasharray:none"
+         id="rect1-4"
+         width="31.220833"
+         height="7.2098956"
+         x="35.189583"
+         y="9.3265629"
+         ry="1.2241327" />
+      <rect
+         style="fill:#516284;stroke-width:0.25;stroke-linejoin:round;fill-opacity:1;stroke:#070d1c;stroke-opacity:1;stroke-dasharray:none"
+         id="rect1-2"
+         width="31.220833"
+         height="7.2098956"
+         x="35.189583"
+         y="25.333855"
+         ry="1.2241327" />
+      <rect
+         style="fill:#516284;stroke-width:0.25;stroke-linejoin:round;fill-opacity:1;stroke:#070d1c;stroke-opacity:1;stroke-dasharray:none"
+         id="rect1-1"
+         width="31.220833"
+         height="7.2098956"
+         x="35.189583"
+         y="17.330208"
+         ry="1.2241327" />
+      <g
+         id="g5"
+         inkscape:label="Panel 1">
+        <rect
+           style="fill:#516284;stroke-width:0.25;stroke-linejoin:round;fill-opacity:1;stroke:#070d1c;stroke-opacity:1;stroke-dasharray:none"
+           id="rect1"
+           width="31.220833"
+           height="7.2098956"
+           x="35.189583"
+           y="1.3229166"
+           ry="1.2241327"
+           inkscape:label="rect1" />
+        <path
+           style="fill:#f9ffff;fill-opacity:1;stroke:#fff9ff;stroke-width:0.278001;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+           d="M 35.316275,3.9176828 66.283672,3.916763 v 0"
+           id="path2-3-0" />
+        <path
+           style="fill:#f9ffff;fill-opacity:1;stroke:#fff9ff;stroke-width:0.156355;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+           d="m 37.053963,1.4468146 0.0018,6.9614627 v 0"
+           id="path2-3-0-6" />
+        <path
+           style="fill:#f9ffff;fill-opacity:1;stroke:#fff9ff;stroke-width:0.156353;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+           d="m 39.106254,1.4488004 0.0018,6.9612279 v 0"
+           id="path2-3-0-6-9" />
+        <path
+           style="fill:#f9ffff;fill-opacity:1;stroke:#fff9ff;stroke-width:0.156168;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+           d="m 41.12275,1.451683 0.0018,6.94467 v 0"
+           id="path2-3-0-6-6" />
+        <path
+           style="fill:#f9ffff;fill-opacity:1;stroke:#fff9ff;stroke-width:0.155949;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+           d="m 43.175041,1.4511497 0.0018,6.9250345 v 0"
+           id="path2-3-0-6-9-1" />
+        <path
+           style="fill:#f9ffff;fill-opacity:1;stroke:#fff9ff;stroke-width:0.156355;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+           d="m 45.109657,1.4538688 0.0018,6.9614627 v 0"
+           id="path2-3-0-6-1" />
+        <path
+           style="fill:#f9ffff;fill-opacity:1;stroke:#fff9ff;stroke-width:0.156353;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+           d="m 47.161948,1.4558546 0.0018,6.9612279 v 0"
+           id="path2-3-0-6-9-3" />
+        <path
+           style="fill:#f9ffff;fill-opacity:1;stroke:#fff9ff;stroke-width:0.156168;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+           d="m 49.178444,1.4587372 0.0018,6.94467 v 0"
+           id="path2-3-0-6-6-4" />
+        <path
+           style="fill:#f9ffff;fill-opacity:1;stroke:#fff9ff;stroke-width:0.155949;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+           d="m 51.230735,1.4582039 0.0018,6.9250345 v 0"
+           id="path2-3-0-6-9-1-8" />
+        <path
+           style="fill:#f9ffff;fill-opacity:1;stroke:#fff9ff;stroke-width:0.278001;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+           d="M 35.337657,6.2423848 66.305054,6.241465 v 0"
+           id="path2-3-0-9" />
+      </g>
+    </g>
     <ellipse
-       style="fill:#70c49c;fill-opacity:0;stroke:#85f98d;stroke-width:0.2;stroke-linejoin:round;stroke-opacity:0.238764"
-       id="path1"
-       cx="43.389481"
-       cy="26.353121"
-       rx="3.992897"
-       ry="3.7267039" />
-    <ellipse
-       style="fill:#70c49c;fill-opacity:0;stroke:#85f98d;stroke-width:0.2;stroke-linejoin:round;stroke-opacity:0.238764"
-       id="path3"
-       cx="55.101978"
-       cy="26.619312"
-       rx="4.5252833"
-       ry="3.7267039" />
-    <ellipse
-       style="fill:#70c49c;fill-opacity:0;stroke:#85f98d;stroke-width:0.2;stroke-linejoin:round;stroke-opacity:0.238764"
-       id="path4"
-       cx="54.303398"
-       cy="11.579401"
-       rx="3.1943176"
-       ry="4.65838" />
+       style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:1.81437;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="path5"
+       cx="84.666664"
+       cy="16.933332"
+       rx="7.5594788"
+       ry="7.5594811"
+       inkscape:export-filename="../../city small.svg"
+       inkscape:export-xdpi="96.000046"
+       inkscape:export-ydpi="96.000046" />
   </g>
 </svg>

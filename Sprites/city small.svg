@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="63.999969"
+   height="63.999996"
+   viewBox="0 0 16.933324 16.933332"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="solar.png"
+   inkscape:export-xdpi="400"
+   inkscape:export-ydpi="400"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   sodipodi:docname="buildings.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="0.99395249"
+     inkscape:cx="350.11734"
+     inkscape:cy="713.81682"
+     inkscape:window-width="1264"
+     inkscape:window-height="786"
+     inkscape:window-x="176"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       id="grid1"
+       units="px"
+       originx="-76.199995"
+       originy="-8.4666662"
+       spacingx="33.866666"
+       spacingy="33.866666"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-76.200001,-8.4666663)">
+    <ellipse
+       style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:1.81437;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="path5"
+       cx="84.666664"
+       cy="16.933332"
+       rx="7.5594788"
+       ry="7.5594811"
+       inkscape:export-filename="../../city small.svg"
+       inkscape:export-xdpi="96.000046"
+       inkscape:export-ydpi="96.000046" />
+  </g>
+</svg>
