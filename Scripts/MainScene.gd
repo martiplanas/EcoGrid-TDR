@@ -21,7 +21,7 @@ var is_mouse_over_ui = false
 var button_selected = 0
 var buildmode = false
 var demolishmode = false
-@onready var ui_manager = get_node("Camera2D/Control")
+@onready var ui_manager = get_node("Camera2D/UI")
 @onready var tilemap = $TileMap  # Ensure you have a TileMap node in your scene
 
 func _ready():

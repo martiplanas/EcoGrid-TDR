@@ -15,6 +15,7 @@ var buttons = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	current_button_selected = 0
 	buttons[0] = b0
 	buttons[1] = b1
 	buttons[2] = b2
