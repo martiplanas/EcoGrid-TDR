@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://rvxpxidbsuig"]
+[gd_scene load_steps=3 format=3 uid="uid://2mmwbohvl54g"]
 
-[ext_resource type="Texture2D" uid="uid://b3ujbwt6qhc8e" path="res://Sprites/city small.svg" id="1_5e85r"]
-[ext_resource type="Script" path="res://Scripts/city.gd" id="1_86wby"]
+[ext_resource type="Texture2D" uid="uid://b3ujbwt6qhc8e" path="res://Recources/SVG/city small.svg" id="1_tqnrr"]
+
+[sub_resource type="GDScript" id="GDScript_q4wj7"]
+script/source = "extends Node2D
+
+var ID: String
+var cityname: String
+var energy_consumption: float
+
+func _ready():
+	print(\"City %s initialized at position %s with energy consumption %f\" % [name, position, energy_consumption])
+"
 
 [node name="City" type="Node2D"]
-script = ExtResource("1_86wby")
+script = SubResource("GDScript_q4wj7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_5e85r")
+texture = ExtResource("1_tqnrr")

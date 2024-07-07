@@ -8,7 +8,7 @@ extends Camera2D
 @export var min_zoom: float = 0.15
 @export var max_zoom: float = 0.6
 
-@onready var ui = $Control
+@onready var ui = $UI
 
 func _process(delta: float) -> void:
 	# Handle camera movement
@@ -34,5 +34,5 @@ func _process(delta: float) -> void:
 	
 	scale = Vector2(1 / zoom.x, 1 / zoom.y)
 	
-	position.x = clamp(position.x, -1000, 5000)
-	position.y = clamp(position.y, -1000, 5000)
+	position.x = clamp(position.x, -500, 4000)
+	position.y = clamp(position.y, -500, 4000)

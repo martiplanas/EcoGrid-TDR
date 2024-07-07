@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dk8ukk3626ly1"]
 
-[ext_resource type="Script" path="res://MainMenuController.gd" id="1_pvbm8"]
+[ext_resource type="Script" path="res://Scripts/MainMenuController.gd" id="1_pvbm8"]
 [ext_resource type="Texture2D" uid="uid://dpwxvmxmecl8o" path="res://Sprites/Icons/TextMAX.png" id="2_l0pvu"]
 
 [sub_resource type="Theme" id="Theme_fhdcv"]
