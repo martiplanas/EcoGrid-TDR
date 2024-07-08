@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lof20hv7nobc"
-path="res://.godot/imported/nuclear.png-d861a67522d25a75f5e0107cfc2e85bb.ctex"
+uid="uid://b8weh5lpwbg7t"
+path="res://.godot/imported/color palete.png-0c65758892a16c03521736d4c1314c8e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Buildings/nuclear.png"
-dest_files=["res://.godot/imported/nuclear.png-d861a67522d25a75f5e0107cfc2e85bb.ctex"]
+source_file="res://Recources/color palete.png"
+dest_files=["res://.godot/imported/color palete.png-0c65758892a16c03521736d4c1314c8e.ctex"]
 
 [params]
 

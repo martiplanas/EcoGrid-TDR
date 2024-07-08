@@ -14,11 +14,13 @@ config/name="EcoGrid"
 config/version="0.1"
 run/main_scene="res://Scenes/Main Menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://Recources/MACOS LOGO.png"
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
+window/stretch/scale_mode="integer"
 
 [input]
 

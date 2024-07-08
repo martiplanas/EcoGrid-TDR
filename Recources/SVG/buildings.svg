@@ -28,14 +28,14 @@
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="1.0874649"
-     inkscape:cx="139.77462"
-     inkscape:cy="140.23441"
+     inkscape:cx="194.94882"
+     inkscape:cy="204.6043"
      inkscape:window-width="1440"
      inkscape:window-height="786"
      inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g4"
+     inkscape:current-layer="layer1"
      showguides="false">
     <inkscape:grid
        id="grid1"
@@ -771,14 +771,17 @@
     </g>
     <g
        id="g4"
-       inkscape:label="B2. Big solar panels">
+       inkscape:label="B2. Big solar panels"
+       inkscape:export-filename="../../Sprites/Buildings/solar/solar.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600">
       <g
          id="g5"
          inkscape:label="Panel 1"
          transform="matrix(0.99191869,0,0,0.90226308,0.4099932,0.24043305)"
          inkscape:export-filename="solar.png"
-         inkscape:export-xdpi="96"
-         inkscape:export-ydpi="96">
+         inkscape:export-xdpi="400"
+         inkscape:export-ydpi="400">
         <rect
            style="fill:#516284;fill-opacity:1;stroke:#070d1c;stroke-width:0.25;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
            id="rect1"
@@ -1144,9 +1147,9 @@
     <g
        id="g10"
        transform="matrix(0.98623877,0,0,1.0003446,0.93766527,-0.0184813)"
-       inkscape:export-filename="nuclear.png"
-       inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-filename="../../Sprites/Buildings/nuclear/nuclear.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400">
       <path
          style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.32292;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
          d="M 101.44407,61.840906 H 88.701098 v -4.372589 c 0,0 0.499724,-3.24821 6.121625,-3.498072 5.621897,-0.249862 6.746277,3.373141 6.746277,3.373141 z"

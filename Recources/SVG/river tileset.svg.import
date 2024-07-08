@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbe42sy57364a"
-path="res://.godot/imported/wind.png-71733c6c54a0650098b6a46c24456293.ctex"
+uid="uid://d3h2er1bg510k"
+path="res://.godot/imported/river tileset.svg-1b55ed68e7951db102ae6d39d863db7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Buildings/wind.png"
-dest_files=["res://.godot/imported/wind.png-71733c6c54a0650098b6a46c24456293.ctex"]
+source_file="res://Recources/SVG/river tileset.svg"
+dest_files=["res://.godot/imported/river tileset.svg-1b55ed68e7951db102ae6d39d863db7c.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

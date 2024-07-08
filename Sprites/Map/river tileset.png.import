@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnplcq55hebag"
-path="res://.godot/imported/solar.png-8cccd4d853ef32a931247bec5e6dc157.ctex"
+uid="uid://cnobxxldmlj0k"
+path="res://.godot/imported/river tileset.png-e7e7ef3d8a3df5ab5c26d2c860910101.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Buildings/solar.png"
-dest_files=["res://.godot/imported/solar.png-8cccd4d853ef32a931247bec5e6dc157.ctex"]
+source_file="res://Sprites/Map/river tileset.png"
+dest_files=["res://.godot/imported/river tileset.png-e7e7ef3d8a3df5ab5c26d2c860910101.ctex"]
 
 [params]
 
