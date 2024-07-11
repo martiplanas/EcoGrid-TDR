@@ -1,20 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://2mmwbohvl54g"]
+[gd_scene load_steps=4 format=3 uid="uid://bjde7s0i3hvjb"]
 
-[ext_resource type="Texture2D" uid="uid://b3ujbwt6qhc8e" path="res://Recources/SVG/city small.svg" id="1_tqnrr"]
+[ext_resource type="Texture2D" uid="uid://biulihr837xln" path="res://Sprites/Map/city.png" id="1_g50mm"]
+[ext_resource type="Script" path="res://Scenes/City.gd" id="2_f1agc"]
 
-[sub_resource type="GDScript" id="GDScript_q4wj7"]
-script/source = "extends Node2D
+[sub_resource type="CircleShape2D" id="CircleShape2D_xrp3j"]
+radius = 64.0
 
-var ID: String
-var cityname: String
-var energy_consumption: float
-
-func _ready():
-	print(\"City %s initialized at position %s with energy consumption %f\" % [name, position, energy_consumption])
-"
-
-[node name="City" type="Node2D"]
-script = SubResource("GDScript_q4wj7")
+[node name="City" type="Area2D"]
+script = ExtResource("2_f1agc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_tqnrr")
+texture = ExtResource("1_g50mm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xrp3j")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

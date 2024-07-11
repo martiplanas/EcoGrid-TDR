@@ -2,8 +2,8 @@ extends Node2D
 
 var cities = []
 var citypos = []
-# Called when the node enters the scene tree for the first time.
-func _ready():
+
+func loadCities():
 	for child in get_children():
 		cities.append(child)
 		child.modulate = Color(0.75,0.75,0.75,0.5)
@@ -16,7 +16,3 @@ func _ready():
 	for city in cities:
 		parent.occupied_positions[citypos[i]]=city
 		i += 1
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

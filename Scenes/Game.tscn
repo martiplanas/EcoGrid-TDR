@@ -3,11 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/MainScene.gd" id="1_07l1g"]
 [ext_resource type="Texture2D" uid="uid://cnobxxldmlj0k" path="res://Sprites/Map/river tileset.png" id="2_i1uc8"]
 [ext_resource type="Texture2D" uid="uid://bivh12xor2vft" path="res://Sprites/Map/maptileset.png" id="3_pbt1e"]
-[ext_resource type="Texture2D" uid="uid://biulihr837xln" path="res://Sprites/Map/city.png" id="4_3d4sl"]
 [ext_resource type="Script" path="res://Scripts/CityControlar.gd" id="4_5o5wd"]
 [ext_resource type="Script" path="res://Scripts/TileMap.gd" id="4_sitel"]
 [ext_resource type="Script" path="res://Scripts/CameraControler.gd" id="5_sv2oj"]
-[ext_resource type="Texture2D" uid="uid://db7o7qtvne4x4" path="res://Sprites/Map/capital.png" id="6_3frw7"]
 [ext_resource type="Script" path="res://Scripts/UIManager.gd" id="6_5kc3b"]
 [ext_resource type="Texture2D" uid="uid://dqpv2b04gepjh" path="res://Sprites/UI/mouseButton.png" id="7_7d7gf"]
 [ext_resource type="Texture2D" uid="uid://d3sjrxy0hc82c" path="res://Sprites/UI/WindButton.png" id="8_eb78r"]
@@ -15,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://mpwd8xdgbf5r" path="res://Sprites/UI/NuclearButton.png" id="10_g8tdd"]
 [ext_resource type="Texture2D" uid="uid://busvl1yyye0fo" path="res://Sprites/UI/CableButton.png" id="11_jtfbw"]
 [ext_resource type="Texture2D" uid="uid://crblqp034c6xt" path="res://Sprites/UI/BulldozerButton.png" id="12_v0dhq"]
+[ext_resource type="Script" path="res://Scripts/ScenarioLoader.gd" id="14_34vgf"]
+[ext_resource type="Script" path="res://Scenes/Lines.gd" id="15_kp76r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0pidl"]
 texture = ExtResource("2_i1uc8")
@@ -333,26 +333,6 @@ script = ExtResource("4_sitel")
 [node name="Cities" type="Node2D" parent="TileMap"]
 script = ExtResource("4_5o5wd")
 
-[node name="Girona" type="Sprite2D" parent="TileMap/Cities"]
-position = Vector2(3264, 1600)
-texture = ExtResource("4_3d4sl")
-
-[node name="Barcelona" type="Sprite2D" parent="TileMap/Cities"]
-position = Vector2(2368, 2752)
-texture = ExtResource("6_3frw7")
-
-[node name="Tarragona" type="Sprite2D" parent="TileMap/Cities"]
-position = Vector2(1344, 3008)
-texture = ExtResource("4_3d4sl")
-
-[node name="Lleida" type="Sprite2D" parent="TileMap/Cities"]
-position = Vector2(320, 2112)
-texture = ExtResource("4_3d4sl")
-
-[node name="Manresa" type="Sprite2D" parent="TileMap/Cities"]
-position = Vector2(1856, 1984)
-texture = ExtResource("4_3d4sl")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(798, 729)
 zoom = Vector2(0.3, 0.3)
@@ -517,8 +497,10 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 
 [node name="ScenarioLoader" type="Node" parent="."]
+script = ExtResource("14_34vgf")
 
 [node name="Lines" type="Node2D" parent="."]
+script = ExtResource("15_kp76r")
 
 [node name="L1" type="Line2D" parent="Lines"]
 width = 25.0
