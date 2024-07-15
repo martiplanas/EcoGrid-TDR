@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dk8ukk3626ly1"]
+[gd_scene load_steps=5 format=3 uid="uid://dk8ukk3626ly1"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenuController.gd" id="1_pvbm8"]
 [ext_resource type="Texture2D" uid="uid://dpwxvmxmecl8o" path="res://Sprites/Icons/TextMAX.png" id="2_l0pvu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rv57s"]
+bg_color = Color(0.419813, 0.419813, 0.419813, 1)
 
 [sub_resource type="Theme" id="Theme_fhdcv"]
 Button/colors/font_color = Color(1, 1, 1, 1)
@@ -19,7 +22,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pvbm8")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rv57s")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,7 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer2"]
 custom_minimum_size = Vector2(600, 200)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -37,33 +49,33 @@ texture = ExtResource("2_l0pvu")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer2"]
 z_index = 6
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 alignment = 1
 
-[node name="Play Button" type="Button" parent="VBoxContainer2/VBoxContainer"]
+[node name="Play Button" type="Button" parent="Panel/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_fhdcv")
 text = "Play"
 
-[node name="Dailly Challange Button" type="Button" parent="VBoxContainer2/VBoxContainer"]
+[node name="Dailly Challange Button" type="Button" parent="Panel/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 disabled = true
 text = "Dally Challange"
 
-[node name="Settings Button" type="Button" parent="VBoxContainer2/VBoxContainer"]
+[node name="Settings Button" type="Button" parent="Panel/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 disabled = true
 text = "Settings"
 
-[node name="Exit Button" type="Button" parent="VBoxContainer2/VBoxContainer"]
+[node name="Exit Button" type="Button" parent="Panel/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Exit"
 
-[connection signal="pressed" from="VBoxContainer2/VBoxContainer/Play Button" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="VBoxContainer2/VBoxContainer/Dailly Challange Button" to="." method="_on_dailly_challange_button_pressed"]
-[connection signal="pressed" from="VBoxContainer2/VBoxContainer/Settings Button" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="VBoxContainer2/VBoxContainer/Exit Button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer2/VBoxContainer/Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer2/VBoxContainer/Dailly Challange Button" to="." method="_on_dailly_challange_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer2/VBoxContainer/Settings Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer2/VBoxContainer/Exit Button" to="." method="_on_exit_button_pressed"]

@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://uq1s8aloayug"]
+[gd_scene load_steps=7 format=3 uid="uid://uq1s8aloayug"]
 
-[ext_resource type="Texture2D" uid="uid://5kfq11iuarpq" path="res://Recources/Scenario loader/Screenshot 2024-07-11 at 17.01.49.png" id="1_wek0s"]
+[ext_resource type="Script" path="res://Scripts/ScenarioLoaderUI.gd" id="1_btkvu"]
+[ext_resource type="Texture2D" uid="uid://5kfq11iuarpq" path="res://Recources/Scenario loader Img/Screenshot 2024-07-11 at 17.01.49.png" id="1_wek0s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlbes"]
 bg_color = Color(0.419813, 0.419813, 0.419813, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yx7el"]
+font_size = 30
+outline_size = 1
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_1fseo"]
 allow_unpress = true
@@ -18,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_btkvu")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -42,33 +48,36 @@ grow_vertical = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+[node name="TopBar" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
-[node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+[node name="BackButton" type="Button" parent="Panel/VBoxContainer/TopBar"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "⬅️ Back"
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/TopBar"]
 layout_mode = 2
 text = "Select Scenario"
+label_settings = SubResource("LabelSettings_yx7el")
 horizontal_alignment = 1
 vertical_alignment = 1
+language = "en"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/VBoxContainer"]
+[node name="Scenarios" type="HBoxContainer" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Catalunya" type="Button" parent="Panel/VBoxContainer/HBoxContainer3"]
+[node name="Catalunya" type="Button" parent="Panel/VBoxContainer/Scenarios"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 toggle_mode = true
-button_pressed = true
 button_group = SubResource("ButtonGroup_1fseo")
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer3/Catalunya"]
+[node name="LabelCatalunya" type="Label" parent="Panel/VBoxContainer/Scenarios/Catalunya"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -80,20 +89,25 @@ label_settings = SubResource("LabelSettings_hvrm0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/HBoxContainer3/Catalunya"]
+[node name="ImatgeCatalunya" type="TextureRect" parent="Panel/VBoxContainer/Scenarios/Catalunya"]
 custom_minimum_size = Vector2(200, 250)
 layout_mode = 1
-anchors_preset = 14
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -125.0
+offset_right = 125.0
+offset_bottom = 125.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_wek0s")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer3"]
+[node name="California" type="Button" parent="Panel/VBoxContainer/Scenarios"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -101,7 +115,34 @@ disabled = true
 toggle_mode = true
 button_group = SubResource("ButtonGroup_1fseo")
 
-[node name="Button2" type="Button" parent="Panel/VBoxContainer/HBoxContainer3"]
+[node name="LabelCalifornia" type="Label" parent="Panel/VBoxContainer/Scenarios/California"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "California"
+label_settings = SubResource("LabelSettings_hvrm0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coming Soon" type="Label" parent="Panel/VBoxContainer/Scenarios/California"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.5
+offset_top = -17.5
+offset_right = 78.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Coming soon"
+label_settings = SubResource("LabelSettings_hvrm0")
+
+[node name="Scandinavia" type="Button" parent="Panel/VBoxContainer/Scenarios"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -109,9 +150,49 @@ disabled = true
 toggle_mode = true
 button_group = SubResource("ButtonGroup_1fseo")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer"]
-layout_mode = 2
+[node name="LabelScandinavia" type="Label" parent="Panel/VBoxContainer/Scenarios/Scandinavia"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Scandinavia
+"
+label_settings = SubResource("LabelSettings_hvrm0")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer2"]
+[node name="Coming Soon" type="Label" parent="Panel/VBoxContainer/Scenarios/Scandinavia"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.5
+offset_top = -17.5
+offset_right = 78.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Coming soon"
+label_settings = SubResource("LabelSettings_hvrm0")
+
+[node name="BotomBar" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
+alignment = 2
+
+[node name="LoadScenario" type="Button" parent="Panel/VBoxContainer/BotomBar"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
 text = "Start New Game ✅"
+
+[connection signal="pressed" from="Panel/VBoxContainer/TopBar/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="button_down" from="Panel/VBoxContainer/Scenarios/Catalunya" to="." method="_on_catalunya_button_down"]
+[connection signal="button_up" from="Panel/VBoxContainer/Scenarios/Catalunya" to="." method="_on_catalunya_button_up"]
+[connection signal="button_down" from="Panel/VBoxContainer/Scenarios/California" to="." method="_on_california_button_down"]
+[connection signal="button_up" from="Panel/VBoxContainer/Scenarios/California" to="." method="_on_california_button_up"]
+[connection signal="button_down" from="Panel/VBoxContainer/Scenarios/Scandinavia" to="." method="_on_scandinavia_button_down"]
+[connection signal="button_up" from="Panel/VBoxContainer/Scenarios/Scandinavia" to="." method="_on_scandinavia_button_up"]
+[connection signal="pressed" from="Panel/VBoxContainer/BotomBar/LoadScenario" to="." method="_on_load_scenario_pressed"]

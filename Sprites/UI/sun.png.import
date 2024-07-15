@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5kfq11iuarpq"
-path="res://.godot/imported/Screenshot 2024-07-11 at 17.01.49.png-348e87bc806f964fa88d777f506b72b4.ctex"
+uid="uid://8h3na7jdibl6"
+path="res://.godot/imported/sun.png-aeea513f27668a8e3dae4539cdc91efe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recources/Scenario loader/Screenshot 2024-07-11 at 17.01.49.png"
-dest_files=["res://.godot/imported/Screenshot 2024-07-11 at 17.01.49.png-348e87bc806f964fa88d777f506b72b4.ctex"]
+source_file="res://Sprites/UI/sun.png"
+dest_files=["res://.godot/imported/sun.png-aeea513f27668a8e3dae4539cdc91efe.ctex"]
 
 [params]
 
