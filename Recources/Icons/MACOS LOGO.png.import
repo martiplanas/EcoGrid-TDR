@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oi3tex3higkk"
-path="res://.godot/imported/ui.svg-ee68a6f258debe3960117343661573c2.ctex"
+uid="uid://23kb20i2d3p8"
+path="res://.godot/imported/MACOS LOGO.png-4e50a2b8905367364d8e311c72b76d13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Placeholeder/UI/ui.svg"
-dest_files=["res://.godot/imported/ui.svg-ee68a6f258debe3960117343661573c2.ctex"]
+source_file="res://Recources/Icons/MACOS LOGO.png"
+dest_files=["res://.godot/imported/MACOS LOGO.png-4e50a2b8905367364d8e311c72b76d13.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

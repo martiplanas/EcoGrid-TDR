@@ -12,15 +12,18 @@ config_version=5
 
 config/name="EcoGrid"
 config/version="0.1"
-run/main_scene="res://Scenes/Main Menu.tscn"
+run/main_scene="res://Scenes/Main Scenes/Main Menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-config/icon="res://Recources/MACOS LOGO.png"
+config/icon="res://Recources/Icons/MACOS LOGO.png"
 
 [display]
 
-window/stretch/aspect="ignore"
-window/stretch/scale_mode="integer"
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [input]
 

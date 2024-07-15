@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddy8hcqhp3gjj"
-path="res://.godot/imported/pause.png-d6c3631a1d96e5eeef4533c089196809.ctex"
+uid="uid://bygahenk66yvw"
+path="res://.godot/imported/Text.png-3f380b02f5bb9432f510a36b9a03409e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Placeholeder/UI/pause.png"
-dest_files=["res://.godot/imported/pause.png-d6c3631a1d96e5eeef4533c089196809.ctex"]
+source_file="res://Recources/Icons/Text.png"
+dest_files=["res://.godot/imported/Text.png-3f380b02f5bb9432f510a36b9a03409e.ctex"]
 
 [params]
 

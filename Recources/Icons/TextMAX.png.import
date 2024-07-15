@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpwxvmxmecl8o"
-path="res://.godot/imported/TextMAX.png-533d0120ac8e36636615275e3b5b840c.ctex"
+path="res://.godot/imported/TextMAX.png-222f550dbc214d878cf7a015a30ae8f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Icons/TextMAX.png"
-dest_files=["res://.godot/imported/TextMAX.png-533d0120ac8e36636615275e3b5b840c.ctex"]
+source_file="res://Recources/Icons/TextMAX.png"
+dest_files=["res://.godot/imported/TextMAX.png-222f550dbc214d878cf7a015a30ae8f8.ctex"]
 
 [params]
 

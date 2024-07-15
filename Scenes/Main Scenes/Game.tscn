@@ -1,39 +1,39 @@
 [gd_scene load_steps=78 format=3 uid="uid://dvvh6edgstumi"]
 
-[ext_resource type="Script" path="res://Scripts/MainScene.gd" id="1_07l1g"]
-[ext_resource type="Texture2D" uid="uid://cnobxxldmlj0k" path="res://Sprites/Map/river tileset.png" id="2_i1uc8"]
-[ext_resource type="Texture2D" uid="uid://bivh12xor2vft" path="res://Sprites/Map/maptileset.png" id="3_pbt1e"]
-[ext_resource type="Script" path="res://Scripts/CityControlar.gd" id="4_5o5wd"]
-[ext_resource type="Script" path="res://Scripts/TileMap.gd" id="4_sitel"]
-[ext_resource type="Script" path="res://Scripts/CameraControler.gd" id="5_sv2oj"]
-[ext_resource type="Script" path="res://Scripts/UIManager.gd" id="6_5kc3b"]
-[ext_resource type="Texture2D" uid="uid://dqpv2b04gepjh" path="res://Sprites/UI/mouseButton.png" id="7_7d7gf"]
-[ext_resource type="Texture2D" uid="uid://d3sjrxy0hc82c" path="res://Sprites/UI/WindButton.png" id="8_eb78r"]
-[ext_resource type="Texture2D" uid="uid://b7nsohtgpp5ax" path="res://Sprites/UI/solarButton.png" id="9_r0yci"]
-[ext_resource type="Texture2D" uid="uid://mpwd8xdgbf5r" path="res://Sprites/UI/NuclearButton.png" id="10_g8tdd"]
-[ext_resource type="Texture2D" uid="uid://busvl1yyye0fo" path="res://Sprites/UI/CableButton.png" id="11_jtfbw"]
-[ext_resource type="Texture2D" uid="uid://crblqp034c6xt" path="res://Sprites/UI/BulldozerButton.png" id="12_v0dhq"]
-[ext_resource type="Script" path="res://Scripts/ScenarioLoader.gd" id="14_34vgf"]
-[ext_resource type="Texture2D" uid="uid://b6np1w1ntt1bf" path="res://Recources/pause button.png" id="14_p3vi4"]
-[ext_resource type="Texture2D" uid="uid://d0a2prutl3aad" path="res://Sprites/UI/layerselectorbackgroud.png" id="15_gb1y4"]
-[ext_resource type="Script" path="res://Scripts/Lines.gd" id="15_kp76r"]
-[ext_resource type="Texture2D" uid="uid://c2yyvdvgbybd1" path="res://Sprites/UI/clockcircle.png" id="15_yp6jd"]
-[ext_resource type="Script" path="res://Scenes/ClockUIControler.gd" id="16_83yvp"]
-[ext_resource type="Texture2D" uid="uid://deek8ixgoslxx" path="res://Sprites/UI/clockselectorbackground.png" id="16_b2q6o"]
-[ext_resource type="Texture2D" uid="uid://yoybagdaatf6" path="res://Sprites/UI/emptylayer.png" id="16_egpxc"]
-[ext_resource type="Script" path="res://Scenes/LayerControler.gd" id="16_vvniu"]
-[ext_resource type="Texture2D" uid="uid://c53xy15gbcj5d" path="res://Sprites/UI/wind.png" id="17_drvf2"]
-[ext_resource type="Texture2D" uid="uid://ddy8hcqhp3gjj" path="res://Sprites/Placeholeder/UI/pause.png" id="17_wnk3k"]
-[ext_resource type="Texture2D" uid="uid://d1fe54ftf06ul" path="res://Sprites/Placeholeder/UI/play.png" id="18_a81gl"]
-[ext_resource type="Texture2D" uid="uid://8h3na7jdibl6" path="res://Sprites/UI/sun.png" id="18_jd0s5"]
-[ext_resource type="Texture2D" uid="uid://mhm3c8k5moae" path="res://Sprites/Placeholeder/UI/fast.png" id="19_2gktj"]
-[ext_resource type="Texture2D" uid="uid://ca6d8a6ju6h8v" path="res://Sprites/UI/geo.png" id="19_f2wbi"]
-[ext_resource type="Texture2D" uid="uid://bphktps1iv7ti" path="res://Sprites/UI/clockarrow.png" id="20_8qbog"]
-[ext_resource type="Script" path="res://Scenes/clockanimation.gd" id="22_0ekwc"]
-[ext_resource type="Script" path="res://Scenes/time.gd" id="30_gwe14"]
+[ext_resource type="Script" path="res://Scripts/MainScene.gd" id="1_bgq80"]
+[ext_resource type="Texture2D" uid="uid://cnobxxldmlj0k" path="res://Sprites/Map/river tileset.png" id="2_ntn3v"]
+[ext_resource type="Texture2D" uid="uid://bivh12xor2vft" path="res://Sprites/Map/maptileset.png" id="3_20i7s"]
+[ext_resource type="Script" path="res://Scripts/TileMap.gd" id="4_xq5yc"]
+[ext_resource type="Script" path="res://Scripts/CityControlar.gd" id="5_q1d6q"]
+[ext_resource type="Script" path="res://Scripts/CameraControler.gd" id="6_r2d8k"]
+[ext_resource type="Script" path="res://Scripts/UIManager.gd" id="7_jpdud"]
+[ext_resource type="Texture2D" uid="uid://dqpv2b04gepjh" path="res://Sprites/UI/mouseButton.png" id="8_jdd7p"]
+[ext_resource type="Texture2D" uid="uid://d3sjrxy0hc82c" path="res://Sprites/UI/WindButton.png" id="9_2peiw"]
+[ext_resource type="Texture2D" uid="uid://b7nsohtgpp5ax" path="res://Sprites/UI/solarButton.png" id="10_sv702"]
+[ext_resource type="Texture2D" uid="uid://mpwd8xdgbf5r" path="res://Sprites/UI/NuclearButton.png" id="11_34yd3"]
+[ext_resource type="Texture2D" uid="uid://busvl1yyye0fo" path="res://Sprites/UI/CableButton.png" id="12_hl8nh"]
+[ext_resource type="Texture2D" uid="uid://crblqp034c6xt" path="res://Sprites/UI/BulldozerButton.png" id="13_nwefr"]
+[ext_resource type="Texture2D" uid="uid://b6np1w1ntt1bf" path="res://Sprites/UI/pause button.png" id="14_3rfmq"]
+[ext_resource type="Texture2D" uid="uid://c2yyvdvgbybd1" path="res://Sprites/UI/clockcircle.png" id="15_um4ka"]
+[ext_resource type="Script" path="res://Scripts/ClockUIControler.gd" id="16_b17e5"]
+[ext_resource type="Texture2D" uid="uid://deek8ixgoslxx" path="res://Sprites/UI/clockselectorbackground.png" id="17_o2oup"]
+[ext_resource type="Texture2D" uid="uid://ddy8hcqhp3gjj" path="res://Sprites/UI/pause.png" id="18_ua0r3"]
+[ext_resource type="Texture2D" uid="uid://d1fe54ftf06ul" path="res://Sprites/UI/play.png" id="19_syb8d"]
+[ext_resource type="Texture2D" uid="uid://mhm3c8k5moae" path="res://Sprites/UI/fast.png" id="20_xga3y"]
+[ext_resource type="Texture2D" uid="uid://bphktps1iv7ti" path="res://Sprites/UI/clockarrow.png" id="21_i42ou"]
+[ext_resource type="Script" path="res://Scripts/clockanimation.gd" id="22_6aelk"]
+[ext_resource type="Texture2D" uid="uid://d0a2prutl3aad" path="res://Sprites/UI/layerselectorbackgroud.png" id="23_yewxs"]
+[ext_resource type="Script" path="res://Scripts/LayerControler.gd" id="24_oq7sf"]
+[ext_resource type="Texture2D" uid="uid://yoybagdaatf6" path="res://Sprites/UI/emptylayer.png" id="25_lly4k"]
+[ext_resource type="Texture2D" uid="uid://c53xy15gbcj5d" path="res://Sprites/UI/wind.png" id="26_y304v"]
+[ext_resource type="Texture2D" uid="uid://8h3na7jdibl6" path="res://Sprites/UI/sun.png" id="27_c2p5t"]
+[ext_resource type="Texture2D" uid="uid://ca6d8a6ju6h8v" path="res://Sprites/UI/geo.png" id="28_h1w2f"]
+[ext_resource type="Script" path="res://Scripts/ScenarioLoader.gd" id="29_ad4t6"]
+[ext_resource type="Script" path="res://Scripts/Lines.gd" id="30_tcs58"]
+[ext_resource type="Script" path="res://time.gd" id="31_udwig"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0pidl"]
-texture = ExtResource("2_i1uc8")
+texture = ExtResource("2_ntn3v")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -127,7 +127,7 @@ texture_region_size = Vector2i(128, 128)
 0:3/0/terrains_peering_bit/top_side = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cn7mv"]
-texture = ExtResource("3_pbt1e")
+texture = ExtResource("3_20i7s")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -346,10 +346,10 @@ line_spacing = 6.0
 font_size = 25
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_clivl"]
-texture = ExtResource("15_yp6jd")
+texture = ExtResource("15_um4ka")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bqxcv"]
-texture = ExtResource("16_b2q6o")
+texture = ExtResource("17_o2oup")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i2eqw"]
 
@@ -412,7 +412,7 @@ _data = {
 }
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4fwn"]
-texture = ExtResource("15_gb1y4")
+texture = ExtResource("23_yewxs")
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_ujx2l"]
 
@@ -449,7 +449,7 @@ unicode = 112
 events = [SubResource("InputEventKey_trcg4")]
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_07l1g")
+script = ExtResource("1_bgq80")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_8bv0a")
@@ -472,15 +472,15 @@ layer_4/tile_data = PackedInt32Array(655371, 327682, 3, 655370, 327682, 3, 58983
 layer_5/name = "River"
 layer_5/modulate = Color(0.498039, 0.780392, 0.901961, 1)
 layer_5/tile_data = PackedInt32Array(1900546, 196608, 1, 1900549, 0, 0, 1900548, 0, 0, 1900547, 65536, 2, 1376256, 0, 0, 1376257, 196608, 2, 1376258, 0, 0, 1376259, 0, 0, 1835010, 0, 1, 1769474, 0, 1, 1703938, 0, 1, 1638404, 262144, 1, 1572868, 0, 1, 1507332, 0, 1, 1376260, 262144, 0, 1441796, 0, 1, 1638402, 196608, 0, 1638403, 0, 0, 1114114, 0, 1, 1179650, 0, 1, 1245186, 262144, 1, 1245185, 196608, 0, 1310721, 0, 1, 1441791, 65536, 0, 917507, 196608, 0, 917508, 0, 0, 917509, 0, 0, 917510, 262144, 1, 851974, 196608, 0, 851975, 262144, 1, 786439, 196608, 0, 1048578, 0, 1, 983042, 196608, 0, 983043, 262144, 1, 786440, 0, 0, 655373, 0, 1, 589837, 196608, 0, 589838, 262144, 1, 786441, 0, 0, 524306, 262144, 1, 524305, 0, 0, 524304, 0, 0, 524303, 0, 0, 524302, 196608, 0, 458770, 65536, 1, 786442, 0, 0, 786443, 0, 0, 786444, 262144, 1, 720909, 262144, 1, 720908, 196608, 0, 786457, 0, 0, 786456, 0, 0, 786458, 262144, 1, 786460, 196608, 1, 786461, 0, 0, 786462, 262144, 1, 720926, 65536, 1, 720922, 196608, 0, 720923, 0, 0, 720924, 262144, 0, 786455, 0, 0, 786454, 196608, 1, 720917, 196608, 1, 720918, 262144, 0, 655381, 0, 1, 458773, 262144, 1, 589845, 262144, 0, 589844, 196608, 1, 524308, 0, 1, 458772, 196608, 0, 393237, 65536, 1, 1900550, 262144, 1, 1835014, 65536, 1, 1966084, 0, 0, 1966085, 0, 0, 1966083, 196608, 1, 1966086, 131072, 0)
-script = ExtResource("4_sitel")
+script = ExtResource("4_xq5yc")
 
 [node name="Cities" type="Node2D" parent="TileMap"]
-script = ExtResource("4_5o5wd")
+script = ExtResource("5_q1d6q")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(798, 729)
 zoom = Vector2(0.3, 0.3)
-script = ExtResource("5_sv2oj")
+script = ExtResource("6_r2d8k")
 
 [node name="UI" type="Control" parent="Camera2D" groups=["ui"]]
 process_mode = 3
@@ -495,7 +495,7 @@ offset_right = 576.0
 offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("6_5kc3b")
+script = ExtResource("7_jpdud")
 
 [node name="PanelContainer" type="PanelContainer" parent="Camera2D/UI" groups=["ui"]]
 custom_minimum_size = Vector2(70, 600)
@@ -520,7 +520,7 @@ layout_mode = 2
 toggle_mode = true
 shortcut = SubResource("Shortcut_dnfih")
 text = "mouse"
-icon = ExtResource("7_7d7gf")
+icon = ExtResource("8_jdd7p")
 icon_alignment = 1
 vertical_icon_alignment = 0
 
@@ -529,7 +529,7 @@ layout_mode = 2
 toggle_mode = true
 shortcut = SubResource("Shortcut_r07g1")
 text = "wind turbine"
-icon = ExtResource("8_eb78r")
+icon = ExtResource("9_2peiw")
 text_overrun_behavior = 3
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -539,7 +539,7 @@ layout_mode = 2
 toggle_mode = true
 shortcut = SubResource("Shortcut_6lphb")
 text = "Solar Plant"
-icon = ExtResource("9_r0yci")
+icon = ExtResource("10_sv702")
 text_overrun_behavior = 3
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -549,7 +549,7 @@ layout_mode = 2
 toggle_mode = true
 shortcut = SubResource("Shortcut_mjem5")
 text = "Nuclear central"
-icon = ExtResource("10_g8tdd")
+icon = ExtResource("11_34yd3")
 text_overrun_behavior = 3
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -559,7 +559,7 @@ layout_mode = 2
 toggle_mode = true
 shortcut = SubResource("Shortcut_2f2kx")
 text = "Line Creator"
-icon = ExtResource("11_jtfbw")
+icon = ExtResource("12_hl8nh")
 text_overrun_behavior = 3
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -569,7 +569,7 @@ layout_mode = 2
 toggle_mode = true
 shortcut = SubResource("Shortcut_1bc00")
 text = "Demolish"
-icon = ExtResource("12_v0dhq")
+icon = ExtResource("13_nwefr")
 text_overrun_behavior = 3
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -587,7 +587,7 @@ layout_mode = 2
 toggle_mode = true
 shortcut = SubResource("Shortcut_dnfih")
 text = "mouse"
-icon = ExtResource("7_7d7gf")
+icon = ExtResource("8_jdd7p")
 icon_alignment = 1
 vertical_icon_alignment = 0
 
@@ -596,7 +596,7 @@ layout_mode = 2
 toggle_mode = true
 shortcut = SubResource("Shortcut_r07g1")
 text = "wind turbine"
-icon = ExtResource("8_eb78r")
+icon = ExtResource("9_2peiw")
 text_overrun_behavior = 3
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -606,7 +606,7 @@ layout_mode = 2
 toggle_mode = true
 shortcut = SubResource("Shortcut_6lphb")
 text = "Solar Plant"
-icon = ExtResource("9_r0yci")
+icon = ExtResource("10_sv702")
 text_overrun_behavior = 3
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -616,7 +616,7 @@ layout_mode = 2
 toggle_mode = true
 shortcut = SubResource("Shortcut_mjem5")
 text = "Nuclear central"
-icon = ExtResource("10_g8tdd")
+icon = ExtResource("11_34yd3")
 text_overrun_behavior = 3
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -626,7 +626,7 @@ layout_mode = 2
 toggle_mode = true
 shortcut = SubResource("Shortcut_2f2kx")
 text = "Line Creator"
-icon = ExtResource("11_jtfbw")
+icon = ExtResource("12_hl8nh")
 text_overrun_behavior = 3
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -636,7 +636,7 @@ layout_mode = 2
 toggle_mode = true
 shortcut = SubResource("Shortcut_1bc00")
 text = "Demolish"
-icon = ExtResource("12_v0dhq")
+icon = ExtResource("13_nwefr")
 text_overrun_behavior = 3
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -646,7 +646,7 @@ layout_mode = 1
 offset_right = 8.0
 offset_bottom = 8.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_sxkij")
-icon = ExtResource("14_p3vi4")
+icon = ExtResource("14_3rfmq")
 
 [node name="PauseMenu" type="Panel" parent="Camera2D/UI"]
 process_mode = 2
@@ -739,7 +739,7 @@ offset_bottom = 60.0
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 theme_override_styles/panel = SubResource("StyleBoxTexture_clivl")
-script = ExtResource("16_83yvp")
+script = ExtResource("16_b17e5")
 
 [node name="Panel" type="Panel" parent="Camera2D/UI/Clock"]
 z_index = -1
@@ -771,7 +771,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_oevp2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hugiq")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_3eqjg")
-icon = ExtResource("17_wnk3k")
+icon = ExtResource("18_ua0r3")
 
 [node name="play" type="Button" parent="Camera2D/UI/Clock/Panel/HBoxContainer"]
 layout_mode = 2
@@ -788,7 +788,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_hugiq")
 toggle_mode = true
 button_pressed = true
 button_group = SubResource("ButtonGroup_3eqjg")
-icon = ExtResource("18_a81gl")
+icon = ExtResource("19_syb8d")
 
 [node name="fast" type="Button" parent="Camera2D/UI/Clock/Panel/HBoxContainer"]
 layout_mode = 2
@@ -804,7 +804,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_oevp2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hugiq")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_3eqjg")
-icon = ExtResource("19_2gktj")
+icon = ExtResource("20_xga3y")
 
 [node name="TextureRect" type="TextureRect" parent="Camera2D/UI/Clock"]
 layout_mode = 0
@@ -813,7 +813,7 @@ offset_top = 22.0
 offset_right = 66.0
 offset_bottom = 68.0
 pivot_offset = Vector2(6, 40)
-texture = ExtResource("20_8qbog")
+texture = ExtResource("21_i42ou")
 
 [node name="ClockExpand" type="Button" parent="Camera2D/UI/Clock"]
 layout_mode = 0
@@ -831,7 +831,7 @@ libraries = {
 "": SubResource("AnimationLibrary_esw2o")
 }
 autoplay = "clcok"
-script = ExtResource("22_0ekwc")
+script = ExtResource("22_6aelk")
 
 [node name="Layers" type="Panel" parent="Camera2D/UI"]
 layout_mode = 1
@@ -843,7 +843,7 @@ offset_right = 53.5
 offset_bottom = 30.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_g4fwn")
-script = ExtResource("16_vvniu")
+script = ExtResource("24_oq7sf")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/UI/Layers"]
 layout_mode = 1
@@ -872,7 +872,7 @@ toggle_mode = true
 button_pressed = true
 button_group = SubResource("ButtonGroup_ujx2l")
 shortcut = SubResource("Shortcut_0tf7a")
-icon = ExtResource("16_egpxc")
+icon = ExtResource("25_lly4k")
 icon_alignment = 1
 
 [node name="WindView" type="Button" parent="Camera2D/UI/Layers/HBoxContainer"]
@@ -886,7 +886,7 @@ disabled = true
 toggle_mode = true
 button_group = SubResource("ButtonGroup_ujx2l")
 shortcut = SubResource("Shortcut_xqgtb")
-icon = ExtResource("17_drvf2")
+icon = ExtResource("26_y304v")
 icon_alignment = 1
 
 [node name="SunView" type="Button" parent="Camera2D/UI/Layers/HBoxContainer"]
@@ -900,7 +900,7 @@ disabled = true
 toggle_mode = true
 button_group = SubResource("ButtonGroup_ujx2l")
 shortcut = SubResource("Shortcut_s1rj1")
-icon = ExtResource("18_jd0s5")
+icon = ExtResource("27_c2p5t")
 icon_alignment = 1
 
 [node name="GeoView" type="Button" parent="Camera2D/UI/Layers/HBoxContainer"]
@@ -914,14 +914,14 @@ disabled = true
 toggle_mode = true
 button_group = SubResource("ButtonGroup_ujx2l")
 shortcut = SubResource("Shortcut_t30xf")
-icon = ExtResource("19_f2wbi")
+icon = ExtResource("28_h1w2f")
 icon_alignment = 1
 
 [node name="ScenarioLoader" type="Node" parent="."]
-script = ExtResource("14_34vgf")
+script = ExtResource("29_ad4t6")
 
 [node name="Lines" type="Node2D" parent="."]
-script = ExtResource("15_kp76r")
+script = ExtResource("30_tcs58")
 
 [node name="L1" type="Line2D" parent="Lines"]
 width = 25.0
@@ -974,7 +974,7 @@ end_cap_mode = 2
 
 [node name="TimerJesus" type="Timer" parent="."]
 wait_time = 3.0
-script = ExtResource("30_gwe14")
+script = ExtResource("31_udwig")
 
 [connection signal="mouse_entered" from="Camera2D/UI/PanelContainer" to="." method="_on_panel_container_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/UI/PanelContainer" to="." method="_on_panel_container_mouse_exited"]
