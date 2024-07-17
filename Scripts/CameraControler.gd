@@ -6,7 +6,7 @@ extends Camera2D
 # Zoom variables
 @export var zoom_speed: float = 0.01
 @export var min_zoom: float = 0.15
-@export var max_zoom: float = 0.6
+@export var max_zoom: float = 1
 
 @onready var ui = $UI
 

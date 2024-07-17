@@ -1,9 +1,9 @@
 extends Node2D
 
 # Reference to the building scene
-var WindTurbineScene = preload("res://Scenes/Placeholders/wind_turbine.tscn")
-var SolarPanelScene = preload("res://Scenes/Placeholders/solar_panel.tscn")
-var NuclearPlantScene = preload("res://Scenes/Placeholders/nuclear_plant.tscn")
+var WindTurbineScene = preload("res://Scenes/Buildings/wind_turbine.tscn")
+var SolarPanelScene = preload("res://Scenes/Buildings/solar_panel.tscn")
+var NuclearPlantScene = preload("res://Scenes/Buildings/nuclear_plant.tscn")
 
 const GRID_SIZE = 128  # Adjust this value to your grid size
 

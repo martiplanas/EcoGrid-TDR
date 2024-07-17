@@ -33,11 +33,11 @@ func _process(delta):
 		buttonLoad.disabled = false
 
 func _on_back_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Main Menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Main Scenes/Main Menu.tscn")
 
 func _on_load_scenario_pressed():
 	if currentScenarioSelected == 1:
-		get_tree().change_scene_to_file("res://Scenes/Game.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Main Scenes/Game.tscn")
 
 func _on_catalunya_button_down():
 	_on_button_pressed()

@@ -478,8 +478,6 @@ script = ExtResource("4_xq5yc")
 script = ExtResource("5_q1d6q")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(798, 729)
-zoom = Vector2(0.3, 0.3)
 script = ExtResource("6_r2d8k")
 
 [node name="UI" type="Control" parent="Camera2D" groups=["ui"]]
@@ -920,6 +918,10 @@ icon_alignment = 1
 [node name="ScenarioLoader" type="Node" parent="."]
 script = ExtResource("29_ad4t6")
 
+[node name="TimerJesus" type="Timer" parent="."]
+wait_time = 3.0
+script = ExtResource("31_udwig")
+
 [node name="Lines" type="Node2D" parent="."]
 script = ExtResource("30_tcs58")
 
@@ -971,10 +973,6 @@ default_color = Color(0.635294, 0.517647, 0.368627, 1)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
-
-[node name="TimerJesus" type="Timer" parent="."]
-wait_time = 3.0
-script = ExtResource("31_udwig")
 
 [connection signal="mouse_entered" from="Camera2D/UI/PanelContainer" to="." method="_on_panel_container_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/UI/PanelContainer" to="." method="_on_panel_container_mouse_exited"]
