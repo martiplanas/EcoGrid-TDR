@@ -99,8 +99,9 @@ func place_building(position):
 			else:
 				print("You don't have enough buildings of this type")
 
-func snap_to_grid(position: Vector2) -> Vector2:
-	var map_coords = tilemap.local_to_map(position)
+func snap_to_grid(positions: Vector2) -> Vector2:
+	var map_coords = tilemap.local_to_map(positions)
+	
 	var tile_center = tilemap.map_to_local(map_coords)
 	return tile_center
 

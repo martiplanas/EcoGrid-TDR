@@ -1,17 +1,18 @@
 extends Node2D
 
 @onready var lines = [$L1,$L2,$L3,$L4,$L5,$L6,$L7]
+
 var linesUsed = [false, false, false, false, false, false, false]
 var currentLineInCreation
 var creatingLine = false
 @onready var mainScene = get_node("../")
 @onready var camera = get_node("../Camera2D")
 @onready var cityManager = get_node("../TileMap/Cities")
+var previousTile
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide_all_lines()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -19,8 +20,9 @@ func _process(delta):
 	if creatingLine && Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		line_in_creation()
 	elif creatingLine:
-		print("Nt cliking anymore")
 		stop_creating_line()
+	
+	check_actions()
 	
 	if !creatingLine:
 		clear_empty_lines()
@@ -81,8 +83,49 @@ func start_creating_line(line, lineNum):
 	line.visible = true
 	linesUsed[lineNum] = true
 
+func modify_line():
+	var line_array = get_line_points_array(currentLineInCreation)
+	var delete_point = false
+	var pos
+	
+	for building in mainScene.buildings_created:
+		if building.position == mainScene.snap_to_grid(get_global_mouse_position()):
+			for point in line_array:
+				if building.position == point:
+					pos = building.position
+					delete_point = true
+			
+			if not delete_point:
+				currentLineInCreation.add_point(building.position, currentLineInCreation.get_point_count()-1)
+			elif delete_point:
+				currentLineInCreation.remove_point(get_point_index(currentLineInCreation, pos))
+
+func check_actions():
+	var new_tile = mainScene.snap_to_grid(get_global_mouse_position())
+	
+	if previousTile == null:
+		if not get_global_mouse_position() == null:
+				previousTile = mainScene.snap_to_grid(get_global_mouse_position())
+	
+	if new_tile != previousTile:
+		if not previousTile == null and not new_tile == null:
+			if creatingLine:
+				modify_line()
+			previousTile = new_tile
+
+func get_line_points_array(line):
+	var points = []
+	for i in range(line.get_point_count()):
+		points.append(line.get_point_position(i))
+	return points
+
 func hide_all_lines():
 	print("All lines has been hidden")
 	for line in lines:
 		line.visible = false
 	set_process(true)
+
+func get_point_index(line, point):
+	for p in range(line.get_point_count()):
+		if line.get_point_position(p+1) == point:
+			return p+1

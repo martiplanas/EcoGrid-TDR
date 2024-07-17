@@ -61,6 +61,7 @@ func _on_fast_pressed():
 	fast_forward_game()
 
 func increment_time():
+	var print = false
 	GameSeconds += 1
 	
 	current_hour += 1
@@ -75,4 +76,5 @@ func increment_time():
 	
 	
 	# Print current time for debugging
-	print("Hour: %d, Day: %d, Week: %d" % [current_hour, current_day, current_week])
+	if print:
+		print("Hour: %d, Day: %d, Week: %d" % [current_hour, current_day, current_week])
