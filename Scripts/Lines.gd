@@ -49,7 +49,6 @@ func newLineP(firstPosition: Vector2):
 
 func _input(event):
 	if event is InputEventMouseButton:
-		print("Something clicked")
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT and mainScene.button_selected == 4:
 			for city in cityManager.cities:
 				if city.position == mainScene.snap_to_grid(get_global_mouse_position()):
@@ -124,6 +123,15 @@ func hide_all_lines():
 	for line in lines:
 		line.visible = false
 	set_process(true)
+
+func clear_line(linec):
+	var i = 0
+	for line in lines:
+		if line == linec:
+			linesUsed[i] = false
+			linec.clear_points()
+		
+		i += 1
 
 func get_point_index(line, point):
 	for p in range(line.get_point_count()):
