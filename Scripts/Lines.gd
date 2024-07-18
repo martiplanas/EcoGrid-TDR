@@ -10,6 +10,8 @@ var creatingLine = false
 @onready var cityManager = get_node("../TileMap/Cities")
 var previousTile
 
+const MAX_POINTS = 6
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide_all_lines()
@@ -86,18 +88,33 @@ func modify_line():
 	var line_array = get_line_points_array(currentLineInCreation)
 	var delete_point = false
 	var pos
+	var uncolocable_points = []
 	
-	for building in mainScene.buildings_created:
-		if building.position == mainScene.snap_to_grid(get_global_mouse_position()):
-			for point in line_array:
-				if building.position == point:
-					pos = building.position
-					delete_point = true
+	# NEEDS OPTIMITZATION
+	if currentLineInCreation.get_point_count() < MAX_POINTS:
+		for line in lines:
+				for point in range(line.get_point_count()):
+					for building in mainScene.buildings_created:
+						if line.get_point_position(point) == building.position:
+							uncolocable_points.append(line.get_point_position(point))
+		
+		for building in mainScene.buildings_created:
+			var isFree = AudioEffectSpectrumAnalyzerInstance
 			
-			if not delete_point:
-				currentLineInCreation.add_point(building.position, currentLineInCreation.get_point_count()-1)
-			elif delete_point:
-				currentLineInCreation.remove_point(get_point_index(currentLineInCreation, pos))
+			for p in uncolocable_points:
+				if p == building.position:
+					isFree = false
+			
+			if building.position == mainScene.snap_to_grid(get_global_mouse_position()):
+				for point in line_array:
+					if building.position == point:
+						pos = building.position
+						delete_point = true
+				
+				if not delete_point and isFree:
+					currentLineInCreation.add_point(building.position, currentLineInCreation.get_point_count()-1)
+				elif delete_point:
+					currentLineInCreation.remove_point(get_point_index(currentLineInCreation, pos))
 
 func check_actions():
 	var new_tile = mainScene.snap_to_grid(get_global_mouse_position())
