@@ -13,6 +13,7 @@ func _ready():
 	for city in citynames:
 		var newCity = cityScene.instantiate()
 		newCity.position
+		newCity.name = citynames[i]
 		cityContainer.add_child(newCity)
 		newCity.position = citypos[i]
 		i += 1

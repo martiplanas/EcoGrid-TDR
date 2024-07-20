@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://dvvh6edgstumi"]
+[gd_scene load_steps=83 format=3 uid="uid://dvvh6edgstumi"]
 
 [ext_resource type="Script" path="res://Scripts/MainScene.gd" id="1_bgq80"]
 [ext_resource type="Texture2D" uid="uid://cnobxxldmlj0k" path="res://Sprites/Map/river tileset.png" id="2_ntn3v"]
@@ -30,10 +30,11 @@
 [ext_resource type="Texture2D" uid="uid://ca6d8a6ju6h8v" path="res://Sprites/UI/geo.png" id="28_h1w2f"]
 [ext_resource type="Script" path="res://Scripts/ScenarioLoader.gd" id="29_ad4t6"]
 [ext_resource type="Texture2D" uid="uid://dl7wgfg8ci26h" path="res://Sprites/UI/lineUNCreatedCircle.png" id="29_n68kx"]
-[ext_resource type="Script" path="res://Scenes/Main Scenes/LineUI.gd" id="29_qoeu6"]
+[ext_resource type="Script" path="res://Scripts/LineUI.gd" id="29_qoeu6"]
 [ext_resource type="Texture2D" uid="uid://c1sfrhcwipf83" path="res://Sprites/UI/close.png" id="30_b2jrd"]
 [ext_resource type="Script" path="res://Scripts/Lines.gd" id="30_tcs58"]
-[ext_resource type="Script" path="res://time.gd" id="31_udwig"]
+[ext_resource type="Script" path="res://Scripts/time.gd" id="31_udwig"]
+[ext_resource type="Script" path="res://Scripts/line.gd" id="35_qonuk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0pidl"]
 texture = ExtResource("2_ntn3v")
@@ -1086,6 +1087,16 @@ texture = ExtResource("29_n68kx")
 expand_mode = 2
 stretch_mode = 4
 
+[node name="InfoDisplayer" type="Panel" parent="Camera2D/UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/UI/InfoDisplayer"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="ScenarioLoader" type="Node" parent="."]
 script = ExtResource("29_ad4t6")
 
@@ -1102,6 +1113,7 @@ default_color = Color(1, 0.231373, 0.188235, 1)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
+script = ExtResource("35_qonuk")
 
 [node name="L2" type="Line2D" parent="Lines"]
 width = 25.0
