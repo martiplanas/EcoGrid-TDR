@@ -42,10 +42,16 @@ func _process(delta):
 			buttons[b].button_pressed = false
 		elif b == current_button_selected:
 			buttons[b].button_pressed = true
-
-	b1.set_text(str(main.wt_avalible))
-	b2.set_text(str(main.sp_avalible))
-	b3.set_text(str(main.nc_avalible))
+	
+	var i = 0
+	for avalible in main.buildings_avalible.values():
+		if i == 0:
+			b1.set_text(str(avalible))
+		elif i == 1:
+			b2.set_text(str(avalible))
+		elif i == 2:
+			b3.set_text(str(avalible))
+		i += 1
 	
 	#PAUSE MENU STUFF
 	if isPauseMenuActive:

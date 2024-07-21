@@ -1,19 +1,22 @@
 extends Node2D
 
-# Reference to the building scene
-var WindTurbineScene = preload("res://Scenes/Buildings/wind_turbine.tscn")
-var SolarPanelScene = preload("res://Scenes/Buildings/solar_panel.tscn")
-var NuclearPlantScene = preload("res://Scenes/Buildings/nuclear_plant.tscn")
+@onready var line_manager = $Lines
 
 const GRID_SIZE = 128  # Adjust this value to your grid size
 
 var occupied_positions = {}
 var buildings_created = []
 
-#---Buildings Avalible---
-var wt_avalible = 10
-var sp_avalible = 10
-var nc_avalible = 10
+#---Buildings Arrays---
+@onready var building_buttons = {
+	"wt" : $Camera2D/UI/PanelContainer/VBoxContainer2/Building_wt, 
+	"sp" : $Camera2D/UI/PanelContainer/VBoxContainer2/Building_sp, 
+	"nc" : $Camera2D/UI/PanelContainer/VBoxContainer2/Building_nc
+}
+	
+var buildings_avalible = {"wt": 2,"sp": 2,"nc": 0}
+var button_to_id = {1 : "wt", 2 : "sp", 3 : "nc"}
+var buildings_scenes = {"wt" : preload("res://Scenes/Buildings/wind_turbine.tscn"), "sp" : preload("res://Scenes/Buildings/solar_panel.tscn"), "nc" : ("res://Scenes/Buildings/nuclear_plant.tscn")}
 
 var is_mouse_over_ui = false
 
@@ -38,72 +41,65 @@ func _input(event):
 				for i in buildings_created:
 					var building_pos = i.position
 					if mouse_pos == building_pos:
-						if i.get_meta("Type") == "wt":
-							wt_avalible += 1
-						elif i.get_meta("Type") == "sp":
-							sp_avalible += 1
-						elif i.get_meta("Type") == "nc":
-							nc_avalible += 1
-						
-						occupied_positions.erase(building_pos)
-						i.queue_free()
-						buildings_created.erase(i)
+						demolish_building(i, building_pos)
+
+func demolish_building(building, building_pos):
+	modify_avalibe(building, +1)
+	occupied_positions.erase(building_pos)
+	building.queue_free()
+	buildings_created.erase(building)
+	
+	for line in line_manager.lines:
+		for i in range(line.get_point_count()):
+			if line.get_point_position(i) == building_pos:
+				line.remove_point(i)
+
+func modify_avalibe(building, count):
+	print(building.get_meta("Typed"))
+	buildings_avalible[building.get_meta("Type")] += count
 
 func _process(delta):
 	button_selected = ui_manager.current_button_selected
 	
-	if button_selected == 1 or button_selected == 2 or button_selected == 3:
-		buildmode = true
-	else:
-		buildmode = false
+	# Set buildmode based on button_selected
+	buildmode = button_selected in [1, 2, 3]
+	# Set demolishmode based on button_selected
+	demolishmode = (button_selected == 5)
 	
-	if button_selected == 5:
-		demolishmode = true
-	else:
-		demolishmode = false
+	disable_no_disponibles()
 
 func place_building(position):
 	var grid_position = snap_to_grid(position)
 	if grid_position not in occupied_positions and !is_mouse_over_ui:
-		if button_selected == 1:
-			if wt_avalible >= 1:
-				var new_building = WindTurbineScene.instantiate()
-				wt_avalible -= 1
-				print("Building created on", str(position))
-				buildings_created.append(new_building)
-				add_child(new_building)
-				new_building.position = grid_position
-				occupied_positions[grid_position] = new_building
-			else:
-				print("You don't have enough buildings of this type")
-		elif button_selected == 2:
-			if sp_avalible >= 1:
-				var new_building = SolarPanelScene.instantiate()
-				sp_avalible -= 1
-				print("Building created on", str(position))
-				add_child(new_building)
-				new_building.position = grid_position
-				buildings_created.append(new_building)
-				occupied_positions[grid_position] = new_building
-			else:
-				print("You don't have enough buildings of this type")
-		elif button_selected == 3:
-			if nc_avalible >= 1:
-				var new_building = NuclearPlantScene.instantiate()
-				nc_avalible -= 1
-				print("Building created on", str(position))
-				add_child(new_building)
-				new_building.position = grid_position
-				buildings_created.append(new_building)
-				occupied_positions[grid_position] = new_building
-			else:
-				print("You don't have enough buildings of this type")
+		var building_id = button_to_id[button_selected]
+		print(building_id)
+		print(buildings_avalible[building_id])
+		
+		if buildings_avalible[building_id] >= 1:
+			var new_building = buildings_scenes[building_id].instantiate()
+			buildings_created.append(new_building)
+			add_child(new_building)
+			new_building.position = grid_position
+			occupied_positions[grid_position] = new_building
+			print("New building ", new_building, " created on ", str(grid_position) ,".")
+			modify_avalibe(new_building, -1)
+		else:
+			print("Not enough buildings of this type.")
+	else:
+		print("position ocupied")
 
 func snap_to_grid(positions: Vector2) -> Vector2:
 	var map_coords = tilemap.local_to_map(positions)
 	
 	var tile_center = tilemap.map_to_local(map_coords)
 	return tile_center
+
+func disable_no_disponibles():
+	for key in buildings_avalible.keys():
+		if buildings_avalible[key] == 0:
+			building_buttons[key].disabled = true
+		else:
+			building_buttons[key].disabled = false
 
 func _on_panel_container_mouse_entered():
 	is_mouse_over_ui = true
