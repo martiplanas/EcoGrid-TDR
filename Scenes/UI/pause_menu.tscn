@@ -1,0 +1,96 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgb701mk02frs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyy1m"]
+bg_color = Color(0, 0, 0, 0.372549)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4r7c"]
+bg_color = Color(0.314316, 0.314316, 0.314316, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_myc3s"]
+line_spacing = 6.0
+font_size = 25
+
+[node name="PauseMenu" type="Panel"]
+process_mode = 2
+visible = false
+z_index = 1000
+custom_minimum_size = Vector2(200, 300)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wyy1m")
+
+[node name="Box" type="Panel" parent="."]
+z_index = 1001
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n4r7c")
+
+[node name="PauseMenuTitle" type="Label" parent="Box"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -74.0
+offset_right = 74.0
+offset_bottom = 35.0
+grow_horizontal = 2
+size_flags_vertical = 0
+text = "Pause Menu"
+label_settings = SubResource("LabelSettings_myc3s")
+horizontal_alignment = 1
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="Box"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.5
+offset_top = -84.5
+offset_right = 74.5
+offset_bottom = 84.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 15
+
+[node name="ResumeButton" type="Button" parent="Box/ButtonsContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="OptionsButton" type="Button" parent="Box/ButtonsContainer"]
+layout_mode = 2
+disabled = true
+text = "Options"
+
+[node name="ExitButton" type="Button" parent="Box/ButtonsContainer"]
+layout_mode = 2
+text = "Exit to Desktop"
+
+[node name="ExitMMButton" type="Button" parent="Box/ButtonsContainer"]
+layout_mode = 2
+text = "Exit to Main Menu"

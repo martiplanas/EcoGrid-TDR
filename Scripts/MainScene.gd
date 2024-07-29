@@ -11,9 +11,9 @@ var buildings_created = []
 
 #---Buildings Arrays---
 @onready var building_buttons = {
-	"wt" : $Camera2D/UI/PanelContainer/VBoxContainer/Building_wt, 
-	"sp" : $Camera2D/UI/PanelContainer/VBoxContainer/Building_sp, 
-	"nc" : $Camera2D/UI/PanelContainer/VBoxContainer/Building_nc
+	"wt" : $Camera2D/UI/ToolBar/VBoxContainer/Building_wt, 
+	"sp" : $Camera2D/UI/ToolBar/VBoxContainer/Building_sp, 
+	"nc" : $Camera2D/UI/ToolBar/VBoxContainer/Building_nc
 }
 
 var description_locations = {"wt": "res://Recources/Critique/Wind.txt", "sp": "res://Recources/Critique/Solar.txt", "nc": "res://Recources/Critique/Nuclear.txt"}
@@ -74,7 +74,7 @@ func check_for_info(position):
 				
 				var title = id_to_L_name[key] + " info"
 				var description = load_text_file(description_locations[key])
-				var generating_num = "Energy generation: " + building.get_meta("Energy_Production")
+				var generating_num = "Energy generation: " + str(building.get_meta("Energy_Production"))
 				
 				newPanel.set_texts(title, description, generating_num, "", "")
 		for city in $TileMap/Cities.cities:

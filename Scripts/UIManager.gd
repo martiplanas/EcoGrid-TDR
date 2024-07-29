@@ -4,12 +4,12 @@ var current_button_selected = 0;
 
 @onready var main = get_parent().get_parent()
 
-@onready var b0 = $PanelContainer/VBoxContainer/MouseMode
-@onready var b1 = $PanelContainer/VBoxContainer/Building_wt
-@onready var b2 = $PanelContainer/VBoxContainer/Building_sp
-@onready var b3 = $PanelContainer/VBoxContainer/Building_nc
-@onready var b4 = $PanelContainer/VBoxContainer/Line_creator
-@onready var b5 = $PanelContainer/VBoxContainer/Demolisher
+@onready var b0 = $ToolBar/VBoxContainer/MouseMode
+@onready var b1 = $ToolBar/VBoxContainer/Building_wt
+@onready var b2 = $ToolBar/VBoxContainer/Building_sp
+@onready var b3 = $ToolBar/VBoxContainer/Building_nc
+@onready var b4 = $ToolBar/VBoxContainer/Line_creator
+@onready var b5 = $ToolBar/VBoxContainer/Demolisher
 
 @onready var pauseMenu = $PauseMenu
 
@@ -64,8 +64,8 @@ func _process(delta):
 	update_ToolBar()
 
 func update_ToolBar():
-	$PanelContainer.size = Vector2(64,2)
-	$PanelContainer.position = Vector2(1075, ((self.size.y - $PanelContainer.size.y) / 2) +  6)
+	$ToolBar.size = Vector2(64,2)
+	$ToolBar.position = Vector2(1075, ((self.size.y - $ToolBar.size.y) / 2) +  6)
 
 func _on_mouse_mode_pressed():
 	current_button_selected = 0;
@@ -100,4 +100,4 @@ func _on_exit_button_pressed():
 	get_tree().quit()
 func _on_exit_mm_button_pressed():
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Scenes/Main Scenes/Main Menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/UI/Main Menu.tscn")

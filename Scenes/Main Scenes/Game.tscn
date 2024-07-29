@@ -522,7 +522,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_jpdud")
 
-[node name="PanelContainer" type="PanelContainer" parent="Camera2D/UI" groups=["ui"]]
+[node name="ToolBar" type="PanelContainer" parent="Camera2D/UI" groups=["ui"]]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -537,7 +537,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_p3w76")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/UI/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/UI/ToolBar"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -545,7 +545,7 @@ theme = ExtResource("8_ft4ia")
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="MouseMode" type="Button" parent="Camera2D/UI/PanelContainer/VBoxContainer"]
+[node name="MouseMode" type="Button" parent="Camera2D/UI/ToolBar/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/icon_max_width = 62
 theme_override_font_sizes/font_size = 10
@@ -557,7 +557,7 @@ icon = ExtResource("8_jdd7p")
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="Building_wt" type="Button" parent="Camera2D/UI/PanelContainer/VBoxContainer"]
+[node name="Building_wt" type="Button" parent="Camera2D/UI/ToolBar/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/icon_max_width = 62
 theme_override_font_sizes/font_size = 10
@@ -570,7 +570,7 @@ text_overrun_behavior = 3
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="Building_sp" type="Button" parent="Camera2D/UI/PanelContainer/VBoxContainer"]
+[node name="Building_sp" type="Button" parent="Camera2D/UI/ToolBar/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/icon_max_width = 62
 theme_override_font_sizes/font_size = 10
@@ -583,7 +583,7 @@ text_overrun_behavior = 3
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="Building_nc" type="Button" parent="Camera2D/UI/PanelContainer/VBoxContainer"]
+[node name="Building_nc" type="Button" parent="Camera2D/UI/ToolBar/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/icon_max_width = 62
 theme_override_font_sizes/font_size = 10
@@ -596,7 +596,7 @@ text_overrun_behavior = 3
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="Line_creator" type="Button" parent="Camera2D/UI/PanelContainer/VBoxContainer"]
+[node name="Line_creator" type="Button" parent="Camera2D/UI/ToolBar/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/icon_max_width = 62
 theme_override_font_sizes/font_size = 10
@@ -609,7 +609,7 @@ text_overrun_behavior = 3
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="Demolisher" type="Button" parent="Camera2D/UI/PanelContainer/VBoxContainer"]
+[node name="Demolisher" type="Button" parent="Camera2D/UI/ToolBar/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/icon_max_width = 62
 theme_override_font_sizes/font_size = 10
@@ -1140,26 +1140,26 @@ begin_cap_mode = 2
 end_cap_mode = 2
 script = ExtResource("35_qonuk")
 
-[connection signal="mouse_entered" from="Camera2D/UI/PanelContainer" to="." method="_on_panel_container_mouse_entered"]
-[connection signal="mouse_exited" from="Camera2D/UI/PanelContainer" to="." method="_on_panel_container_mouse_exited"]
-[connection signal="mouse_entered" from="Camera2D/UI/PanelContainer/VBoxContainer/MouseMode" to="." method="_on_mouse_mode_mouse_entered"]
-[connection signal="mouse_exited" from="Camera2D/UI/PanelContainer/VBoxContainer/MouseMode" to="." method="_on_mouse_mode_mouse_exited"]
-[connection signal="pressed" from="Camera2D/UI/PanelContainer/VBoxContainer/MouseMode" to="Camera2D/UI" method="_on_mouse_mode_pressed"]
-[connection signal="mouse_entered" from="Camera2D/UI/PanelContainer/VBoxContainer/Building_wt" to="." method="_on_building_wt_mouse_entered"]
-[connection signal="mouse_exited" from="Camera2D/UI/PanelContainer/VBoxContainer/Building_wt" to="." method="_on_building_wt_mouse_exited"]
-[connection signal="pressed" from="Camera2D/UI/PanelContainer/VBoxContainer/Building_wt" to="Camera2D/UI" method="_on_building_wt_pressed"]
-[connection signal="mouse_entered" from="Camera2D/UI/PanelContainer/VBoxContainer/Building_sp" to="." method="_on_building_sp_mouse_entered"]
-[connection signal="mouse_exited" from="Camera2D/UI/PanelContainer/VBoxContainer/Building_sp" to="." method="_on_building_sp_mouse_exited"]
-[connection signal="pressed" from="Camera2D/UI/PanelContainer/VBoxContainer/Building_sp" to="Camera2D/UI" method="_on_building_sp_pressed"]
-[connection signal="mouse_entered" from="Camera2D/UI/PanelContainer/VBoxContainer/Building_nc" to="." method="_on_building_nc_mouse_entered"]
-[connection signal="mouse_exited" from="Camera2D/UI/PanelContainer/VBoxContainer/Building_nc" to="." method="_on_building_nc_mouse_exited"]
-[connection signal="pressed" from="Camera2D/UI/PanelContainer/VBoxContainer/Building_nc" to="Camera2D/UI" method="_on_building_nc_pressed"]
-[connection signal="mouse_entered" from="Camera2D/UI/PanelContainer/VBoxContainer/Line_creator" to="." method="_on_line_creator_mouse_entered"]
-[connection signal="mouse_exited" from="Camera2D/UI/PanelContainer/VBoxContainer/Line_creator" to="." method="_on_line_creator_mouse_exited"]
-[connection signal="pressed" from="Camera2D/UI/PanelContainer/VBoxContainer/Line_creator" to="Camera2D/UI" method="_on_line_creator_pressed"]
-[connection signal="mouse_entered" from="Camera2D/UI/PanelContainer/VBoxContainer/Demolisher" to="." method="_on_demolisher_mouse_entered"]
-[connection signal="mouse_exited" from="Camera2D/UI/PanelContainer/VBoxContainer/Demolisher" to="." method="_on_demolisher_mouse_exited"]
-[connection signal="pressed" from="Camera2D/UI/PanelContainer/VBoxContainer/Demolisher" to="Camera2D/UI" method="_on_demolisher_pressed"]
+[connection signal="mouse_entered" from="Camera2D/UI/ToolBar" to="." method="_on_panel_container_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/ToolBar" to="." method="_on_panel_container_mouse_exited"]
+[connection signal="mouse_entered" from="Camera2D/UI/ToolBar/VBoxContainer/MouseMode" to="." method="_on_mouse_mode_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/ToolBar/VBoxContainer/MouseMode" to="." method="_on_mouse_mode_mouse_exited"]
+[connection signal="pressed" from="Camera2D/UI/ToolBar/VBoxContainer/MouseMode" to="Camera2D/UI" method="_on_mouse_mode_pressed"]
+[connection signal="mouse_entered" from="Camera2D/UI/ToolBar/VBoxContainer/Building_wt" to="." method="_on_building_wt_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/ToolBar/VBoxContainer/Building_wt" to="." method="_on_building_wt_mouse_exited"]
+[connection signal="pressed" from="Camera2D/UI/ToolBar/VBoxContainer/Building_wt" to="Camera2D/UI" method="_on_building_wt_pressed"]
+[connection signal="mouse_entered" from="Camera2D/UI/ToolBar/VBoxContainer/Building_sp" to="." method="_on_building_sp_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/ToolBar/VBoxContainer/Building_sp" to="." method="_on_building_sp_mouse_exited"]
+[connection signal="pressed" from="Camera2D/UI/ToolBar/VBoxContainer/Building_sp" to="Camera2D/UI" method="_on_building_sp_pressed"]
+[connection signal="mouse_entered" from="Camera2D/UI/ToolBar/VBoxContainer/Building_nc" to="." method="_on_building_nc_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/ToolBar/VBoxContainer/Building_nc" to="." method="_on_building_nc_mouse_exited"]
+[connection signal="pressed" from="Camera2D/UI/ToolBar/VBoxContainer/Building_nc" to="Camera2D/UI" method="_on_building_nc_pressed"]
+[connection signal="mouse_entered" from="Camera2D/UI/ToolBar/VBoxContainer/Line_creator" to="." method="_on_line_creator_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/ToolBar/VBoxContainer/Line_creator" to="." method="_on_line_creator_mouse_exited"]
+[connection signal="pressed" from="Camera2D/UI/ToolBar/VBoxContainer/Line_creator" to="Camera2D/UI" method="_on_line_creator_pressed"]
+[connection signal="mouse_entered" from="Camera2D/UI/ToolBar/VBoxContainer/Demolisher" to="." method="_on_demolisher_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/ToolBar/VBoxContainer/Demolisher" to="." method="_on_demolisher_mouse_exited"]
+[connection signal="pressed" from="Camera2D/UI/ToolBar/VBoxContainer/Demolisher" to="Camera2D/UI" method="_on_demolisher_pressed"]
 [connection signal="pressed" from="Camera2D/UI/Pause Button" to="Camera2D/UI" method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Camera2D/UI/PauseMenu/Box/ButtonsContainer/ResumeButton" to="Camera2D/UI" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="Camera2D/UI/PauseMenu/Box/ButtonsContainer/OptionsButton" to="Camera2D/UI" method="_on_options_button_pressed"]

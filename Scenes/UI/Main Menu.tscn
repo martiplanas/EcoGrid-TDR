@@ -68,7 +68,6 @@ text = "Dally Challange"
 
 [node name="Settings Button" type="Button" parent="Panel/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-disabled = true
 text = "Settings"
 
 [node name="Exit Button" type="Button" parent="Panel/VBoxContainer2/VBoxContainer"]
