@@ -124,7 +124,25 @@ layout_mode = 2
 theme_override_constants/separation = 15
 theme_override_styles/separator = SubResource("StyleBoxEmpty_ncojr")
 
-[node name="Generating" type="Label" parent="Panel/Main Container/Stats"]
+[node name="info1" type="Label" parent="Panel/Main Container/Stats"]
+layout_mode = 2
+text = "Building Generation = 200"
+
+[node name="VSeparator2" type="VSeparator" parent="Panel/Main Container/Stats"]
+layout_mode = 2
+theme_override_constants/separation = 15
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ncojr")
+
+[node name="info2" type="Label" parent="Panel/Main Container/Stats"]
+layout_mode = 2
+text = "Building Generation = 200"
+
+[node name="VSeparator3" type="VSeparator" parent="Panel/Main Container/Stats"]
+layout_mode = 2
+theme_override_constants/separation = 15
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ncojr")
+
+[node name="info3" type="Label" parent="Panel/Main Container/Stats"]
 layout_mode = 2
 text = "Building Generation = 200"
 

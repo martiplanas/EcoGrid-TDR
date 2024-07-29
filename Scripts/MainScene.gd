@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var line_manager = $Lines
 @onready var ui = $Camera2D/UI
+@onready var scnl = $ScenarioLoader
 
 const GRID_SIZE = 128  # Adjust this value to your grid size
 
@@ -73,9 +74,20 @@ func check_for_info(position):
 				
 				var title = id_to_L_name[key] + " info"
 				var description = load_text_file(description_locations[key])
-				var generating_num = building.get_meta("Energy_Production")
+				var generating_num = "Energy generation: " + building.get_meta("Energy_Production")
 				
-				newPanel.set_texts(title, description, generating_num)
+				newPanel.set_texts(title, description, generating_num, "", "")
+		for city in $TileMap/Cities.cities:
+			if city.position == position and city.is_visible_in_tree():
+				var newPanel = infoPanel.instantiate()
+				ui.add_child(newPanel)
+				
+				var title = city.name + " info"
+				var description = load_text_file(scnl.cities[city.name]["description"])
+				var info1 = "Energy needs: " + str(scnl.cities[city.name]["base_needs"])
+				var info2 = "Population: " + str(scnl.cities[city.name]["population"])
+				
+				newPanel.set_texts(title, description, info1, info2, "")
 
 func modify_avalibe(building, count):
 	print(building.get_meta("Typed"))
