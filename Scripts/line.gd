@@ -4,6 +4,14 @@ var previous_ammonut_points
 var city_deliver
 var times = 0
 var exist = false
+
+var line_generating:float = 0 
+var delivery_ammount:float = 0
+var delivery_percent:float = 0
+
+var previous_generating:float = 0
+
+var generators = []
 @onready var city_controler = $"../../TileMap/Cities"
 
 # Called when the node enters the scene tree for the first time.
@@ -23,7 +31,27 @@ func _process(delta):
 		update_stats()
 
 func update_stats():
-	times += 1
+	generators.clear()
+	
+	for building in SimulationManager.buildings:
+		for point in range(self.get_point_count()):
+			if building.position == self.get_point_position(point):
+				generators.append(building)
+	
+	line_generating = 0
+	for building in generators:
+		line_generating += building.get_meta("Energy_Production")
+	
+	if previous_generating != line_generating:
+		var percent_change 
+		if not city_deliver == null:
+			if not delivery_ammount == 0:
+				percent_change = ((line_generating - previous_generating)/delivery_ammount)*100
+				delivery_percent = (line_generating / delivery_ammount)* 100
+			else:
+				delivery_percent = 0
+			previous_generating = line_generating
+			city_deliver.set_deliver(percent_change)
 
 func initzialitzate_line():
 	previous_ammonut_points = self.get_point_count()
@@ -33,4 +61,4 @@ func initzialitzate_line():
 			if city.position == self.get_point_position(point):
 				city_deliver = city
 	
-	
+	delivery_ammount = SimulationManager.citydata[city_deliver]["base_needs"]

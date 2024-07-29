@@ -12,11 +12,12 @@ var previousTile
 
 const MAX_POINTS = 6
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
+	for line in lines:
+		SimulationManager.line_container.append(line)
 	hide_all_lines()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#Line creation follow mouse etc sys
 	if creatingLine && Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
@@ -53,9 +54,10 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT and mainScene.button_selected == 4:
 			for city in cityManager.cities:
-				if city.position == mainScene.snap_to_grid(get_global_mouse_position()):
-					print("NEW LINE IS BEING CREATED!")
-					newLineP(city.position)
+				if city.is_visible_in_tree():
+					if city.position == mainScene.snap_to_grid(get_global_mouse_position()):
+						print("NEW LINE IS BEING CREATED!")
+						newLineP(city.position)
 
 func clear_empty_lines():
 	var i = 0

@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var line_manager = $Lines
+@onready var ui = $Camera2D/UI
 
 const GRID_SIZE = 128  # Adjust this value to your grid size
 
@@ -9,14 +10,19 @@ var buildings_created = []
 
 #---Buildings Arrays---
 @onready var building_buttons = {
-	"wt" : $Camera2D/UI/PanelContainer/VBoxContainer2/Building_wt, 
-	"sp" : $Camera2D/UI/PanelContainer/VBoxContainer2/Building_sp, 
-	"nc" : $Camera2D/UI/PanelContainer/VBoxContainer2/Building_nc
+	"wt" : $Camera2D/UI/PanelContainer/VBoxContainer/Building_wt, 
+	"sp" : $Camera2D/UI/PanelContainer/VBoxContainer/Building_sp, 
+	"nc" : $Camera2D/UI/PanelContainer/VBoxContainer/Building_nc
 }
-	
+
+var description_locations = {"wt": "res://Recources/Critique/Wind.txt", "sp": "res://Recources/Critique/Solar.txt", "nc": "res://Recources/Critique/Nuclear.txt"}
+
 var buildings_avalible = {"wt": 2,"sp": 2,"nc": 0}
 var button_to_id = {1 : "wt", 2 : "sp", 3 : "nc"}
+var id_to_L_name = {"wt": "Wind Turbine", "sp": "Solar panels", "nc": "Nuclear Power Plant"}
 var buildings_scenes = {"wt" : preload("res://Scenes/Buildings/wind_turbine.tscn"), "sp" : preload("res://Scenes/Buildings/solar_panel.tscn"), "nc" : ("res://Scenes/Buildings/nuclear_plant.tscn")}
+
+var infoPanel = preload("res://Scenes/UI/infoPanel.tscn")
 
 var is_mouse_over_ui = false
 
@@ -33,6 +39,8 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			if button_selected == 0:
+				check_for_info(snap_to_grid(get_global_mouse_position()))
 			if buildmode:
 				var mouse_pos = get_global_mouse_position()
 				place_building(mouse_pos)
@@ -54,6 +62,21 @@ func demolish_building(building, building_pos):
 			if line.get_point_position(i) == building_pos:
 				line.remove_point(i)
 
+func check_for_info(position):
+	if not is_mouse_over_ui:
+		for building in buildings_created:
+			if building.position == position:
+				var key = building.get_meta("Type")
+				
+				var newPanel = infoPanel.instantiate()
+				ui.add_child(newPanel)
+				
+				var title = id_to_L_name[key] + " info"
+				var description = load_text_file(description_locations[key])
+				var generating_num = building.get_meta("Energy_Production")
+				
+				newPanel.set_texts(title, description, generating_num)
+
 func modify_avalibe(building, count):
 	print(building.get_meta("Typed"))
 	buildings_avalible[building.get_meta("Type")] += count
@@ -61,6 +84,7 @@ func modify_avalibe(building, count):
 func _process(delta):
 	button_selected = ui_manager.current_button_selected
 	
+	SimulationManager.buildings = buildings_created
 	# Set buildmode based on button_selected
 	buildmode = button_selected in [1, 2, 3]
 	# Set demolishmode based on button_selected
@@ -97,9 +121,14 @@ func snap_to_grid(positions: Vector2) -> Vector2:
 func disable_no_disponibles():
 	for key in buildings_avalible.keys():
 		if buildings_avalible[key] == 0:
-			building_buttons[key].disabled = true
+			building_buttons[key].visible = false
 		else:
-			building_buttons[key].disabled = false
+			building_buttons[key].visible = true
+
+func load_text_file(path: String) -> String:
+	var file = FileAccess.open(path, FileAccess.READ)
+	var content = file.get_as_text()
+	return content
 
 func _on_panel_container_mouse_entered():
 	is_mouse_over_ui = true

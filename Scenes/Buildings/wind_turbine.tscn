@@ -47,6 +47,7 @@ _data = {
 
 [node name="WindTurbine" type="Node2D"]
 metadata/Type = "wt"
+metadata/Energy_Production = 100
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 script = ExtResource("1_4r7m8")

@@ -6,7 +6,6 @@ var citypos = []
 func loadCities():
 	for child in get_children():
 		cities.append(child)
-		child.modulate = Color(0.75,0.75,0.75,0.5)
 		citypos.append(child.position)
 	
 	var parent = get_parent()
@@ -14,5 +13,6 @@ func loadCities():
 	
 	var i = 0
 	for city in cities:
-		parent.occupied_positions[citypos[i]]=city
+		if city.is_visible_in_tree():
+			parent.occupied_positions[citypos[i]]=city
 		i += 1

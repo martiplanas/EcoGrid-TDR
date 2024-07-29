@@ -5,21 +5,38 @@ var scenario_data = {}
 var cityScene = preload("res://Scenes/Buildings/City.tscn")
 @onready var cityContainer = get_node("../TileMap/Cities")
 
+var cities = {
+	"Girona": {"position": Vector2(3264, 1600), "population": 100000, "base_needs": 1000, "unlock_order" : 1},
+	"Barcelona": {"position": Vector2(2368, 2752), "population": 1600000, "base_needs": 16000, "unlock_order" : 4},
+	"Lleida": {"position": Vector2(320, 2112), "population": 138000, "base_needs": 1380, "unlock_order" : 3},
+	"Tarragona": {"position": Vector2(1344, 3008), "population": 134000, "base_needs": 1340, "unlock_order" : 2},
+	"Manresa": {"position": Vector2(1856, 1984), "population": 76000, "base_needs": 760, "unlock_order" : 0}
+}
+
+#Legacy city data
 var citynames = ["Girona", "Barcelona", "Lleida", "Tarragona", "Manresa"]
 var citypos = [Vector2(3264, 1600), Vector2(2368,2752), Vector2(320,2112), Vector2(1344,3008), Vector2(1856,1984)]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var i = 0
-	for city in citynames:
+	load_cities()
+
+func load_cities():
+	for city_name in cities.keys():
 		var newCity = cityScene.instantiate()
-		newCity.position
-		newCity.name = citynames[i]
+		newCity.position = cities[city_name]["position"]
+		newCity.name = city_name
 		cityContainer.add_child(newCity)
-		newCity.position = citypos[i]
-		i += 1
+		if cities[city_name]["unlock_order"] == 0:
+			newCity.visible = true
+		else:
+			newCity.visible = false
+			newCity.set_process(false)
+		
+		SimulationManager.citydata[newCity] = {
+			"base_needs": cities[city_name]["base_needs"],
+			"unlock_order": cities[city_name]["unlock_order"]
+		}
 	
 	cityContainer.loadCities()
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	SimulationManager.begin_simulation()

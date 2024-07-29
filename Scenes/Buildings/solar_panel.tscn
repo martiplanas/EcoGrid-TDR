@@ -8,6 +8,7 @@ size = Vector2(128, 128)
 
 [node name="SolarPanel" type="Node2D"]
 metadata/Type = "sp"
+metadata/Energy_Production = 200
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 script = ExtResource("1_7kx6j")

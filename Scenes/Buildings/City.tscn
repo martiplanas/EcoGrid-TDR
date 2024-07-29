@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjde7s0i3hvjb"]
+[gd_scene load_steps=5 format=3 uid="uid://bjde7s0i3hvjb"]
 
 [ext_resource type="Texture2D" uid="uid://biulihr837xln" path="res://Sprites/Map/city.png" id="1_g50mm"]
 [ext_resource type="Script" path="res://Scripts/City.gd" id="2_f1agc"]
+[ext_resource type="Texture2D" uid="uid://dpj385w8c0hsa" path="res://Sprites/Map/citygreen.png" id="4_sxltp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xrp3j"]
 radius = 64.0
@@ -9,11 +10,20 @@ radius = 64.0
 [node name="City" type="Area2D"]
 script = ExtResource("2_f1agc")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xrp3j")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_g50mm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_xrp3j")
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = ExtResource("4_sxltp")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

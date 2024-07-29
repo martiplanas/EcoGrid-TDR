@@ -60,7 +60,13 @@ func _process(delta):
 	else:
 		pauseMenu.visible = false
 		get_tree().paused = false
- 
+	
+	update_ToolBar()
+
+func update_ToolBar():
+	$PanelContainer.size = Vector2(64,2)
+	$PanelContainer.position = Vector2(1075, ((self.size.y - $PanelContainer.size.y) / 2) +  6)
+
 func _on_mouse_mode_pressed():
 	current_button_selected = 0;
 

@@ -1,0 +1,135 @@
+[gd_scene load_steps=7 format=3 uid="uid://cffon7b4g74qr"]
+
+[ext_resource type="Script" path="res://InfoUIManager.gd" id="1_inyro"]
+[ext_resource type="Texture2D" uid="uid://c1sfrhcwipf83" path="res://Sprites/UI/close.png" id="2_22sou"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itchj"]
+bg_color = Color(0.333333, 0.333333, 0.333333, 0.784314)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.103744, 0.103744, 0.103743, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4cyvn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ncojr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e25ij"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[node name="InfoUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_inyro")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_itchj")
+
+[node name="Main Container" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator" type="HSeparator" parent="Panel/Main Container"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4cyvn")
+
+[node name="TopBar" type="HBoxContainer" parent="Panel/Main Container"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="VSeparator" type="VSeparator" parent="Panel/Main Container/TopBar"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ncojr")
+
+[node name="Close Button" type="Button" parent="Panel/Main Container/TopBar"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_e25ij")
+icon = ExtResource("2_22sou")
+
+[node name="VSeparator2" type="VSeparator" parent="Panel/Main Container/TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 9
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ncojr")
+
+[node name="WindowTitle" type="Label" parent="Panel/Main Container/TopBar"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Window Tilte"
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/Main Container"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4cyvn")
+
+[node name="Building info" type="HBoxContainer" parent="Panel/Main Container"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Panel/Main Container/Building info"]
+layout_mode = 2
+theme_override_constants/separation = 15
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ncojr")
+
+[node name="info" type="Label" parent="Panel/Main Container/Building info"]
+custom_minimum_size = Vector2(780, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 11
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dui elit, ornare a quam congue, feugiat commodo sem. Aliquam laoreet lectus quis dolor convallis, a ullamcorper ligula auctor. Sed iaculis auctor lorem nec suscipit. Curabitur arcu mi, aliquet ut tincidunt non, tempor mattis leo. Maecenas vulputate suscipit lectus, non commodo ex pretium ut. Nunc ex magna, molestie ut nulla at, interdum dapibus sem. Maecenas ultricies eu purus tristique elementum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque vel quam nisi. Suspendisse vel porttitor erat, sit amet consequat nisi.
+
+Morbi varius, erat eu rhoncus semper, diam lorem consectetur dui, non porta dui est ut lacus. Morbi eget lectus nisi. Aliquam dolor dolor, facilisis non tincidunt sed, euismod id nisi. Pellentesque vitae diam non nunc gravida ornare. Ut pharetra odio quis diam scelerisque, et ultricies ante placerat. Nulla consectetur hendrerit dui nec molestie. Donec volutpat ligula quis orci mattis, sit amet vehicula nisl malesuada. Donec vel tempus nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+
+Nulla vehicula euismod nunc, nec gravida magna cursus nec. Morbi efficitur consequat nibh a commodo. Mauris vel quam ac diam blandit hendrerit non non nulla. Praesent consectetur, tellus a sodales pellentesque, purus neque tempus neque, non tristique ante nulla eu sem. Aenean nec velit non nulla pharetra ultrices. Suspendisse ornare volutpat pellentesque. Fusce pharetra elit vitae ipsum iaculis, non faucibus erat porta. Vestibulum a sapien finibus, convallis massa nec, venenatis dolor. Aenean pellentesque, tortor ut commodo mollis, diam nunc tempor risus, sed blandit nisi nunc id quam. Suspendisse facilisis eros diam, ac fermentum felis tempor non. Aenean porta tortor et nisi tempor, in egestas diam tincidunt. Quisque in semper diam. Aenean quam elit, congue ac pretium eu, vehicula vel felis. Donec ut posuere tellus, non bibendum dui. Duis eu pellentesque mi. Donec sed nulla in urna rutrum feugiat."
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Stats" type="HBoxContainer" parent="Panel/Main Container"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="VSeparator" type="VSeparator" parent="Panel/Main Container/Stats"]
+layout_mode = 2
+theme_override_constants/separation = 15
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ncojr")
+
+[node name="Generating" type="Label" parent="Panel/Main Container/Stats"]
+layout_mode = 2
+text = "Building Generation = 200"
+
+[node name="HSeparator3" type="HSeparator" parent="Panel/Main Container"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4cyvn")
+
+[connection signal="pressed" from="Panel/Main Container/TopBar/Close Button" to="." method="_on_close_button_pressed"]

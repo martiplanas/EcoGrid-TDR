@@ -8,3 +8,6 @@ func _ready():
 
 func _process(delta):
 	pass
+
+func set_deliver(percent):
+	$TextureProgressBar.value += percent
