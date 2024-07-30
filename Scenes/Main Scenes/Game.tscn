@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://dvvh6edgstumi"]
+[gd_scene load_steps=87 format=3 uid="uid://dvvh6edgstumi"]
 
 [ext_resource type="Script" path="res://Scripts/MainScene.gd" id="1_bgq80"]
 [ext_resource type="Texture2D" uid="uid://cnobxxldmlj0k" path="res://Sprites/Map/river tileset.png" id="2_ntn3v"]
@@ -35,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://c1sfrhcwipf83" path="res://Sprites/UI/close.png" id="30_b2jrd"]
 [ext_resource type="Script" path="res://Scripts/Lines.gd" id="30_tcs58"]
 [ext_resource type="Script" path="res://Scripts/time.gd" id="31_udwig"]
+[ext_resource type="Script" path="res://Scenes/Main Scenes/moneydisplayer.gd" id="33_l2fwi"]
 [ext_resource type="Script" path="res://Scripts/line.gd" id="35_qonuk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0pidl"]
@@ -474,6 +475,9 @@ events = [SubResource("InputEventKey_trcg4")]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lef2a"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_mnwqn"]
+font_size = 19
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_bgq80")
 
@@ -624,8 +628,11 @@ vertical_icon_alignment = 0
 
 [node name="Pause Button" type="Button" parent="Camera2D/UI"]
 layout_mode = 1
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 46.0
+offset_bottom = 44.0
+theme_override_constants/icon_max_width = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_sxkij")
 icon = ExtResource("14_3rfmq")
 
@@ -714,9 +721,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -60.0
-offset_right = 120.0
-offset_bottom = 60.0
+offset_left = 6.0
+offset_top = -68.0
+offset_right = 126.0
+offset_bottom = 52.0
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 theme_override_styles/panel = SubResource("StyleBoxTexture_clivl")
@@ -819,9 +827,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -53.5
-offset_right = 53.5
-offset_bottom = 30.0
+offset_left = 302.0
+offset_top = 600.0
+offset_right = 409.0
+offset_bottom = 630.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_g4fwn")
 script = ExtResource("24_oq7sf")
@@ -1063,16 +1072,29 @@ texture = ExtResource("29_n68kx")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="InfoDisplayer" type="Panel" parent="Camera2D/UI"]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MoneyDisplay" type="Panel" parent="Camera2D/UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -57.5
+offset_top = 5.0
+offset_right = 57.5
+offset_bottom = 38.0
+grow_horizontal = 2
+script = ExtResource("33_l2fwi")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/UI/InfoDisplayer"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Monney ammount" type="Label" parent="Camera2D/UI/MoneyDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1000 €"
+label_settings = SubResource("LabelSettings_mnwqn")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ScenarioLoader" type="Node" parent="."]
 script = ExtResource("29_ad4t6")

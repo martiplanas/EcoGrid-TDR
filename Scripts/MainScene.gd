@@ -3,6 +3,7 @@ extends Node2D
 @onready var line_manager = $Lines
 @onready var ui = $Camera2D/UI
 @onready var scnl = $ScenarioLoader
+@onready var money = $Camera2D/UI/MoneyDisplay
 
 const GRID_SIZE = 128  # Adjust this value to your grid size
 
@@ -18,7 +19,8 @@ var buildings_created = []
 
 var description_locations = {"wt": "res://Recources/Critique/Wind.txt", "sp": "res://Recources/Critique/Solar.txt", "nc": "res://Recources/Critique/Nuclear.txt"}
 
-var buildings_avalible = {"wt": 2,"sp": 2,"nc": 0}
+var building_price = {"wt": 800, "sp": 1000, "nc": 50000}
+var buildings_avalible = {"wt": 1,"sp": 1,"nc": 1}
 var button_to_id = {1 : "wt", 2 : "sp", 3 : "nc"}
 var id_to_L_name = {"wt": "Wind Turbine", "sp": "Solar panels", "nc": "Nuclear Power Plant"}
 var buildings_scenes = {"wt" : preload("res://Scenes/Buildings/wind_turbine.tscn"), "sp" : preload("res://Scenes/Buildings/solar_panel.tscn"), "nc" : ("res://Scenes/Buildings/nuclear_plant.tscn")}
@@ -53,7 +55,6 @@ func _input(event):
 						demolish_building(i, building_pos)
 
 func demolish_building(building, building_pos):
-	modify_avalibe(building, +1)
 	occupied_positions.erase(building_pos)
 	building.queue_free()
 	buildings_created.erase(building)
@@ -89,10 +90,6 @@ func check_for_info(position):
 				
 				newPanel.set_texts(title, description, info1, info2, "")
 
-func modify_avalibe(building, count):
-	print(building.get_meta("Typed"))
-	buildings_avalible[building.get_meta("Type")] += count
-
 func _process(delta):
 	button_selected = ui_manager.current_button_selected
 	
@@ -108,19 +105,19 @@ func place_building(position):
 	var grid_position = snap_to_grid(position)
 	if grid_position not in occupied_positions and !is_mouse_over_ui:
 		var building_id = button_to_id[button_selected]
-		print(building_id)
-		print(buildings_avalible[building_id])
-		
-		if buildings_avalible[building_id] >= 1:
-			var new_building = buildings_scenes[building_id].instantiate()
-			buildings_created.append(new_building)
-			add_child(new_building)
-			new_building.position = grid_position
-			occupied_positions[grid_position] = new_building
-			print("New building ", new_building, " created on ", str(grid_position) ,".")
-			modify_avalibe(new_building, -1)
+		if money.is_enough_money(building_price[building_id]):
+			if buildings_avalible[building_id] >= 1:
+				money.modify_money(-building_price[building_id])
+				var new_building = buildings_scenes[building_id].instantiate()
+				buildings_created.append(new_building)
+				add_child(new_building)
+				new_building.position = grid_position
+				occupied_positions[grid_position] = new_building
+				print("New building ", new_building, " created on ", str(grid_position) ,".")
+			else:
+				print("Not enough buildings of this type.")
 		else:
-			print("Not enough buildings of this type.")
+			print("You dont have money")
 	else:
 		print("position ocupied")
 
