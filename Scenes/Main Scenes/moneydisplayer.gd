@@ -5,7 +5,7 @@ extends Panel
 var textmodify = preload("res://Scenes/UI/modify_text_animator.tscn")
 
 #money stuff
-var starting_money = 20000
+var starting_money = 1000
 var money:int
 
 func _ready():

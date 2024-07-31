@@ -13,6 +13,7 @@ var previous_generating:float = 0
 
 var generators = []
 @onready var city_controler = $"../../TileMap/Cities"
+@onready var money = $"../../Camera2D/UI/MoneyDisplay"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -62,3 +63,15 @@ func initzialitzate_line():
 				city_deliver = city
 	
 	delivery_ammount = SimulationManager.citydata[city_deliver]["base_needs"]
+
+func hour_money_get():
+	var energy_delivered:int = 0
+	for generator in generators:
+		print(generator)
+		energy_delivered += generator.get_meta("Energy_Production")
+	
+	if energy_delivered != 0 or energy_delivered != null:
+		if energy_delivered < delivery_ammount:
+			money.modify_money(energy_delivered)
+		elif energy_delivered >= delivery_ammount:
+			money.modify_money(delivery_ammount)

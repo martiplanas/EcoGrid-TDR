@@ -7,6 +7,7 @@ var time_speed = TimeSpeed.NORMAL
 var time_multiplier = 1.0
 
 @onready var clockui = get_node("../Camera2D/UI/Clock/AnimationPlayer")
+@onready var line_manager = $"../Lines"
 
 var GameSeconds = 0
 
@@ -50,6 +51,7 @@ func fast_forward_game():
 
 func _on_timeout():
 	increment_time()
+	recolect_line_money()
 
 func _on_pause_pressed():
 	pause_game()
@@ -78,3 +80,11 @@ func increment_time():
 	# Print current time for debugging
 	if print:
 		print("Hour: %d, Day: %d, Week: %d" % [current_hour, current_day, current_week])
+
+func recolect_line_money():
+	#Each hour money
+	var i = 0
+	for line in line_manager.lines:
+		if line_manager.linesUsed[i]:
+			line.hour_money_get()
+		i += 1
