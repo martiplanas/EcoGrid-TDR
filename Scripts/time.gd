@@ -13,10 +13,8 @@ var GameSeconds = 0
 
 var current_hour = 0
 var current_day = 0
-var current_week = 0
 
 const HOURS_IN_DAY = 24
-const DAYS_IN_WEEK = 7
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -71,15 +69,11 @@ func increment_time():
 	if current_hour >= HOURS_IN_DAY:
 		current_hour = 0
 		current_day += 1
-
-		if current_day >= DAYS_IN_WEEK:
-			current_day = 0
-			current_week += 1
 	
 	
 	# Print current time for debugging
 	if print:
-		print("Hour: %d, Day: %d, Week: %d" % [current_hour, current_day, current_week])
+		print("Hour: %d, Day: %d" % [current_hour, current_day])
 
 func recolect_line_money():
 	#Each hour money

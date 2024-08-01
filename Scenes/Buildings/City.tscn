@@ -25,5 +25,8 @@ fill_mode = 4
 nine_patch_stretch = true
 texture_progress = ExtResource("4_sxltp")
 
+[node name="ChangeTime" type="Timer" parent="."]
+wait_time = 72.0
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

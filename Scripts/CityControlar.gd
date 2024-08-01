@@ -16,3 +16,4 @@ func loadCities():
 		if city.is_visible_in_tree():
 			parent.occupied_positions[citypos[i]]=city
 		i += 1
+

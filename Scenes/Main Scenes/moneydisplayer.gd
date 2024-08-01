@@ -13,9 +13,10 @@ func _ready():
 
 func _process(delta):
 	for child in self.get_children():
-		if child.get_child(0) is AnimationPlayer:
-			if not child.get_child(0).is_playing():
-				child.queue_free()
+		if child.get_child(0) != null:
+			if child.get_child(0) is AnimationPlayer:
+				if not child.get_child(0).is_playing():
+					child.queue_free()
 
 func modify_money(ammonut: int):
 	money += ammonut

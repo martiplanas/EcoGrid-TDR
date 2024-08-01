@@ -67,7 +67,6 @@ func initzialitzate_line():
 func hour_money_get():
 	var energy_delivered:int = 0
 	for generator in generators:
-		print(generator)
 		energy_delivered += generator.get_meta("Energy_Production")
 	
 	if energy_delivered != 0 or energy_delivered != null:
