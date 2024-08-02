@@ -29,6 +29,16 @@ func _process(delta):
 	
 	if !creatingLine:
 		clear_empty_lines()
+	
+	var i = 0 
+	for line in lines:
+		if line.get_point_count() >= 2:
+			linesUsed[i] = true
+		else:
+			linesUsed[i] = false
+		
+		line.visible == linesUsed[i]
+		i +=1 
 
 func newLineP(firstPosition: Vector2):
 	var hasLineCreated = false
@@ -65,7 +75,6 @@ func clear_empty_lines():
 		if line.get_point_count() == 1:
 			print("Line ", line, " that had only one point has been cleared.")
 			line.remove_point(0)
-			linesUsed[i] = false
 		i += 1
 
 func line_in_creation():
@@ -83,7 +92,6 @@ func start_creating_line(line, lineNum):
 	line.add_point(get_global_mouse_position())
 	currentLineInCreation = line
 	print("Line ", currentLineInCreation, " has started to be created")
-	line.visible = true
 	linesUsed[lineNum] = true
 
 func modify_line():
@@ -147,7 +155,6 @@ func clear_line(linec):
 	var i = 0
 	for line in lines:
 		if line == linec:
-			linesUsed[i] = false
 			linec.clear_points()
 		
 		i += 1

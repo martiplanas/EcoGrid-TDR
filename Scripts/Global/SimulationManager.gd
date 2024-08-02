@@ -10,9 +10,5 @@ var total_production = 0
 
 var money_per_unit = 0.25
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func begin_simulation():
 	pass

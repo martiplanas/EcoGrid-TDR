@@ -77,8 +77,9 @@ func increment_time():
 
 func recolect_line_money():
 	#Each hour money
-	var i = 0
-	for line in line_manager.lines:
-		if line_manager.linesUsed[i]:
-			line.hour_money_get()
-		i += 1
+	pass
+	#var i = 0
+	#for line in line_manager.lines:
+		#if line_manager.linesUsed[i]:
+			#line.hour_money_get()
+		#i += 1

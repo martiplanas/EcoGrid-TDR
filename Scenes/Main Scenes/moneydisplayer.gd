@@ -5,7 +5,7 @@ extends Panel
 var textmodify = preload("res://Scenes/UI/modify_text_animator.tscn")
 
 #money stuff
-var starting_money = 1000
+var starting_money = 30000
 var money:int
 
 func _ready():
@@ -13,7 +13,7 @@ func _ready():
 
 func _process(delta):
 	for child in self.get_children():
-		if child.get_child(0) != null:
+		if child.get_children().size() > 0:
 			if child.get_child(0) is AnimationPlayer:
 				if not child.get_child(0).is_playing():
 					child.queue_free()

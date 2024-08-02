@@ -85,12 +85,13 @@ func check_for_info(position):
 				
 				var title = city.name + " info"
 				var description = load_text_file(scnl.cities[city.name]["description"])
-				var info1 = "Energy needs: " + str(scnl.cities[city.name]["base_needs"])
+				var info1 = "Energy needs: " + str(city.current_needs)
 				var info2 = "Population: " + str(scnl.cities[city.name]["population"])
+				var info3 = "Level: " + str(city.level) + "/5"
 				
 				newPanel.set_texts(title, description, info1, info2, "")
 
-func _process(delta):
+func _process(_delta):
 	button_selected = ui_manager.current_button_selected
 	
 	SimulationManager.buildings = buildings_created
