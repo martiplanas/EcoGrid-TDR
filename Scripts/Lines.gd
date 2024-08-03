@@ -12,7 +12,6 @@ var previousTile
 
 const MAX_POINTS = 6
 
-
 func _ready():
 	for line in lines:
 		SimulationManager.line_container.append(line)
@@ -32,11 +31,6 @@ func _process(delta):
 	
 	var i = 0 
 	for line in lines:
-		if line.get_point_count() >= 2:
-			linesUsed[i] = true
-		else:
-			linesUsed[i] = false
-		
 		line.visible == linesUsed[i]
 		i +=1 
 
@@ -75,6 +69,7 @@ func clear_empty_lines():
 		if line.get_point_count() == 1:
 			print("Line ", line, " that had only one point has been cleared.")
 			line.remove_point(0)
+			linesUsed[i] = false
 		i += 1
 
 func line_in_creation():
@@ -156,7 +151,7 @@ func clear_line(linec):
 	for line in lines:
 		if line == linec:
 			linec.clear_points()
-		
+			linesUsed[i] = false
 		i += 1
 
 func get_point_index(line, point):

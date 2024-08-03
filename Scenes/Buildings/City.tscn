@@ -14,9 +14,11 @@ script = ExtResource("2_f1agc")
 shape = SubResource("CircleShape2D_xrp3j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 49
 texture = ExtResource("1_g50mm")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+z_index = 50
 offset_left = -64.0
 offset_top = -64.0
 offset_right = 64.0
@@ -25,8 +27,11 @@ fill_mode = 4
 nine_patch_stretch = true
 texture_progress = ExtResource("4_sxltp")
 
-[node name="ChangeTime" type="Timer" parent="."]
-wait_time = 72.0
+[node name="upgrade" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="downgrade pretimer" type="Timer" parent="."]
+wait_time = 10.0
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

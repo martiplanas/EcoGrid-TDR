@@ -27,6 +27,11 @@ func _process(delta):
 		exist = true
 		initzialitzate_line()
 	
+	if exist:
+		self.visible = true
+	else:
+		self.visible = false
+	
 	if previous_ammonut_points != self.get_point_count():
 		previous_ammonut_points = self.get_point_count()
 		update_stats()
@@ -43,10 +48,6 @@ func update_stats():
 	energy_generation = 0
 	for generator in generators:
 		energy_generation += generator.get_meta("Energy_Production")
-	
-	if self.is_visible_in_tree():
-		print(energy_generation)
-		print(generators)
 
 func initzialitzate_line():
 	previous_ammonut_points = self.get_point_count()

@@ -27,9 +27,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="2.1911797"
-     inkscape:cx="1133.1795"
-     inkscape:cy="96.066973"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="1012.5769"
+     inkscape:cy="136.82516"
      inkscape:window-width="1440"
      inkscape:window-height="786"
      inkscape:window-x="0"
@@ -405,7 +405,7 @@
        d="m 304.79793,203.20103 0.003,-8.04912 -8.04498,8.04912 z"
        id="path6" />
     <rect
-       style="fill:none;stroke:#0f0f0f;stroke-width:0.529285;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:32.3;stroke-dasharray:none;stroke-opacity:0.55000001"
+       style="fill:none;stroke:#0f0f0f;stroke-width:0.529;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:32.3;stroke-dasharray:none;stroke-opacity:0.55000001"
        id="rect2"
        width="33.337383"
        height="33.337379"
@@ -413,6 +413,17 @@
        y="0.26464251"
        ry="0"
        inkscape:export-filename="../../Sprites/Map/grid.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#ff2520;stroke:#0f0f0f;stroke-width:0.529285;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:32.3;stroke-dasharray:none;stroke-opacity:0.55;fill-opacity:0.60000002"
+       id="rect2-0"
+       width="33.337383"
+       height="33.337379"
+       x="305.06464"
+       y="34.13131"
+       ry="0"
+       inkscape:export-filename="../../Sprites/Map/gridblock.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
   </g>
