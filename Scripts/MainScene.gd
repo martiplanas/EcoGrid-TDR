@@ -9,6 +9,7 @@ const GRID_SIZE = 128  # Adjust this value to your grid size
 
 var occupied_positions = {}
 var buildings_created = []
+var buildable_tiles = []
 
 #---Buildings Arrays---
 @onready var building_buttons = {
@@ -37,6 +38,11 @@ var demolishmode = false
 @onready var tilemap = $TileMap  # Ensure you have a TileMap node in your scene
 
 func _ready():
+	var buildable_tiles_i = $TileMap.get_used_cells(6)
+	for tile in buildable_tiles_i:
+		if tilemap.get_cell_source_id(6, tile) != 3:
+			buildable_tiles.append(Vector2((tile.x*128)+64,(tile.y*128)+64))
+	
 	set_process_input(true)
 
 func _input(event):
@@ -104,7 +110,7 @@ func _process(_delta):
 
 func place_building(position):
 	var grid_position = snap_to_grid(position)
-	if grid_position not in occupied_positions and !is_mouse_over_ui:
+	if grid_position not in occupied_positions and !is_mouse_over_ui and grid_position in buildable_tiles:
 		var building_id = button_to_id[button_selected]
 		if money.is_enough_money(building_price[building_id]):
 			if buildings_avalible[building_id] >= 1:

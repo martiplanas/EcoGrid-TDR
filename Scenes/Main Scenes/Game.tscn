@@ -135,6 +135,7 @@ texture_region_size = Vector2i(128, 128)
 0:3/0/terrains_peering_bit/top_side = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sdkh5"]
+resource_name = "Grid"
 texture = ExtResource("3_exq7n")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
