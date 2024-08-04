@@ -1,13 +1,12 @@
 extends TileMap
 
-const GRID_LAYER:int = 6 
+const GRID_LAYER:int = 9
+const WIND_LAYER:int = 6
+const GEO_LAYER:int = 7
+const SOLAR_LAYER:int = 8
+
 var mouse = 0
 @onready var main = $".."
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -19,3 +18,5 @@ func _process(delta):
 	else:
 		if is_layer_enabled(GRID_LAYER):
 			self.set_layer_enabled(GRID_LAYER, false)
+	
+	

@@ -20,6 +20,9 @@ var buildable_tiles = []
 
 var description_locations = {"wt": "res://Recources/Critique/Wind.txt", "sp": "res://Recources/Critique/Solar.txt", "nc": "res://Recources/Critique/Nuclear.txt"}
 
+var color_modifier = {0 : 0.25, 1 : 0.5, 2 : 0.75, 3 : 1.25, 4 : 1.75}
+var building_type_layer = {"wt":6, "sp":8, "nc":0}
+
 var building_price = {"wt": 800, "sp": 1000, "nc": 50000}
 var buildings_avalible = {"wt": 1,"sp": 1,"nc": 1}
 var button_to_id = {1 : "wt", 2 : "sp", 3 : "nc"}
@@ -38,9 +41,9 @@ var demolishmode = false
 @onready var tilemap = $TileMap  # Ensure you have a TileMap node in your scene
 
 func _ready():
-	var buildable_tiles_i = $TileMap.get_used_cells(6)
+	var buildable_tiles_i = $TileMap.get_used_cells(9)
 	for tile in buildable_tiles_i:
-		if tilemap.get_cell_source_id(6, tile) != 3:
+		if tilemap.get_cell_source_id(9, tile) != 3:
 			buildable_tiles.append(Vector2((tile.x*128)+64,(tile.y*128)+64))
 	
 	set_process_input(true)
@@ -119,6 +122,14 @@ func place_building(position):
 				buildings_created.append(new_building)
 				add_child(new_building)
 				new_building.position = grid_position
+				
+				#Get modifier
+				var layer = building_type_layer[building_id]
+				if layer != 0:
+					var position_atlas:Vector2i = Vector2i((grid_position.x-64)/128,(grid_position.y-64)/128)
+					var color_grade = tilemap.get_cell_atlas_coords(layer, position_atlas).x
+					new_building.output_modifier = color_modifier[color_grade]
+				
 				occupied_positions[grid_position] = new_building
 				print("New building ", new_building, " created on ", str(grid_position) ,".")
 			else:
