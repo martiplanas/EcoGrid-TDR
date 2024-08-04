@@ -7,7 +7,7 @@ var time_speed = TimeSpeed.NORMAL
 var time_multiplier = 1.0
 
 @onready var clockui = get_node("../Camera2D/UI/Clock/AnimationPlayer")
-@onready var line_manager = $"../Lines"
+@onready var cities_manager = $"../TileMap/Cities"
 
 var GameSeconds = 0
 
@@ -76,10 +76,6 @@ func increment_time():
 		print("Hour: %d, Day: %d" % [current_hour, current_day])
 
 func recolect_line_money():
-	#Each hour money
-	pass
-	#var i = 0
-	#for line in line_manager.lines:
-		#if line_manager.linesUsed[i]:
-			#line.hour_money_get()
-		#i += 1
+	for city in cities_manager.cities:
+		if city.visible and city != null:
+			city.get_money()

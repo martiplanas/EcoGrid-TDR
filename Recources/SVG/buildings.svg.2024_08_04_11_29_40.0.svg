@@ -27,9 +27,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="2.1749298"
-     inkscape:cx="660.2512"
-     inkscape:cy="63.680216"
+     inkscape:zoom="1.0874649"
+     inkscape:cx="194.94882"
+     inkscape:cy="204.6043"
      inkscape:window-width="1440"
      inkscape:window-height="786"
      inkscape:window-x="0"
@@ -1213,36 +1213,9 @@
       </g>
     </g>
     <path
-       style="fill:#ffcc00;fill-opacity:1;stroke:#3c3c00;stroke-width:0.595331;stroke-linecap:square;stroke-miterlimit:32.3;stroke-opacity:1"
-       d="m 148.40654,26.853258 h 7.1467 l -0.21439,-9.572553 h 3.57332 l -7.07521,-9.31029 -6.93228,9.17916 h 3.64481 z"
+       style="fill:#f6c932;fill-opacity:1;stroke:#535300;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:32.3;stroke-dasharray:none;stroke-opacity:1"
+       d="m 147.32101,27.539152 h 6.84125 v -8.433278 l 2.86545,0.03367 -6.4613,-9.5965004 -6.29573,9.4491384 3.1416,-0.0094 z"
        id="path10"
-       sodipodi:nodetypes="cccccccc"
-       inkscape:export-filename="../../Sprites/UI/upgrade.png"
-       inkscape:export-xdpi="400"
-       inkscape:export-ydpi="400" />
-    <path
-       style="fill:#ff3b30;fill-opacity:1;stroke:#5d1c12;stroke-width:0.595;stroke-linecap:square;stroke-miterlimit:32.3;stroke-opacity:1;stroke-dasharray:none"
-       d="m 189.85754,8.2487526 -7.14663,-0.030075 0.1741,9.5733709 -3.57329,-0.01504 7.03597,9.339982 6.97085,-9.149905 -3.64478,-0.01534 z"
-       id="path10-3"
-       sodipodi:nodetypes="cccccccc"
-       inkscape:export-filename="../../Sprites/UI/downgrade.png"
-       inkscape:export-xdpi="400"
-       inkscape:export-ydpi="400" />
-    <rect
-       style="fill:#ffcc00;fill-opacity:0;stroke:#282800;stroke-width:0.636882;stroke-linecap:square;stroke-miterlimit:32.3;stroke-opacity:0"
-       id="rect10"
-       width="33.229786"
-       height="33.203327"
-       x="135.78511"
-       y="0.318441"
-       ry="4.2983985" />
-    <rect
-       style="fill:#ffcc00;fill-opacity:0;stroke:#282800;stroke-width:0.636882;stroke-linecap:square;stroke-miterlimit:32.3;stroke-opacity:0"
-       id="rect10-2"
-       width="33.229786"
-       height="33.203327"
-       x="169.65178"
-       y="0.318441"
-       ry="4.2983985" />
+       sodipodi:nodetypes="cccccccc" />
   </g>
 </svg>

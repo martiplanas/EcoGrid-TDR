@@ -5,6 +5,12 @@ extends Area2D
 @onready var update_timer = $upgrade
 @onready var downgrade_pretimer = $"downgrade pretimer"
 @onready var timer = get_node("../../../TimerJesus")
+@onready var money = $"../../../Camera2D/UI/MoneyDisplay"
+
+@onready var upgradeprogress = $upgradeProgress
+@onready var downgradeprogress = $downgradeProgress
+
+const UPGRADE_TIME = 10
 
 var is_upgrading = false
 var upgrade_difference = 0
@@ -21,6 +27,14 @@ func _ready():
 	downgrade_pretimer.timeout.connect(_begin_downgrade)
 
 func _process(delta):
+	if is_upgrading:
+		if upgrade_difference == 1:
+			upgradeprogress.visible = true
+			upgradeprogress.value = ((UPGRADE_TIME - update_timer.time_left) / UPGRADE_TIME)*100
+	else:
+		upgradeprogress.visible = false
+		downgradeprogress.visible = false
+	
 	#Begin upgrades
 	if is_upgrading == false:
 		if $TextureProgressBar.value == 100 and level < 5:
@@ -82,3 +96,8 @@ func update_percent():
 	
 	percent = (generated * 100) / current_needs
 	$TextureProgressBar.value = percent
+
+func get_money():
+	if current_needs != 0 and current_needs != null and $TextureProgressBar.value != null and $TextureProgressBar.value != 0:
+		var energy_delivered = ($TextureProgressBar.value / 100) * current_needs
+		money.modify_money(energy_delivered * 0.5)
