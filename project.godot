@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="EcoGrid"
-config/version="0.3"
-run/main_scene="res://Scenes/Main Scenes/Game.tscn"
+config/version="0.4"
+run/main_scene="res://Scenes/UI/Main Menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://Recources/Icons/MACOS LOGO.png"
