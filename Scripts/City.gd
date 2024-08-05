@@ -6,13 +6,17 @@ extends Area2D
 @onready var downgrade_pretimer = $"downgrade pretimer"
 @onready var timer = get_node("../../../TimerJesus")
 @onready var money = $"../../../Camera2D/UI/MoneyDisplay"
-
+@onready var camera =  get_node("../../../Camera2D")
+@onready var gameover_screen = get_node("../../../Camera2D/UI/GameoverScreen")
 @onready var upgradeprogress = $upgradeProgress
-@onready var downgradeprogress = $downgradeProgress
+@onready var lose_progress = $loseProgres
 
-const UPGRADE_TIME = 10
+const UPGRADE_TIME = 30
+
+const DOWNGRADE_TIME = 60
 
 var is_upgrading = false
+var is_losing_timer = false
 var upgrade_difference = 0
 
 var needs = []
@@ -24,39 +28,40 @@ var level = 1
 
 func _ready():
 	update_timer.timeout.connect(_on_timer_timeout)
-	downgrade_pretimer.timeout.connect(_begin_downgrade)
+	downgrade_pretimer.timeout.connect(_lose)
 
 func _process(delta):
+	
 	if is_upgrading:
 		if upgrade_difference == 1:
 			upgradeprogress.visible = true
-			upgradeprogress.value = ((UPGRADE_TIME - update_timer.time_left) / UPGRADE_TIME)*100
+			upgradeprogress.value = ((UPGRADE_TIME - update_timer.time_left)*100 / UPGRADE_TIME)
 	else:
 		upgradeprogress.visible = false
-		downgradeprogress.visible = false
 	
+	if is_losing_timer:
+		lose_progress.visible = true
+		lose_progress.value = ((DOWNGRADE_TIME - downgrade_pretimer.time_left)*100 / DOWNGRADE_TIME)
+	else:
+		lose_progress.visible = false
 	#Begin upgrades
-	if is_upgrading == false:
+	if !is_upgrading:
 		if $TextureProgressBar.value == 100 and level < 5:
 			is_upgrading = true
 			upgrade_difference = +1
-			update_timer.start
-		if $TextureProgressBar.value < 50 and level > 1:
-			is_upgrading = true
-			upgrade_difference = -1
-			downgrade_pretimer.start
+			update_timer.start()
+	if !is_losing_timer:
+		if $TextureProgressBar.value < 50 and level != 1:
+			is_losing_timer = true
+			downgrade_pretimer.start()
+			lose_progress.visible = true
 	
 	#Stop upgrading
 	if is_upgrading:
 		if upgrade_difference == +1:
 			if $TextureProgressBar.value != 100:
 				update_timer.stop()
-				is_upgrading = false
-				upgrade_difference = 0
-		if upgrade_difference == -1:
-			if $TextureProgressBar.value < 50:
-				update_timer.stop()
-				downgrade_pretimer.stop()
+				print("STOP UPGRADING")
 				is_upgrading = false
 				upgrade_difference = 0
 	
@@ -64,6 +69,14 @@ func _process(delta):
 	for li in lines:
 		if not li.is_visible_in_tree():
 			lines.erase(li)
+	$loseProgres
+	if is_losing_timer:
+		if not downgrade_pretimer.is_stopped():
+			if $TextureProgressBar.value > 50 or level == 1:
+				is_losing_timer = false
+				downgrade_pretimer.stop()
+				lose_progress.visible = false
+				lose_progress.value = 0
 	
 	#Update current needs depending on level	
 	if needs.size() == 5:
@@ -81,11 +94,10 @@ func update_needs():
 	current_needs = needs[level-1]
 
 func change_city_level(diference:int):
+	if diference == -1:
+		diference = false
 	level += diference
 	update_needs()
-
-func _begin_downgrade():
-	update_timer.start
 
 func update_percent():
 	var generated:float = 0
@@ -96,6 +108,18 @@ func update_percent():
 	
 	percent = (generated * 100) / current_needs
 	$TextureProgressBar.value = percent
+
+func _lose():
+	camera.position = self.position
+	camera.zoom.x = 0.7
+	camera.zoom.y = 0.7
+	camera.update_scale()
+	gameover_screen.visible = true
+	SimulationManager.has_lost = true
+	get_tree().paused = true
+	print("----------------------------------")
+	print("            PAYER LOST            ")
+	print("----------------------------------")
 
 func get_money():
 	if current_needs != 0 and current_needs != null and $TextureProgressBar.value != null and $TextureProgressBar.value != 0:

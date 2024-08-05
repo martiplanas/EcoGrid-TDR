@@ -10,5 +10,7 @@ var total_production = 0
 
 var money_per_unit = 0.25
 
+var has_lost = false
+
 func begin_simulation():
 	pass

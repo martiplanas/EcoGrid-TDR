@@ -44,22 +44,15 @@ func _process(delta):
 			buttons[b].button_pressed = true
 	
 	var i = 0
-	for avalible in main.buildings_avalible.values():
-		if i == 0:
-			b1.set_text(str(avalible))
-		elif i == 1:
-			b2.set_text(str(avalible))
-		elif i == 2:
-			b3.set_text(str(avalible))
-		i += 1
 	
-	#PAUSE MENU STUFF
-	if isPauseMenuActive:
-		pauseMenu.visible = true
-		get_tree().paused = true
-	else:
-		pauseMenu.visible = false
-		get_tree().paused = false
+	if SimulationManager.has_lost == false:
+		#PAUSE MENU STUFF
+		if isPauseMenuActive:
+			pauseMenu.visible = true
+			get_tree().paused = true
+		else:
+			pauseMenu.visible = false
+			get_tree().paused = false
 	
 	update_ToolBar()
 

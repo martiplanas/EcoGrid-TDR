@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://bjde7s0i3hvjb"]
 
 [ext_resource type="Texture2D" uid="uid://biulihr837xln" path="res://Sprites/Map/city.png" id="1_g50mm"]
-[ext_resource type="Texture2D" uid="uid://c41xqlo1lnx63" path="res://Sprites/UI/downgradeBack.png" id="2_3g4lg"]
 [ext_resource type="Script" path="res://Scripts/City.gd" id="2_f1agc"]
-[ext_resource type="Texture2D" uid="uid://b6lkcl6gdsg2n" path="res://Sprites/UI/downgrade.png" id="3_y72ay"]
+[ext_resource type="Texture2D" uid="uid://jl4guo00yhjd" path="res://Sprites/UI/loseRingBackground.png" id="2_fw78d"]
+[ext_resource type="Texture2D" uid="uid://cksyo2i3bd24r" path="res://Sprites/UI/loseRingFill.png" id="3_c46ve"]
 [ext_resource type="Texture2D" uid="uid://dpj385w8c0hsa" path="res://Sprites/Map/citygreen.png" id="4_sxltp"]
 [ext_resource type="Texture2D" uid="uid://bqrla3m0fuw0m" path="res://Sprites/UI/upgradeBack.png" id="6_ycmsj"]
 [ext_resource type="Texture2D" uid="uid://cqb5yfhmrw1vq" path="res://Sprites/UI/upgrade.png" id="7_v84pq"]
@@ -14,24 +14,21 @@ radius = 64.0
 [node name="City" type="Area2D"]
 script = ExtResource("2_f1agc")
 
-[node name="downgradeProgress" type="TextureProgressBar" parent="."]
-visible = false
-z_index = 55
+[node name="loseProgres" type="TextureProgressBar" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -27.0
-offset_top = -33.0
-offset_right = 212.0
-offset_bottom = 277.0
+offset_left = -96.0
+offset_top = -96.0
+offset_right = 96.0
+offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.22, 0.22)
-fill_mode = 2
-texture_under = ExtResource("2_3g4lg")
-texture_progress = ExtResource("3_y72ay")
+fill_mode = 4
+texture_under = ExtResource("2_fw78d")
+texture_progress = ExtResource("3_c46ve")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xrp3j")
@@ -51,10 +48,10 @@ nine_patch_stretch = true
 texture_progress = ExtResource("4_sxltp")
 
 [node name="upgrade" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 30.0
 
 [node name="downgrade pretimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 60.0
 
 [node name="upgradeProgress" type="TextureProgressBar" parent="."]
 visible = false

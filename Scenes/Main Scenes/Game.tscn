@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://dvvh6edgstumi"]
+[gd_scene load_steps=95 format=3 uid="uid://dvvh6edgstumi"]
 
 [ext_resource type="Script" path="res://Scripts/MainScene.gd" id="1_bgq80"]
 [ext_resource type="Texture2D" uid="uid://cnobxxldmlj0k" path="res://Sprites/Map/river tileset.png" id="2_ntn3v"]
@@ -40,6 +40,7 @@
 [ext_resource type="Script" path="res://Scripts/time.gd" id="31_udwig"]
 [ext_resource type="Script" path="res://Scenes/Main Scenes/moneydisplayer.gd" id="33_l2fwi"]
 [ext_resource type="Script" path="res://Scripts/line.gd" id="35_qonuk"]
+[ext_resource type="Script" path="res://Scenes/Main Scenes/gameovercontroller.gd" id="37_2t5e3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0pidl"]
 texture = ExtResource("2_ntn3v")
@@ -513,6 +514,8 @@ events = [SubResource("InputEventKey_trcg4")]
 [sub_resource type="LabelSettings" id="LabelSettings_mnwqn"]
 font_size = 19
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iqalc"]
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_bgq80")
 
@@ -609,7 +612,7 @@ theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_01ea8")
 toggle_mode = true
 shortcut = SubResource("Shortcut_dnfih")
-text = "mouse"
+text = "Mouse"
 icon = ExtResource("8_jdd7p")
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -617,11 +620,11 @@ vertical_icon_alignment = 0
 [node name="Building_wt" type="Button" parent="Camera2D/UI/ToolBar/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/icon_max_width = 62
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_01ea8")
 toggle_mode = true
 shortcut = SubResource("Shortcut_r07g1")
-text = "wind turbine"
+text = "Wind Turbine"
 icon = ExtResource("9_2peiw")
 text_overrun_behavior = 3
 icon_alignment = 1
@@ -630,11 +633,11 @@ vertical_icon_alignment = 0
 [node name="Building_sp" type="Button" parent="Camera2D/UI/ToolBar/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/icon_max_width = 62
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_01ea8")
 toggle_mode = true
 shortcut = SubResource("Shortcut_6lphb")
-text = "Solar Plant"
+text = "Solar Panels"
 icon = ExtResource("10_sv702")
 text_overrun_behavior = 3
 icon_alignment = 1
@@ -643,11 +646,11 @@ vertical_icon_alignment = 0
 [node name="Building_nc" type="Button" parent="Camera2D/UI/ToolBar/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/icon_max_width = 62
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_01ea8")
 toggle_mode = true
 shortcut = SubResource("Shortcut_mjem5")
-text = "Nuclear plant"
+text = "Nuclear Plant"
 icon = ExtResource("11_34yd3")
 text_overrun_behavior = 3
 icon_alignment = 1
@@ -1147,6 +1150,65 @@ label_settings = SubResource("LabelSettings_mnwqn")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="GameoverScreen" type="Panel" parent="Camera2D/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -435.0
+offset_top = -264.0
+offset_right = 436.0
+offset_bottom = 201.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_iqalc")
+script = ExtResource("37_2t5e3")
+
+[node name="Label2" type="Label" parent="Camera2D/UI/GameoverScreen"]
+layout_mode = 2
+offset_right = 500.0
+offset_bottom = 91.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 66
+text = "Game Over"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/UI/GameoverScreen"]
+layout_mode = 2
+offset_left = 17.0
+offset_top = 371.0
+offset_right = 217.0
+offset_bottom = 482.0
+size_flags_horizontal = 0
+
+[node name="replay" type="Button" parent="Camera2D/UI/GameoverScreen/VBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Retry"
+
+[node name="mainmenu" type="Button" parent="Camera2D/UI/GameoverScreen/VBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Game over" type="Label" parent="Camera2D/UI/GameoverScreen"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+offset_left = 402.0
+offset_top = 361.0
+offset_right = 902.0
+offset_bottom = 472.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 25
+text = "Your power grid has been shutdown becouse you didn't deliver more than 50% of energy for 1 minute."
+autowrap_mode = 2
+
 [node name="ScenarioLoader" type="Node" parent="."]
 script = ExtResource("29_ad4t6")
 
@@ -1258,4 +1320,6 @@ script = ExtResource("35_qonuk")
 [connection signal="pressed" from="Camera2D/UI/Lines/LinesBox/L5Box/L5CloseButton" to="Camera2D/UI/Lines" method="_on_l_5_close_button_pressed"]
 [connection signal="pressed" from="Camera2D/UI/Lines/LinesBox/L6Box/L6CloseButton" to="Camera2D/UI/Lines" method="_on_l_6_close_button_pressed"]
 [connection signal="pressed" from="Camera2D/UI/Lines/LinesBox/L7Box/L7CloseButton" to="Camera2D/UI/Lines" method="_on_l_7_close_button_pressed"]
+[connection signal="pressed" from="Camera2D/UI/GameoverScreen/VBoxContainer/replay" to="Camera2D/UI/GameoverScreen" method="_on_replay_pressed"]
+[connection signal="pressed" from="Camera2D/UI/GameoverScreen/VBoxContainer/mainmenu" to="Camera2D/UI/GameoverScreen" method="_on_mainmenu_pressed"]
 [connection signal="timeout" from="TimerJesus" to="TimerJesus" method="_on_timeout"]

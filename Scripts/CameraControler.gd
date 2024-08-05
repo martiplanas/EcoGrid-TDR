@@ -1,7 +1,7 @@
 extends Camera2D
 
 # Movement speed
-@export var base_move_speed: float = 300.0
+@export var base_move_speed: float = 350.0
 
 # Zoom variables
 @export var zoom_speed: float = 0.01
@@ -36,3 +36,6 @@ func _process(delta: float) -> void:
 	
 	position.x = clamp(position.x, -500, 4000)
 	position.y = clamp(position.y, -500, 4000)
+
+func update_scale():
+	scale = Vector2(1 / zoom.x, 1 / zoom.y)
