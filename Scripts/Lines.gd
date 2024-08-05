@@ -10,7 +10,7 @@ var creatingLine = false
 @onready var cityManager = get_node("../TileMap/Cities")
 var previousTile
 
-const MAX_POINTS = 6
+const MAX_POINTS = 10
 
 func _ready():
 	for line in lines:

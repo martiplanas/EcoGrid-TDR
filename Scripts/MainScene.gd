@@ -27,7 +27,8 @@ var building_price = {"wt": 800, "sp": 1000, "nc": 50000}
 var buildings_avalible = {"wt": 1,"sp": 1,"nc": 1}
 var button_to_id = {1 : "wt", 2 : "sp", 3 : "nc"}
 var id_to_L_name = {"wt": "Wind Turbine", "sp": "Solar panels", "nc": "Nuclear Power Plant"}
-var buildings_scenes = {"wt" : preload("res://Scenes/Buildings/wind_turbine.tscn"), "sp" : preload("res://Scenes/Buildings/solar_panel.tscn"), "nc" : ("res://Scenes/Buildings/nuclear_plant.tscn")}
+var buildings_scenes = {"wt" : preload("res://Scenes/Buildings/wind_turbine.tscn"), "sp" : preload("res://Scenes/Buildings/solar_panel.tscn"), "nc" : preload("res://Scenes/Buildings/nuclear_plant.tscn")}
+var build_models_scenes = {"wt": preload("res://Scenes/Buildings/wind_turbine_build_mode.tscn"), "sp":preload("res://Scenes/Buildings/solar_panel_build_mode.tscn"), "nc" : preload("res://Scenes/Buildings/nuclear_plant_build_mode.tscn")}
 
 var infoPanel = preload("res://Scenes/UI/infoPanel.tscn")
 
@@ -37,6 +38,10 @@ var is_mouse_over_ui = false
 var button_selected = 0
 var buildmode = false
 var demolishmode = false
+
+var current_build_model
+var current_build_type
+
 @onready var ui_manager = get_node("Camera2D/UI")
 @onready var tilemap = $TileMap  # Ensure you have a TileMap node in your scene
 
@@ -62,6 +67,7 @@ func _input(event):
 					var building_pos = i.position
 					if mouse_pos == building_pos:
 						demolish_building(i, building_pos)
+				
 
 func demolish_building(building, building_pos):
 	occupied_positions.erase(building_pos)
@@ -109,6 +115,79 @@ func _process(_delta):
 	# Set demolishmode based on button_selected
 	demolishmode = (button_selected == 5)
 	
+	if buildmode:
+		var id = button_to_id[button_selected]
+		if current_build_type != id:
+			current_build_type = id
+			if current_build_model != null:
+				current_build_model.queue_free()
+			current_build_model = build_models_scenes[id].instantiate()
+			add_child(current_build_model)
+		elif current_build_type == id:
+			if current_build_model != null:
+				current_build_model.position = snap_to_grid(get_global_mouse_position())
+				
+				var price_tag
+				var energy_tag
+				var position_tag
+				
+				var price_can = false
+				var position_can = false
+				
+				for childs in current_build_model.get_child(1).get_child(0).get_children():
+					if childs.name ==  "price":
+						price_tag = childs
+					if childs.name == "position":
+						position_tag = childs
+					if childs.name == "energy":
+						energy_tag = childs
+				
+				if price_tag != null:
+					if money.is_enough_money(building_price[id]):
+						price_tag.text = "Price: " + str(building_price[id])
+						price_tag.modulate = Color(0.5,255,0.5,1)
+						price_can = true
+					else:
+						price_can = false
+						price_tag.text = "Not enough money, price: " + str(building_price[id])
+						price_tag.modulate = Color(1,0.25,0.25,1)
+				
+				if position_tag != null:
+					var grid_position = snap_to_grid(get_global_mouse_position())
+					if grid_position not in occupied_positions and grid_position in buildable_tiles:
+						position_tag.text = "This position is avalible."
+						position_tag.modulate = Color(0.5,1,0.5,1)
+						position_can = true
+					else:
+						position_tag.text = "This position is not buildable."
+						position_tag.modulate = Color(1,0.25,0.25,1)
+						position_can = false
+				
+				if energy_tag != null and position_can:
+					var grid_position = snap_to_grid(get_global_mouse_position())
+					var layer_num = building_type_layer[id]
+					var modifier = get_position_modifier(layer_num, grid_position)
+					var building_base_production = scnl.buildings[id]
+					var final_production = modifier * building_base_production
+					energy_tag.text = "Energy production at this position: " + str(final_production) + "."
+				else:
+					energy_tag.text = "Energy production at this position: 0"
+				
+				if price_can == false or position_can == false:
+					current_build_model.get_child(0).modulate = Color(1,0.25,0.25,0.75)
+				else:
+					current_build_model.get_child(0).modulate = Color(0.5,1,0.5,0.75)
+				
+				if is_mouse_over_ui:
+					current_build_model.visible = false
+				else:
+					current_build_model.visible = true
+	else:
+		if current_build_model != null:
+			current_build_model.queue_free()
+			current_build_model = null
+			current_build_type = null
+	
 	disable_no_disponibles()
 
 func place_building(position):
@@ -125,10 +204,7 @@ func place_building(position):
 				
 				#Get modifier
 				var layer = building_type_layer[building_id]
-				if layer != 0:
-					var position_atlas:Vector2i = Vector2i((grid_position.x-64)/128,(grid_position.y-64)/128)
-					var color_grade = tilemap.get_cell_atlas_coords(layer, position_atlas).x
-					new_building.output_modifier = color_modifier[color_grade]
+				new_building.output_modifier = get_position_modifier(layer, grid_position)
 				
 				occupied_positions[grid_position] = new_building
 				print("New building ", new_building, " created on ", str(grid_position) ,".")
@@ -156,6 +232,14 @@ func load_text_file(path: String) -> String:
 	var file = FileAccess.open(path, FileAccess.READ)
 	var content = file.get_as_text()
 	return content
+
+func get_position_modifier(layer, position):
+	if layer != 0:
+		var position_atlas:Vector2i = Vector2i((position.x-64)/128,(position.y-64)/128)
+		var color_grade = tilemap.get_cell_atlas_coords(layer, position_atlas).x
+		return color_modifier[color_grade]
+	else:
+		return 1
 
 func _on_panel_container_mouse_entered():
 	is_mouse_over_ui = true

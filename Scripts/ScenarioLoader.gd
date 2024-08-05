@@ -13,6 +13,12 @@ var cities = {
 	"Manresa": {"position": Vector2(1856, 1984), "population": 76000, "l1": 200, "l2" : 500, "l3" : 1000 , "l4" : 2500, "l5" : 5000, "unlock_order" : 0, "description": "res://Recources/Critique/cities/Manresa.txt"}
 }
 
+var buildings = {
+	"wt" : 100,
+	"sp" : 200,
+	"nc" : 2000
+}
+
 #Legacy city data
 var citynames = ["Girona", "Barcelona", "Lleida", "Tarragona", "Manresa"]
 var citypos = [Vector2(3264, 1600), Vector2(2368,2752), Vector2(320,2112), Vector2(1344,3008), Vector2(1856,1984)]
