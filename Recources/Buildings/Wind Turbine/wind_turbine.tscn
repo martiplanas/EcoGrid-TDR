@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ci1633lte3uag"]
 
-[ext_resource type="Script" path="res://Recources/Buildings/GeneratorScript.gd" id="1_jrgpt"]
+[ext_resource type="Script" path="res://Recources/Buildings/newGenerator.gd" id="1_imsd6"]
 [ext_resource type="Texture2D" uid="uid://d2osa1pmmb3by" path="res://Recources/Buildings/Wind Turbine/windbase.png" id="2_8snmj"]
 [ext_resource type="Texture2D" uid="uid://c4kjqowoojtls" path="res://Recources/Buildings/Wind Turbine/windblade.png" id="3_1npkj"]
 
@@ -46,7 +46,7 @@ _data = {
 }
 
 [node name="WindTurbine" type="Node2D"]
-script = ExtResource("1_jrgpt")
+script = ExtResource("1_imsd6")
 metadata/Type = "wt"
 metadata/Energy_Production = 100
 

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu43uoy3ugt1w"]
+
+[ext_resource type="Script" path="res://Recources/Buildings/newGenerator.gd" id="1_maxtm"]
+[ext_resource type="Texture2D" uid="uid://chroluf8v7yca" path="res://Recources/Buildings/Solar Panels/solar.png" id="2_eeiqj"]
+
+[node name="Solar-panel-2" type="Node2D"]
+script = ExtResource("1_maxtm")
+metadata/Type = "sp"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.0868416, -3.57628e-07)
+scale = Vector2(0.173677, 0.174863)
+texture = ExtResource("2_eeiqj")

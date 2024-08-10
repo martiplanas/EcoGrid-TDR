@@ -14,7 +14,7 @@ var line_container  = []
 	},
 	"sp" : {
 		"description" : "res://Recources/Buildings/Solar Panels/Solar.txt",
-		"scene" : preload("res://Recources/Buildings/Solar Panels/solar_panel.tscn"),
+		"scene" : preload("res://Recources/Buildings/Solar Panels/solar-panel-2.tscn"),
 		"cursor" : preload("res://Recources/Buildings/Solar Panels/solar_panel_cursor.tscn"),
 		"button" : $Camera2D/UI/ToolBar/VBoxContainer/Building_sp,
 		"price" : 500,

@@ -15,46 +15,46 @@ var buildable_tiles = []
 
 @onready var building_data = {
 	"wt" : {
+		"name" : "Wind Turbine",
 		"description" : "res://Recources/Buildings/Wind Turbine/Wind.txt",
 		"scene" : preload("res://Recources/Buildings/Wind Turbine/wind_turbine.tscn"),
 		"cursor" : preload("res://Recources/Buildings/Wind Turbine/wind_turbine_cursor.tscn"),
-		"button" : $Camera2D/UI/ToolBar/VBoxContainer/Building_wt,
 		"price" : 1200,
 		"generation" : 500, 
 		"unlocked" : true,
 	},
 	"sp" : {
+		"name" : "Solar Panels",
 		"description" : "res://Recources/Buildings/Solar Panels/Solar.txt",
-		"scene" : preload("res://Recources/Buildings/Solar Panels/solar_panel.tscn"),
+		"scene" : preload("res://Recources/Buildings/Solar Panels/solar-panel-2.tscn"),
 		"cursor" : preload("res://Recources/Buildings/Solar Panels/solar_panel_cursor.tscn"),
-		"button" : $Camera2D/UI/ToolBar/VBoxContainer/Building_sp,
 		"price" : 500,
 		"generation" : 200,
 		"unlocked" : true,
 	},
 	"nc" : {
+		"name" : "Nuclear Power Plant",
 		"description" : "res://Recources/Buildings/Nuclear Power Plant/Nuclear.txt",
 		"scene" : preload("res://Recources/Buildings/Nuclear Power Plant/nuclear_plant.tscn"),
 		"cursor" : preload("res://Recources/Buildings/Nuclear Power Plant/nuclear_plant_cursor.tscn"),
-		"button" : $Camera2D/UI/ToolBar/VBoxContainer/Building_nc,
 		"price" : 100000,
 		"generation" : 10000,
 		"unlocked" : true,
 	},
 	"gt" : {
+		"name" : "Geothermal Power Plant",
 		"description" : "res://Recources/Buildings/Geotermical/Geo.txt",
 		"scene" : preload("res://Recources/Buildings/Geotermical/Geothermal.tscn"),
 		"cursor" : preload("res://Recources/Buildings/Geotermical/Geothermal_cursor.tscn"),
-		"button" :  $Camera2D/UI/ToolBar/VBoxContainer/Building_wt,
 		"price" : 5000,
 		"generation" : 1500,
 		"unlocked" : true,
 	},
 	"hp" : {
+		"name" : "Hydropower",
 		"description" : "res://Recources/Buildings/Hydropower/Hydro.txt",
 		"scene" : preload("res://Recources/Buildings/Hydropower/Hydropower.tscn"),
 		"cursor" : preload("res://Recources/Buildings/Hydropower/Hydropower_cursor.tscn"),
-		"button" :  $Camera2D/UI/ToolBar/VBoxContainer/Building_wt,
 		"price" : 10000,
 		"generation" : 3000,
 		"unlocked" : false,
@@ -62,11 +62,9 @@ var buildable_tiles = []
 }
 
 var building_type_layer = {"wt":6, "sp":8, "nc":0, "gt":0, "hp":0}
+var button_to_id = {1 : "wt", 2 : "sp", 3 : "nc", 6 : "hp", 7 : "gt"}
 
 var color_modifier = {0 : 0.25, 1 : 0.5, 2 : 0.75, 3 : 1.25, 4 : 1.75}
-
-var button_to_id = {1 : "wt", 2 : "sp", 3 : "nc", 6 : "hp", 7 : "gt"}
-var id_to_L_name = {"wt": "Wind Turbine", "sp": "Solar panels", "nc": "Nuclear Power Plant"}
 
 
 var infoPanel = preload("res://Scenes/UI/infoPanel.tscn")
@@ -127,7 +125,7 @@ func check_for_info(position):
 				var newPanel = infoPanel.instantiate()
 				ui.add_child(newPanel)
 				
-				var title = id_to_L_name[key] + " info"
+				var title = building_data[key]["name"] + " info"
 				var description = load_text_file(building_data[key]["description"])
 				var generating_num = "Energy generation: " + str(building.get_meta("Energy_Production"))
 				
@@ -242,8 +240,7 @@ func place_building(position):
 				#Get modifier
 				var layer = building_type_layer[building_id]
 				
-				#new_building.output_modifier = get_position_modifier(layer, grid_position)
-				new_building.output_modifier = 1
+				new_building.output_modifier = get_position_modifier(layer, grid_position)
 				
 				occupied_positions[grid_position] = new_building
 				print("New building ", new_building, " created on ", str(grid_position) ,".")

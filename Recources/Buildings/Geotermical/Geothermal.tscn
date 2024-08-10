@@ -1,21 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjqgxvhdpera0"]
+[gd_scene load_steps=3 format=3 uid="uid://gsxuvtp62f8t"]
 
-[ext_resource type="Script" path="res://Recources/Buildings/GeneratorScript.gd" id="1_72iad"]
-[ext_resource type="Texture2D" uid="uid://cngeg2qiewhov" path="res://Recources/Buildings/Geotermical/gt.png" id="2_pyy7t"]
+[ext_resource type="Script" path="res://Recources/Buildings/newGenerator.gd" id="1_dv8h8"]
+[ext_resource type="Texture2D" uid="uid://cngeg2qiewhov" path="res://Recources/Buildings/Geotermical/gt.png" id="2_etnmg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfrr1"]
-size = Vector2(128, 128)
-
-[node name="Geothermal" type="Node2D"]
-script = ExtResource("1_72iad")
+[node name="Solar-panel-2" type="Node2D"]
+script = ExtResource("1_dv8h8")
 metadata/Type = "gt"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(-1.5, 0)
-scale = Vector2(0.24, 0.24)
-texture = ExtResource("2_pyy7t")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_vfrr1")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.120062, 0.120071)
+scale = Vector2(0.24015, 0.24015)
+texture = ExtResource("2_etnmg")

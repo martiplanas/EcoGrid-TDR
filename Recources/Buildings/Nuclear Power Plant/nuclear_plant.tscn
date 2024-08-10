@@ -1,22 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://12yurdvvk6ok"]
+[gd_scene load_steps=3 format=3 uid="uid://b76v1cubiyuke"]
 
-[ext_resource type="Script" path="res://Recources/Buildings/GeneratorScript.gd" id="1_fjnna"]
-[ext_resource type="Texture2D" uid="uid://kuojihhwmjpq" path="res://Recources/Buildings/Nuclear Power Plant/nuclear.png" id="2_0e8nw"]
+[ext_resource type="Script" path="res://Recources/Buildings/newGenerator.gd" id="1_fknw8"]
+[ext_resource type="Texture2D" uid="uid://kuojihhwmjpq" path="res://Recources/Buildings/Nuclear Power Plant/nuclear.png" id="2_26spe"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfrr1"]
-size = Vector2(128, 128)
+[node name="Solar-panel-2" type="Node2D"]
+script = ExtResource("1_fknw8")
+metadata/Type = "sp"
 
-[node name="NuclearPlant" type="Node2D"]
-script = ExtResource("1_fjnna")
-metadata/Type = "nc"
-metadata/Energy_Production = 2000
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(0.235579, 12.1201)
-scale = Vector2(0.240185, 0.240185)
-texture = ExtResource("2_0e8nw")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_vfrr1")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.0868416, -3.57628e-07)
+scale = Vector2(0.24, 0.241)
+texture = ExtResource("2_26spe")
