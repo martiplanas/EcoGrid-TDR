@@ -56,3 +56,9 @@ func _on_line_creator_pressed():
 
 func _on_demolisher_pressed():
 	set_layer(0)
+
+func _on_building_hp_pressed():
+	set_layer(0)
+
+func _on_building_gt_pressed():
+	set_layer(0)

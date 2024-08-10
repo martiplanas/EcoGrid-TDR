@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://bipafibkohoxn"]
+
+[ext_resource type="Texture2D" uid="uid://kuojihhwmjpq" path="res://Recources/Buildings/Nuclear Power Plant/nuclear.png" id="1_xguj8"]
+
+[node name="NuclearPlant" type="Node2D"]
+z_index = 100
+metadata/Type = "nc"
+metadata/Energy_Production = 2000
+
+[node name="sprite" type="Sprite2D" parent="."]
+z_index = 79
+position = Vector2(0.235579, 12.1201)
+scale = Vector2(0.240185, 0.240185)
+texture = ExtResource("1_xguj8")
+
+[node name="Panel" type="Panel" parent="."]
+z_index = 80
+offset_left = 53.0
+offset_top = -111.0
+offset_right = 403.0
+offset_bottom = 1.0
+
+[node name="Box" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="Panel/Box"]
+layout_mode = 2
+text = "Nuclear Power Plant
+"
+
+[node name="energy" type="Label" parent="Panel/Box"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="Panel/Box"]
+layout_mode = 2
+
+[node name="price" type="Label" parent="Panel/Box"]
+layout_mode = 2
+text = "sdasd"

@@ -47,7 +47,7 @@ func update_stats():
 	
 	energy_generation = 0
 	for generator in generators:
-		energy_generation += generator.get_meta("Energy_Production")
+		energy_generation += generator.energy_production
 
 func initzialitzate_line():
 	previous_ammonut_points = self.get_point_count()

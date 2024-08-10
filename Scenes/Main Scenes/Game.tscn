@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://dvvh6edgstumi"]
+[gd_scene load_steps=114 format=3 uid="uid://dvvh6edgstumi"]
 
 [ext_resource type="Script" path="res://Scripts/MainScene.gd" id="1_bgq80"]
 [ext_resource type="Texture2D" uid="uid://cnobxxldmlj0k" path="res://Sprites/Map/river tileset.png" id="2_ntn3v"]
@@ -11,36 +11,55 @@
 [ext_resource type="Script" path="res://Scripts/CameraControler.gd" id="6_r2d8k"]
 [ext_resource type="Script" path="res://Scripts/UIManager.gd" id="7_jpdud"]
 [ext_resource type="Theme" uid="uid://deqerf02xsbny" path="res://GameBar.tres" id="8_ft4ia"]
-[ext_resource type="Texture2D" uid="uid://dqpv2b04gepjh" path="res://Sprites/UI/mouseButton.png" id="8_jdd7p"]
-[ext_resource type="Texture2D" uid="uid://d3sjrxy0hc82c" path="res://Sprites/UI/WindButton.png" id="9_2peiw"]
-[ext_resource type="Texture2D" uid="uid://b7nsohtgpp5ax" path="res://Sprites/UI/solarButton.png" id="10_sv702"]
-[ext_resource type="Texture2D" uid="uid://mpwd8xdgbf5r" path="res://Sprites/UI/NuclearButton.png" id="11_34yd3"]
-[ext_resource type="Texture2D" uid="uid://busvl1yyye0fo" path="res://Sprites/UI/CableButton.png" id="12_hl8nh"]
-[ext_resource type="Texture2D" uid="uid://crblqp034c6xt" path="res://Sprites/UI/BulldozerButton.png" id="13_nwefr"]
+[ext_resource type="Texture2D" uid="uid://bh837uw43x3iu" path="res://Recources/UI/ToolBar/bar.png" id="11_gqc04"]
+[ext_resource type="Texture2D" uid="uid://dr6i2jxgenn0a" path="res://Recources/UI/ToolBar/mouse.png" id="12_jyovq"]
+[ext_resource type="Texture2D" uid="uid://c25o477c8ekmw" path="res://Recources/UI/ToolBar/mouseHighlit.png" id="13_06dfl"]
+[ext_resource type="Texture2D" uid="uid://bcn2xlgvvtewr" path="res://Recources/UI/ToolBar/solar.png" id="13_gdttr"]
 [ext_resource type="Texture2D" uid="uid://b6np1w1ntt1bf" path="res://Sprites/UI/pause button.png" id="14_3rfmq"]
+[ext_resource type="Texture2D" uid="uid://dr8lb03384yuk" path="res://Recources/UI/ToolBar/wind.png" id="14_4btxw"]
+[ext_resource type="Texture2D" uid="uid://huio2nwtngv8" path="res://Recources/UI/ToolBar/mouseHover.png" id="14_260ey"]
 [ext_resource type="Texture2D" uid="uid://c2yyvdvgbybd1" path="res://Sprites/UI/clockcircle.png" id="15_um4ka"]
 [ext_resource type="Script" path="res://Scripts/ClockUIControler.gd" id="16_b17e5"]
+[ext_resource type="Texture2D" uid="uid://2lnbey5l5het" path="res://Recources/UI/ToolBar/water.png" id="17_8p5fk"]
+[ext_resource type="Texture2D" uid="uid://16pjndew7cu" path="res://Recources/UI/ToolBar/SolarHighlit.png" id="17_c41sx"]
 [ext_resource type="Texture2D" uid="uid://deek8ixgoslxx" path="res://Sprites/UI/clockselectorbackground.png" id="17_o2oup"]
+[ext_resource type="Texture2D" uid="uid://cmn225al72tc0" path="res://Recources/UI/ToolBar/solarHover.png" id="18_7tygt"]
+[ext_resource type="Texture2D" uid="uid://ckqi515w6h4dl" path="res://Recources/UI/ToolBar/geo.png" id="18_tby25"]
 [ext_resource type="Texture2D" uid="uid://ddy8hcqhp3gjj" path="res://Sprites/UI/pause.png" id="18_ua0r3"]
+[ext_resource type="Texture2D" uid="uid://ponvr6ph82q8" path="res://Recources/UI/ToolBar/nuclear.png" id="19_gjgej"]
 [ext_resource type="Texture2D" uid="uid://d1fe54ftf06ul" path="res://Sprites/UI/play.png" id="19_syb8d"]
+[ext_resource type="Texture2D" uid="uid://52ie16geprmk" path="res://Recources/UI/ToolBar/line.png" id="20_p7u8g"]
+[ext_resource type="Texture2D" uid="uid://dcdbt8wgsmpsl" path="res://Recources/UI/ToolBar/WindHighlit.png" id="20_vwp1w"]
 [ext_resource type="Texture2D" uid="uid://mhm3c8k5moae" path="res://Sprites/UI/fast.png" id="20_xga3y"]
+[ext_resource type="Texture2D" uid="uid://b0713cyo7jpsf" path="res://Recources/UI/ToolBar/windHover.png" id="21_bouke"]
 [ext_resource type="Texture2D" uid="uid://bphktps1iv7ti" path="res://Sprites/UI/clockarrow.png" id="21_i42ou"]
+[ext_resource type="Texture2D" uid="uid://ba50ethtl4oor" path="res://Recources/UI/ToolBar/bulldozer.png" id="21_rk6b7"]
 [ext_resource type="Script" path="res://Scripts/clockanimation.gd" id="22_6aelk"]
+[ext_resource type="Texture2D" uid="uid://c1fhs5diq5nn6" path="res://Recources/UI/ToolBar/WaterHighlit.png" id="23_ogeh1"]
 [ext_resource type="Texture2D" uid="uid://d0a2prutl3aad" path="res://Sprites/UI/layerselectorbackgroud.png" id="23_yewxs"]
+[ext_resource type="Texture2D" uid="uid://dh6yjxlcrhk2a" path="res://Recources/UI/ToolBar/waterHover.png" id="24_j3grv"]
 [ext_resource type="Script" path="res://Scripts/LayerControler.gd" id="24_oq7sf"]
 [ext_resource type="Texture2D" uid="uid://yoybagdaatf6" path="res://Sprites/UI/emptylayer.png" id="25_lly4k"]
+[ext_resource type="Texture2D" uid="uid://bgmf3uktw8ntp" path="res://Recources/UI/ToolBar/geoHighlit.png" id="26_nuytu"]
 [ext_resource type="Texture2D" uid="uid://c53xy15gbcj5d" path="res://Sprites/UI/wind.png" id="26_y304v"]
+[ext_resource type="Texture2D" uid="uid://big0vbovfsef2" path="res://Recources/UI/ToolBar/geoHover.png" id="27_bbu4x"]
 [ext_resource type="Texture2D" uid="uid://8h3na7jdibl6" path="res://Sprites/UI/sun.png" id="27_c2p5t"]
 [ext_resource type="Texture2D" uid="uid://ca6d8a6ju6h8v" path="res://Sprites/UI/geo.png" id="28_h1w2f"]
 [ext_resource type="Script" path="res://Scripts/ScenarioLoader.gd" id="29_ad4t6"]
+[ext_resource type="Texture2D" uid="uid://cmhn8ljvwlen8" path="res://Recources/UI/ToolBar/nuclearHighlit.png" id="29_aygme"]
 [ext_resource type="Texture2D" uid="uid://dl7wgfg8ci26h" path="res://Sprites/UI/lineUNCreatedCircle.png" id="29_n68kx"]
 [ext_resource type="Script" path="res://Scripts/LineUI.gd" id="29_qoeu6"]
+[ext_resource type="Texture2D" uid="uid://d1iyry85l3j3g" path="res://Recources/UI/ToolBar/nuclearHover.png" id="30_7jk8c"]
 [ext_resource type="Texture2D" uid="uid://c1sfrhcwipf83" path="res://Sprites/UI/close.png" id="30_b2jrd"]
 [ext_resource type="Script" path="res://Scripts/Lines.gd" id="30_tcs58"]
 [ext_resource type="Script" path="res://Scripts/time.gd" id="31_udwig"]
-[ext_resource type="Script" path="res://Scenes/Main Scenes/moneydisplayer.gd" id="33_l2fwi"]
+[ext_resource type="Texture2D" uid="uid://1socw7dbnb2v" path="res://Recources/UI/ToolBar/lineHiglit.png" id="32_g6vjw"]
+[ext_resource type="Texture2D" uid="uid://dbcv1xcsbd7u" path="res://Recources/UI/ToolBar/lineHover.png" id="33_bpe81"]
+[ext_resource type="Script" path="res://Scripts/moneydisplayer.gd" id="33_l2fwi"]
 [ext_resource type="Script" path="res://Scripts/line.gd" id="35_qonuk"]
-[ext_resource type="Script" path="res://Scenes/Main Scenes/gameovercontroller.gd" id="37_2t5e3"]
+[ext_resource type="Texture2D" uid="uid://cout4w1qjd760" path="res://Recources/UI/ToolBar/BulldozerHighlit.png" id="35_u6yot"]
+[ext_resource type="Texture2D" uid="uid://bsn5o6f7vv11u" path="res://Recources/UI/ToolBar/BulldozerHover.png" id="36_nnyks"]
+[ext_resource type="Script" path="res://Scripts/gameovercontroller.gd" id="37_2t5e3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0pidl"]
 texture = ExtResource("2_ntn3v")
@@ -307,29 +326,10 @@ sources/1 = SubResource("TileSetAtlasSource_sdkh5")
 sources/3 = SubResource("TileSetAtlasSource_gh1ns")
 sources/4 = SubResource("TileSetAtlasSource_pcgmk")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3w76"]
-bg_color = Color(0.205117, 0.205117, 0.205117, 0.784314)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.917647, 0.917647, 0.917647, 0.784314)
-corner_radius_top_left = 13
-corner_radius_top_right = 13
-corner_radius_bottom_right = 13
-corner_radius_bottom_left = 13
-expand_margin_left = 6.0
-expand_margin_top = 6.0
-expand_margin_right = 6.0
-expand_margin_bottom = 6.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4rwhw"]
+texture = ExtResource("11_gqc04")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01ea8"]
-bg_color = Color(0, 0, 0, 1)
-border_color = Color(0, 0, 0, 0)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
+[sub_resource type="ButtonGroup" id="ButtonGroup_k7lsc"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_qgtdk"]
 device = -1
@@ -340,6 +340,14 @@ unicode = 49
 [sub_resource type="Shortcut" id="Shortcut_dnfih"]
 events = [SubResource("InputEventKey_qgtdk")]
 
+[sub_resource type="InputEventKey" id="InputEventKey_wv6ju"]
+device = -1
+keycode = 51
+unicode = 51
+
+[sub_resource type="Shortcut" id="Shortcut_6lphb"]
+events = [SubResource("InputEventKey_wv6ju")]
+
 [sub_resource type="InputEventKey" id="InputEventKey_xtfn6"]
 device = -1
 pressed = true
@@ -348,14 +356,6 @@ unicode = 50
 
 [sub_resource type="Shortcut" id="Shortcut_r07g1"]
 events = [SubResource("InputEventKey_xtfn6")]
-
-[sub_resource type="InputEventKey" id="InputEventKey_wv6ju"]
-device = -1
-keycode = 51
-unicode = 51
-
-[sub_resource type="Shortcut" id="Shortcut_6lphb"]
-events = [SubResource("InputEventKey_wv6ju")]
 
 [sub_resource type="InputEventKey" id="InputEventKey_au0vw"]
 device = -1
@@ -583,21 +583,22 @@ grow_vertical = 2
 script = ExtResource("7_jpdud")
 
 [node name="ToolBar" type="PanelContainer" parent="Camera2D/UI" groups=["ui"]]
+z_index = 120
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -77.0
-offset_top = -318.0
-offset_right = -13.0
-offset_bottom = 274.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_p3w76")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -244.0
+offset_top = -69.0
+offset_right = 244.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_4rwhw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/UI/ToolBar"]
+[node name="VBoxContainer" type="HBoxContainer" parent="Camera2D/UI/ToolBar"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -605,82 +606,140 @@ theme = ExtResource("8_ft4ia")
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="MouseMode" type="Button" parent="Camera2D/UI/ToolBar/VBoxContainer"]
+[node name="MouseMode" type="TextureButton" parent="Camera2D/UI/ToolBar/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-theme_override_constants/icon_max_width = 62
-theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = SubResource("StyleBoxFlat_01ea8")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Mouse:
+Click on builings and Places to obtain info."
 toggle_mode = true
+button_group = SubResource("ButtonGroup_k7lsc")
 shortcut = SubResource("Shortcut_dnfih")
-text = "Mouse"
-icon = ExtResource("8_jdd7p")
-icon_alignment = 1
-vertical_icon_alignment = 0
+texture_normal = ExtResource("12_jyovq")
+texture_pressed = ExtResource("13_06dfl")
+texture_hover = ExtResource("14_260ey")
+texture_disabled = ExtResource("12_jyovq")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="Building_wt" type="Button" parent="Camera2D/UI/ToolBar/VBoxContainer"]
+[node name="Building_sp" type="TextureButton" parent="Camera2D/UI/ToolBar/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-theme_override_constants/icon_max_width = 62
-theme_override_font_sizes/font_size = 8
-theme_override_styles/normal = SubResource("StyleBoxFlat_01ea8")
+size_flags_vertical = 4
+tooltip_text = "Solar Panel:
+Price: 500
+Energy Generation: 200"
 toggle_mode = true
-shortcut = SubResource("Shortcut_r07g1")
-text = "Wind Turbine"
-icon = ExtResource("9_2peiw")
-text_overrun_behavior = 3
-icon_alignment = 1
-vertical_icon_alignment = 0
-
-[node name="Building_sp" type="Button" parent="Camera2D/UI/ToolBar/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/icon_max_width = 62
-theme_override_font_sizes/font_size = 8
-theme_override_styles/normal = SubResource("StyleBoxFlat_01ea8")
-toggle_mode = true
+button_group = SubResource("ButtonGroup_k7lsc")
 shortcut = SubResource("Shortcut_6lphb")
-text = "Solar Panels"
-icon = ExtResource("10_sv702")
-text_overrun_behavior = 3
-icon_alignment = 1
-vertical_icon_alignment = 0
+texture_normal = ExtResource("13_gdttr")
+texture_pressed = ExtResource("17_c41sx")
+texture_hover = ExtResource("18_7tygt")
+texture_disabled = ExtResource("13_gdttr")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="Building_nc" type="Button" parent="Camera2D/UI/ToolBar/VBoxContainer"]
+[node name="Building_wt" type="TextureButton" parent="Camera2D/UI/ToolBar/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-theme_override_constants/icon_max_width = 62
-theme_override_font_sizes/font_size = 8
-theme_override_styles/normal = SubResource("StyleBoxFlat_01ea8")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Wind Turbine:
+Price: 1200
+Energy Generation: 500"
 toggle_mode = true
+button_group = SubResource("ButtonGroup_k7lsc")
+shortcut = SubResource("Shortcut_r07g1")
+texture_normal = ExtResource("14_4btxw")
+texture_pressed = ExtResource("20_vwp1w")
+texture_hover = ExtResource("21_bouke")
+texture_disabled = ExtResource("14_4btxw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Building_hp" type="TextureButton" parent="Camera2D/UI/ToolBar/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 4
+tooltip_text = "Hydraulic Power Plant:
+Price: 10000
+Energy Generation: 3000"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_k7lsc")
+shortcut = SubResource("Shortcut_6lphb")
+texture_normal = ExtResource("17_8p5fk")
+texture_pressed = ExtResource("23_ogeh1")
+texture_hover = ExtResource("24_j3grv")
+texture_disabled = ExtResource("17_8p5fk")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Building_gt" type="TextureButton" parent="Camera2D/UI/ToolBar/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 4
+tooltip_text = "Geothermal Power Plant:
+Price: 5000
+Energy Generation: 1500"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_k7lsc")
+shortcut = SubResource("Shortcut_6lphb")
+texture_normal = ExtResource("18_tby25")
+texture_pressed = ExtResource("26_nuytu")
+texture_hover = ExtResource("27_bbu4x")
+texture_disabled = ExtResource("18_tby25")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Building_nc" type="TextureButton" parent="Camera2D/UI/ToolBar/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 4
+tooltip_text = "Nuclear Power Plant:
+Price: 100000
+Energy Generation: 10000"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_k7lsc")
 shortcut = SubResource("Shortcut_mjem5")
-text = "Nuclear Plant"
-icon = ExtResource("11_34yd3")
-text_overrun_behavior = 3
-icon_alignment = 1
-vertical_icon_alignment = 0
+texture_normal = ExtResource("19_gjgej")
+texture_pressed = ExtResource("29_aygme")
+texture_hover = ExtResource("30_7jk8c")
+texture_disabled = ExtResource("19_gjgej")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="Line_creator" type="Button" parent="Camera2D/UI/ToolBar/VBoxContainer"]
+[node name="Line_creator" type="TextureButton" parent="Camera2D/UI/ToolBar/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-theme_override_constants/icon_max_width = 62
-theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = SubResource("StyleBoxFlat_01ea8")
+size_flags_vertical = 4
+tooltip_text = "Line Creator:
+Use this tool to connect cities with power plants."
 toggle_mode = true
+button_group = SubResource("ButtonGroup_k7lsc")
 shortcut = SubResource("Shortcut_2f2kx")
-text = "Line Creator"
-icon = ExtResource("12_hl8nh")
-text_overrun_behavior = 3
-icon_alignment = 1
-vertical_icon_alignment = 0
+texture_normal = ExtResource("20_p7u8g")
+texture_pressed = ExtResource("32_g6vjw")
+texture_hover = ExtResource("33_bpe81")
+texture_disabled = ExtResource("20_p7u8g")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="Demolisher" type="Button" parent="Camera2D/UI/ToolBar/VBoxContainer"]
+[node name="Demolisher" type="TextureButton" parent="Camera2D/UI/ToolBar/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-theme_override_constants/icon_max_width = 62
-theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = SubResource("StyleBoxFlat_01ea8")
+size_flags_vertical = 4
+tooltip_text = "Bulldozer:
+Use this tool to demolish builidngs"
 toggle_mode = true
+button_group = SubResource("ButtonGroup_k7lsc")
 shortcut = SubResource("Shortcut_1bc00")
-text = "Demolish"
-icon = ExtResource("13_nwefr")
-text_overrun_behavior = 3
-icon_alignment = 1
-vertical_icon_alignment = 0
+texture_normal = ExtResource("21_rk6b7")
+texture_pressed = ExtResource("35_u6yot")
+texture_hover = ExtResource("36_nnyks")
+texture_disabled = ExtResource("21_rk6b7")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="Pause Button" type="Button" parent="Camera2D/UI"]
 layout_mode = 1
@@ -883,9 +942,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 302.0
+offset_left = 324.0
 offset_top = 600.0
-offset_right = 409.0
+offset_right = 431.0
 offset_bottom = 630.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_g4fwn")
@@ -962,22 +1021,22 @@ icon = ExtResource("28_h1w2f")
 icon_alignment = 1
 
 [node name="Lines" type="Panel" parent="Camera2D/UI"]
-custom_minimum_size = Vector2(470, 60)
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -235.0
-offset_top = -60.0
-offset_right = 235.0
-grow_horizontal = 2
+offset_left = -253.0
+offset_top = -114.0
+offset_right = -253.0
+offset_bottom = -114.0
+grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_lef2a")
 script = ExtResource("29_qoeu6")
 
-[node name="LinesBox" type="HBoxContainer" parent="Camera2D/UI/Lines"]
+[node name="LinesBox" type="VBoxContainer" parent="Camera2D/UI/Lines"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -993,7 +1052,7 @@ grow_vertical = 0
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="L1Box" type="VBoxContainer" parent="Camera2D/UI/Lines/LinesBox"]
+[node name="L1Box" type="HBoxContainer" parent="Camera2D/UI/Lines/LinesBox"]
 layout_mode = 2
 alignment = 2
 
@@ -1012,7 +1071,7 @@ texture = ExtResource("29_n68kx")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="L2Box" type="VBoxContainer" parent="Camera2D/UI/Lines/LinesBox"]
+[node name="L2Box" type="HBoxContainer" parent="Camera2D/UI/Lines/LinesBox"]
 layout_mode = 2
 alignment = 2
 
@@ -1031,7 +1090,7 @@ texture = ExtResource("29_n68kx")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="L3Box" type="VBoxContainer" parent="Camera2D/UI/Lines/LinesBox"]
+[node name="L3Box" type="HBoxContainer" parent="Camera2D/UI/Lines/LinesBox"]
 layout_mode = 2
 alignment = 2
 
@@ -1050,7 +1109,7 @@ texture = ExtResource("29_n68kx")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="L4Box" type="VBoxContainer" parent="Camera2D/UI/Lines/LinesBox"]
+[node name="L4Box" type="HBoxContainer" parent="Camera2D/UI/Lines/LinesBox"]
 layout_mode = 2
 alignment = 2
 
@@ -1069,7 +1128,7 @@ texture = ExtResource("29_n68kx")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="L5Box" type="VBoxContainer" parent="Camera2D/UI/Lines/LinesBox"]
+[node name="L5Box" type="HBoxContainer" parent="Camera2D/UI/Lines/LinesBox"]
 layout_mode = 2
 alignment = 2
 
@@ -1088,7 +1147,7 @@ texture = ExtResource("29_n68kx")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="L6Box" type="VBoxContainer" parent="Camera2D/UI/Lines/LinesBox"]
+[node name="L6Box" type="HBoxContainer" parent="Camera2D/UI/Lines/LinesBox"]
 layout_mode = 2
 alignment = 2
 
@@ -1107,7 +1166,7 @@ texture = ExtResource("29_n68kx")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="L7Box" type="VBoxContainer" parent="Camera2D/UI/Lines/LinesBox"]
+[node name="L7Box" type="HBoxContainer" parent="Camera2D/UI/Lines/LinesBox"]
 layout_mode = 2
 alignment = 2
 
@@ -1281,14 +1340,22 @@ script = ExtResource("35_qonuk")
 [connection signal="mouse_exited" from="Camera2D/UI/ToolBar/VBoxContainer/MouseMode" to="." method="_on_mouse_mode_mouse_exited"]
 [connection signal="pressed" from="Camera2D/UI/ToolBar/VBoxContainer/MouseMode" to="Camera2D/UI" method="_on_mouse_mode_pressed"]
 [connection signal="pressed" from="Camera2D/UI/ToolBar/VBoxContainer/MouseMode" to="Camera2D/UI/Layers" method="_on_mouse_mode_pressed"]
-[connection signal="mouse_entered" from="Camera2D/UI/ToolBar/VBoxContainer/Building_wt" to="." method="_on_building_wt_mouse_entered"]
-[connection signal="mouse_exited" from="Camera2D/UI/ToolBar/VBoxContainer/Building_wt" to="." method="_on_building_wt_mouse_exited"]
-[connection signal="pressed" from="Camera2D/UI/ToolBar/VBoxContainer/Building_wt" to="Camera2D/UI" method="_on_building_wt_pressed"]
-[connection signal="pressed" from="Camera2D/UI/ToolBar/VBoxContainer/Building_wt" to="Camera2D/UI/Layers" method="_on_building_wt_pressed"]
 [connection signal="mouse_entered" from="Camera2D/UI/ToolBar/VBoxContainer/Building_sp" to="." method="_on_building_sp_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/UI/ToolBar/VBoxContainer/Building_sp" to="." method="_on_building_sp_mouse_exited"]
 [connection signal="pressed" from="Camera2D/UI/ToolBar/VBoxContainer/Building_sp" to="Camera2D/UI" method="_on_building_sp_pressed"]
 [connection signal="pressed" from="Camera2D/UI/ToolBar/VBoxContainer/Building_sp" to="Camera2D/UI/Layers" method="_on_building_sp_pressed"]
+[connection signal="mouse_entered" from="Camera2D/UI/ToolBar/VBoxContainer/Building_wt" to="." method="_on_building_wt_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/ToolBar/VBoxContainer/Building_wt" to="." method="_on_building_wt_mouse_exited"]
+[connection signal="pressed" from="Camera2D/UI/ToolBar/VBoxContainer/Building_wt" to="Camera2D/UI" method="_on_building_wt_pressed"]
+[connection signal="pressed" from="Camera2D/UI/ToolBar/VBoxContainer/Building_wt" to="Camera2D/UI/Layers" method="_on_building_wt_pressed"]
+[connection signal="mouse_entered" from="Camera2D/UI/ToolBar/VBoxContainer/Building_hp" to="." method="_on_building_sp_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/ToolBar/VBoxContainer/Building_hp" to="." method="_on_building_sp_mouse_exited"]
+[connection signal="pressed" from="Camera2D/UI/ToolBar/VBoxContainer/Building_hp" to="Camera2D/UI" method="_on_building_hp_pressed"]
+[connection signal="pressed" from="Camera2D/UI/ToolBar/VBoxContainer/Building_hp" to="Camera2D/UI/Layers" method="_on_building_hp_pressed"]
+[connection signal="mouse_entered" from="Camera2D/UI/ToolBar/VBoxContainer/Building_gt" to="." method="_on_building_sp_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/ToolBar/VBoxContainer/Building_gt" to="." method="_on_building_sp_mouse_exited"]
+[connection signal="pressed" from="Camera2D/UI/ToolBar/VBoxContainer/Building_gt" to="Camera2D/UI" method="_on_building_gt_pressed"]
+[connection signal="pressed" from="Camera2D/UI/ToolBar/VBoxContainer/Building_gt" to="Camera2D/UI/Layers" method="_on_building_gt_pressed"]
 [connection signal="mouse_entered" from="Camera2D/UI/ToolBar/VBoxContainer/Building_nc" to="." method="_on_building_nc_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/UI/ToolBar/VBoxContainer/Building_nc" to="." method="_on_building_nc_mouse_exited"]
 [connection signal="pressed" from="Camera2D/UI/ToolBar/VBoxContainer/Building_nc" to="Camera2D/UI" method="_on_building_nc_pressed"]

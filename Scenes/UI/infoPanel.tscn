@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cffon7b4g74qr"]
 
-[ext_resource type="Script" path="res://InfoUIManager.gd" id="1_inyro"]
+[ext_resource type="Script" path="res://Scripts/InfoUIManager.gd" id="1_inyro"]
 [ext_resource type="Texture2D" uid="uid://c1sfrhcwipf83" path="res://Sprites/UI/close.png" id="2_22sou"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itchj"]

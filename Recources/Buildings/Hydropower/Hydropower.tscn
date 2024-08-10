@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvav4b3bulgbt"]
+
+[ext_resource type="Script" path="res://Recources/Buildings/GeneratorScript.gd" id="1_4fyhh"]
+[ext_resource type="Texture2D" uid="uid://kuojihhwmjpq" path="res://Recources/Buildings/Nuclear Power Plant/nuclear.png" id="2_agxee"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfrr1"]
+size = Vector2(128, 128)
+
+[node name="Hydropower" type="Node2D"]
+script = ExtResource("1_4fyhh")
+metadata/Type = "hp"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(0.235579, 12.1201)
+scale = Vector2(0.240185, 0.240185)
+texture = ExtResource("2_agxee")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_vfrr1")

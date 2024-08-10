@@ -46,3 +46,7 @@ func _on_l_6_close_button_pressed():
 	clear_line($"../../../Lines/L6")
 func _on_l_7_close_button_pressed():
 	clear_line($"../../../Lines/L7")
+
+
+func _on_building_gt_pressed():
+	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dk8ukk3626ly1"]
+[gd_scene load_steps=15 format=3 uid="uid://dk8ukk3626ly1"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenuController.gd" id="1_l4y6w"]
 [ext_resource type="Texture2D" uid="uid://dpwxvmxmecl8o" path="res://Recources/Icons/TextMAX.png" id="2_3klhx"]
@@ -11,6 +11,61 @@ Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_disabled_color = Color(1, 1, 1, 0.470588)
 Button/colors/font_hover_color = Color(1, 1, 1, 1)
 Button/fonts/font = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cly8x"]
+bg_color = Color(0.129412, 0.588235, 0.952941, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8m486"]
+bg_color = Color(0.091, 0.39845, 0.65, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3dfg"]
+bg_color = Color(0.0901961, 0.4, 0.65098, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tdhec"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qiu8h"]
+bg_color = Color(0.619608, 0.619608, 0.619608, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fk4au"]
+bg_color = Color(0.556863, 0.556863, 0.556863, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14tgo"]
+bg_color = Color(0.619608, 0.619608, 0.619608, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmd4p"]
+bg_color = Color(0.3, 0.3, 0.3, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xhij"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46tds"]
 
 [node name="MainMenu" type="Control"]
 self_modulate = Color(0.960784, 0.960784, 0.960784, 1)
@@ -41,7 +96,7 @@ grow_vertical = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer2"]
-custom_minimum_size = Vector2(600, 200)
+custom_minimum_size = Vector2(700, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -51,27 +106,54 @@ stretch_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer2"]
 z_index = 6
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/separation = 12
 alignment = 1
 
 [node name="Play Button" type="Button" parent="Panel/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme = SubResource("Theme_fhdcv")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_cly8x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8m486")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_t3dfg")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_tdhec")
 text = "Play"
 
 [node name="Dailly Challange Button" type="Button" parent="Panel/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_qiu8h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fk4au")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_14tgo")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_cmd4p")
 disabled = true
 text = "Dally Challange"
 
 [node name="Settings Button" type="Button" parent="Panel/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_qiu8h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fk4au")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_14tgo")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1xhij")
+theme_override_styles/focus = SubResource("StyleBoxFlat_46tds")
 text = "Settings"
 
 [node name="Exit Button" type="Button" parent="Panel/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_qiu8h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fk4au")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_14tgo")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1xhij")
+theme_override_styles/focus = SubResource("StyleBoxFlat_46tds")
 text = "Exit"
 
 [node name="Label" type="Label" parent="Panel"]

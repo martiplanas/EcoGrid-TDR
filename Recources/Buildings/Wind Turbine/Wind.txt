@@ -1,0 +1,12 @@
+How it Works:
+Wind turbines use the kinetic energy of the wind to turn large blades connected to a rotor. The rotor spins a generator to produce electricity. Wind farms can be located on land or offshore.
+
+Benefits:
+- Utilizes wind, a clean and renewable resource.
+- Produces no emissions during operation, contributing to cleaner air.
+- Can be installed onshore and offshore, providing flexibility.
+
+Downsides:
+- Energy production is intermittent and depends on wind availability.
+- Can impact local wildlife, particularly birds and bats.
+- Noise and visual impact can be a concern for nearby communities.

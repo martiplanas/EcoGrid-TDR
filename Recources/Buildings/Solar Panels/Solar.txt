@@ -1,0 +1,12 @@
+How it Works:
+Solar panels capture sunlight and convert it into electricity using photovoltaic cells. They work best in sunny conditions and can be installed on rooftops or in large solar farms.
+
+Benefits:
+- Harnesses energy from the sun, a renewable and abundant resource.
+- Produces no emissions during operation, reducing carbon footprint.
+- Low maintenance and scalable for various applications.
+
+Downsides:
+- Energy production is weather-dependent and varies with time of day.
+- High initial installation costs.
+- Requires significant space for large-scale energy generation.

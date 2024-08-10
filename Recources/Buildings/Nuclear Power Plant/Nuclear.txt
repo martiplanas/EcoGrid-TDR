@@ -1,0 +1,12 @@
+How it Works:
+Nuclear power plants generate electricity through nuclear fission, where uranium atoms are split to release energy. This heat is used to produce steam, which drives turbines to generate power.
+
+Benefits:
+- Generates a continuous and reliable supply of electricity.
+- Produces minimal greenhouse gas emissions during operation.
+- High energy density, meaning a small amount of fuel produces a lot of energy.
+
+Downsides:
+- Produces radioactive waste that requires long-term management.
+- Risk of catastrophic accidents with severe environmental and health impacts.
+- High construction and decommissioning costs.

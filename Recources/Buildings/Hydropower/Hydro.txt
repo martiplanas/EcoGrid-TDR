@@ -1,0 +1,12 @@
+How it Works:
+Hydropower plants use the energy of flowing water, typically from a dam, to turn turbines. The movement of the water spins the turbines, which activates generators to produce electricity.
+
+Benefits:
+Generates electricity from flowing water, a renewable resource.
+Highly efficient and capable of providing a continuous energy supply.
+Can help with water management and flood control.
+
+Downsides:
+Can disrupt local ecosystems and fish migration.
+High initial construction costs and potential displacement of communities.
+Dependent on water availability, which can be affected by droughts and climate change.

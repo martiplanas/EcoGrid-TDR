@@ -12,23 +12,62 @@ var buildings_created = []
 var buildable_tiles = []
 
 #---Buildings Arrays---
-@onready var building_buttons = {
-	"wt" : $Camera2D/UI/ToolBar/VBoxContainer/Building_wt, 
-	"sp" : $Camera2D/UI/ToolBar/VBoxContainer/Building_sp, 
-	"nc" : $Camera2D/UI/ToolBar/VBoxContainer/Building_nc
+
+@onready var building_data = {
+	"wt" : {
+		"description" : "res://Recources/Buildings/Wind Turbine/Wind.txt",
+		"scene" : preload("res://Recources/Buildings/Wind Turbine/wind_turbine.tscn"),
+		"cursor" : preload("res://Recources/Buildings/Wind Turbine/wind_turbine_cursor.tscn"),
+		"button" : $Camera2D/UI/ToolBar/VBoxContainer/Building_wt,
+		"price" : 1200,
+		"generation" : 500, 
+		"unlocked" : true,
+	},
+	"sp" : {
+		"description" : "res://Recources/Buildings/Solar Panels/Solar.txt",
+		"scene" : preload("res://Recources/Buildings/Solar Panels/solar_panel.tscn"),
+		"cursor" : preload("res://Recources/Buildings/Solar Panels/solar_panel_cursor.tscn"),
+		"button" : $Camera2D/UI/ToolBar/VBoxContainer/Building_sp,
+		"price" : 500,
+		"generation" : 200,
+		"unlocked" : true,
+	},
+	"nc" : {
+		"description" : "res://Recources/Buildings/Nuclear Power Plant/Nuclear.txt",
+		"scene" : preload("res://Recources/Buildings/Nuclear Power Plant/nuclear_plant.tscn"),
+		"cursor" : preload("res://Recources/Buildings/Nuclear Power Plant/nuclear_plant_cursor.tscn"),
+		"button" : $Camera2D/UI/ToolBar/VBoxContainer/Building_nc,
+		"price" : 100000,
+		"generation" : 10000,
+		"unlocked" : true,
+	},
+	"gt" : {
+		"description" : "res://Recources/Buildings/Geotermical/Geo.txt",
+		"scene" : preload("res://Recources/Buildings/Geotermical/Geothermal.tscn"),
+		"cursor" : preload("res://Recources/Buildings/Geotermical/Geothermal_cursor.tscn"),
+		"button" :  $Camera2D/UI/ToolBar/VBoxContainer/Building_wt,
+		"price" : 5000,
+		"generation" : 1500,
+		"unlocked" : true,
+	},
+	"hp" : {
+		"description" : "res://Recources/Buildings/Hydropower/Hydro.txt",
+		"scene" : preload("res://Recources/Buildings/Hydropower/Hydropower.tscn"),
+		"cursor" : preload("res://Recources/Buildings/Hydropower/Hydropower_cursor.tscn"),
+		"button" :  $Camera2D/UI/ToolBar/VBoxContainer/Building_wt,
+		"price" : 10000,
+		"generation" : 3000,
+		"unlocked" : false,
+	}
 }
 
-var description_locations = {"wt": "res://Recources/Critique/Wind.txt", "sp": "res://Recources/Critique/Solar.txt", "nc": "res://Recources/Critique/Nuclear.txt"}
+var building_type_layer = {"wt":6, "sp":8, "nc":0, "gt":0, "hp":0}
 
 var color_modifier = {0 : 0.25, 1 : 0.5, 2 : 0.75, 3 : 1.25, 4 : 1.75}
-var building_type_layer = {"wt":6, "sp":8, "nc":0}
 
-var building_price = {"wt": 800, "sp": 1000, "nc": 50000}
-var buildings_avalible = {"wt": 1,"sp": 1,"nc": 1}
-var button_to_id = {1 : "wt", 2 : "sp", 3 : "nc"}
+var button_to_id = {1 : "wt", 2 : "sp", 3 : "nc", 6 : "hp", 7 : "gt"}
 var id_to_L_name = {"wt": "Wind Turbine", "sp": "Solar panels", "nc": "Nuclear Power Plant"}
-var buildings_scenes = {"wt" : preload("res://Scenes/Buildings/wind_turbine.tscn"), "sp" : preload("res://Scenes/Buildings/solar_panel.tscn"), "nc" : preload("res://Scenes/Buildings/nuclear_plant.tscn")}
-var build_models_scenes = {"wt": preload("res://Scenes/Buildings/wind_turbine_build_mode.tscn"), "sp":preload("res://Scenes/Buildings/solar_panel_build_mode.tscn"), "nc" : preload("res://Scenes/Buildings/nuclear_plant_build_mode.tscn")}
+
 
 var infoPanel = preload("res://Scenes/UI/infoPanel.tscn")
 
@@ -89,7 +128,7 @@ func check_for_info(position):
 				ui.add_child(newPanel)
 				
 				var title = id_to_L_name[key] + " info"
-				var description = load_text_file(description_locations[key])
+				var description = load_text_file(building_data[key]["description"])
 				var generating_num = "Energy generation: " + str(building.get_meta("Energy_Production"))
 				
 				newPanel.set_texts(title, description, generating_num, "", "")
@@ -111,7 +150,7 @@ func _process(_delta):
 	
 	SimulationManager.buildings = buildings_created
 	# Set buildmode based on button_selected
-	buildmode = button_selected in [1, 2, 3]
+	buildmode = button_selected in [1, 2, 3, 6, 7]
 	# Set demolishmode based on button_selected
 	demolishmode = (button_selected == 5)
 	
@@ -121,7 +160,7 @@ func _process(_delta):
 			current_build_type = id
 			if current_build_model != null:
 				current_build_model.queue_free()
-			current_build_model = build_models_scenes[id].instantiate()
+			current_build_model = building_data[id]["cursor"].instantiate()
 			add_child(current_build_model)
 		elif current_build_type == id:
 			if current_build_model != null:
@@ -143,13 +182,13 @@ func _process(_delta):
 						energy_tag = childs
 				
 				if price_tag != null:
-					if money.is_enough_money(building_price[id]):
-						price_tag.text = "Price: " + str(building_price[id])
+					if money.is_enough_money(building_data[id]["price"]):
+						price_tag.text = "Price: " + str(building_data[id]["price"])
 						price_tag.modulate = Color(0.5,255,0.5,1)
 						price_can = true
 					else:
 						price_can = false
-						price_tag.text = "Not enough money, price: " + str(building_price[id])
+						price_tag.text = "Not enough money, price: " + str(building_data[id]["price"])
 						price_tag.modulate = Color(1,0.25,0.25,1)
 				
 				if position_tag != null:
@@ -167,7 +206,7 @@ func _process(_delta):
 					var grid_position = snap_to_grid(get_global_mouse_position())
 					var layer_num = building_type_layer[id]
 					var modifier = get_position_modifier(layer_num, grid_position)
-					var building_base_production = scnl.buildings[id]
+					var building_base_production = building_data[id]["generation"]
 					var final_production = modifier * building_base_production
 					energy_tag.text = "Energy production at this position: " + str(final_production) + "."
 				else:
@@ -187,24 +226,24 @@ func _process(_delta):
 			current_build_model.queue_free()
 			current_build_model = null
 			current_build_type = null
-	
-	disable_no_disponibles()
 
 func place_building(position):
 	var grid_position = snap_to_grid(position)
 	if grid_position not in occupied_positions and !is_mouse_over_ui and grid_position in buildable_tiles:
 		var building_id = button_to_id[button_selected]
-		if money.is_enough_money(building_price[building_id]):
-			if buildings_avalible[building_id] >= 1:
-				money.modify_money(-building_price[building_id])
-				var new_building = buildings_scenes[building_id].instantiate()
+		if money.is_enough_money(building_data[building_id]["price"]):
+			if building_data[building_id]["unlocked"]:
+				money.modify_money(-building_data[building_id]["price"])
+				var new_building = building_data[building_id]["scene"].instantiate()
 				buildings_created.append(new_building)
 				add_child(new_building)
 				new_building.position = grid_position
 				
 				#Get modifier
 				var layer = building_type_layer[building_id]
-				new_building.output_modifier = get_position_modifier(layer, grid_position)
+				
+				#new_building.output_modifier = get_position_modifier(layer, grid_position)
+				new_building.output_modifier = 1
 				
 				occupied_positions[grid_position] = new_building
 				print("New building ", new_building, " created on ", str(grid_position) ,".")
@@ -221,19 +260,12 @@ func snap_to_grid(positions: Vector2) -> Vector2:
 	var tile_center = tilemap.map_to_local(map_coords)
 	return tile_center
 
-func disable_no_disponibles():
-	for key in buildings_avalible.keys():
-		if buildings_avalible[key] == 0:
-			building_buttons[key].visible = false
-		else:
-			building_buttons[key].visible = true
-
 func load_text_file(path: String) -> String:
 	var file = FileAccess.open(path, FileAccess.READ)
 	var content = file.get_as_text()
 	return content
 
-func get_position_modifier(layer, position):
+func get_position_modifier(layer, position)-> float:
 	if layer != 0:
 		var position_atlas:Vector2i = Vector2i((position.x-64)/128,(position.y-64)/128)
 		var color_grade = tilemap.get_cell_atlas_coords(layer, position_atlas).x

@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs8hbg0udi2dl"]
+
+[ext_resource type="Texture2D" uid="uid://cngeg2qiewhov" path="res://Recources/Buildings/Geotermical/gt.png" id="1_777it"]
+
+[node name="Geothermal_cursor" type="Node2D"]
+z_index = 100
+
+[node name="sprite" type="Sprite2D" parent="."]
+z_index = 79
+position = Vector2(-1.49012e-08, 0)
+scale = Vector2(0.240185, 0.240185)
+texture = ExtResource("1_777it")
+
+[node name="Panel" type="Panel" parent="."]
+z_index = 80
+offset_left = 53.0
+offset_top = -111.0
+offset_right = 403.0
+offset_bottom = 1.0
+
+[node name="Box" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="Panel/Box"]
+layout_mode = 2
+text = "Geothermical Power Plant
+"
+
+[node name="energy" type="Label" parent="Panel/Box"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="Panel/Box"]
+layout_mode = 2
+
+[node name="price" type="Label" parent="Panel/Box"]
+layout_mode = 2
+text = "sdasd"

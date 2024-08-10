@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddgvvr5emvwj2"]
+
+[ext_resource type="Texture2D" uid="uid://d2osa1pmmb3by" path="res://Recources/Buildings/Wind Turbine/windbase.png" id="2_mrtfg"]
+[ext_resource type="Texture2D" uid="uid://c4kjqowoojtls" path="res://Recources/Buildings/Wind Turbine/windblade.png" id="3_vxc0a"]
+
+[node name="WindTurbine" type="Node2D"]
+z_index = 85
+metadata/Type = "wt"
+metadata/Energy_Production = 100
+
+[node name="sprite" type="Sprite2D" parent="."]
+z_index = 81
+position = Vector2(1.35525e-20, 27)
+scale = Vector2(0.193355, 0.193355)
+texture = ExtResource("2_mrtfg")
+
+[node name="Blade" type="Sprite2D" parent="sprite"]
+z_index = -1
+position = Vector2(-7.00915e-20, -129.296)
+texture = ExtResource("3_vxc0a")
+offset = Vector2(-8.35556e-27, -77.5776)
+
+[node name="Panel" type="Panel" parent="."]
+z_index = 80
+offset_left = 53.0
+offset_top = -111.0
+offset_right = 403.0
+offset_bottom = 1.0
+
+[node name="Box" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="Panel/Box"]
+layout_mode = 2
+text = "Wind Turbine
+"
+
+[node name="energy" type="Label" parent="Panel/Box"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="Panel/Box"]
+layout_mode = 2
+
+[node name="price" type="Label" parent="Panel/Box"]
+layout_mode = 2
+text = "sdasd"

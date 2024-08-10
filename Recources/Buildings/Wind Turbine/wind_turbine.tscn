@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://ci1633lte3uag"]
+
+[ext_resource type="Script" path="res://Recources/Buildings/GeneratorScript.gd" id="1_jrgpt"]
+[ext_resource type="Texture2D" uid="uid://d2osa1pmmb3by" path="res://Recources/Buildings/Wind Turbine/windbase.png" id="2_8snmj"]
+[ext_resource type="Texture2D" uid="uid://c4kjqowoojtls" path="res://Recources/Buildings/Wind Turbine/windblade.png" id="3_1npkj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfrr1"]
+size = Vector2(128, 128)
+
+[sub_resource type="Animation" id="Animation_0txtl"]
+resource_name = "Blades"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody2D/Base/Blade:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_i51py"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody2D/Base/Blade:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f36xc"]
+_data = {
+"Blades": SubResource("Animation_0txtl"),
+"RESET": SubResource("Animation_i51py")
+}
+
+[node name="WindTurbine" type="Node2D"]
+script = ExtResource("1_jrgpt")
+metadata/Type = "wt"
+metadata/Energy_Production = 100
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Base" type="Sprite2D" parent="StaticBody2D"]
+z_index = 2
+position = Vector2(1.35525e-20, 27)
+scale = Vector2(0.193355, 0.193355)
+texture = ExtResource("2_8snmj")
+
+[node name="Blade" type="Sprite2D" parent="StaticBody2D/Base"]
+z_index = -1
+position = Vector2(-7.00915e-20, -129.296)
+texture = ExtResource("3_1npkj")
+offset = Vector2(-8.35556e-27, -77.5776)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_vfrr1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f36xc")
+}
+autoplay = "Blades"
