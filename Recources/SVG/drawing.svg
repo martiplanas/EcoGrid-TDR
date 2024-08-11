@@ -24,15 +24,15 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="1.4248673"
-     inkscape:cx="547.77032"
-     inkscape:cy="625.67231"
-     inkscape:window-width="1280"
-     inkscape:window-height="784"
-     inkscape:window-x="160"
+     inkscape:zoom="1.4442322"
+     inkscape:cx="318.16213"
+     inkscape:cy="119.78683"
+     inkscape:window-width="1440"
+     inkscape:window-height="847"
+     inkscape:window-x="0"
      inkscape:window-y="25"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="layer1" />
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g21" />
   <defs
      id="defs1">
     <linearGradient
@@ -76,6 +76,18 @@
        x2="115.63852"
        y2="102.5958" />
   </defs>
+  <rect
+     style="fill:#323232;fill-opacity:0.75;stroke:#999999;stroke-width:1;stroke-linecap:square;stroke-miterlimit:32.3;stroke-dasharray:none;stroke-opacity:0.9"
+     id="rect4-8"
+     width="58.975178"
+     height="18.97518"
+     x="82.354805"
+     y="10.692234"
+     rx="5.9154344"
+     ry="5.9154344"
+     inkscape:export-filename="../../Sprites/UI/moneyui.png"
+     inkscape:export-xdpi="250"
+     inkscape:export-ydpi="250" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
@@ -2260,6 +2272,30 @@
           </g>
         </g>
       </g>
+    </g>
+    <g
+       id="g21"
+       inkscape:label="PAUSEBT">
+      <rect
+         style="fill:#323232;fill-opacity:0.75;stroke:#999999;stroke-width:1;stroke-linecap:square;stroke-miterlimit:32.3;stroke-dasharray:none;stroke-opacity:0.9"
+         id="rect4"
+         width="19.000963"
+         height="19.000963"
+         x="60.784756"
+         y="10.662125"
+         rx="6.1868401"
+         ry="5.4588332"
+         inkscape:export-filename="../../Sprites/UI/pause button.png"
+         inkscape:export-xdpi="250"
+         inkscape:export-ydpi="250" />
+      <path
+         style="fill:#f9f9f9;fill-opacity:1;stroke:#f2f2f2;stroke-width:2.54778;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:32.3;stroke-dasharray:none;stroke-opacity:1"
+         d="m 67.187778,15.601567 v 9.141287"
+         id="path18" />
+      <path
+         style="fill:#f9f9f9;fill-opacity:1;stroke:#f2f2f2;stroke-width:2.54778;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:32.3;stroke-dasharray:none;stroke-opacity:1"
+         d="m 73.087704,15.594768 v 9.141287"
+         id="path18-1" />
     </g>
   </g>
 </svg>

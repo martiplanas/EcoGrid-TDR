@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://dvvh6edgstumi"]
+[gd_scene load_steps=116 format=3 uid="uid://dvvh6edgstumi"]
 
 [ext_resource type="Script" path="res://Scripts/MainScene.gd" id="1_bgq80"]
 [ext_resource type="Texture2D" uid="uid://cnobxxldmlj0k" path="res://Sprites/Map/river tileset.png" id="2_ntn3v"]
@@ -60,6 +60,7 @@
 [ext_resource type="Texture2D" uid="uid://cout4w1qjd760" path="res://Recources/UI/ToolBar/BulldozerHighlit.png" id="35_u6yot"]
 [ext_resource type="Texture2D" uid="uid://bsn5o6f7vv11u" path="res://Recources/UI/ToolBar/BulldozerHover.png" id="36_nnyks"]
 [ext_resource type="Script" path="res://Scripts/gameovercontroller.gd" id="37_2t5e3"]
+[ext_resource type="Texture2D" uid="uid://dkrsespteg13g" path="res://Sprites/UI/moneyui.png" id="55_70rbp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0pidl"]
 texture = ExtResource("2_ntn3v")
@@ -382,7 +383,6 @@ unicode = 54
 events = [SubResource("InputEventKey_cg44g")]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxkij"]
-bg_color = Color(0.817521, 0.817521, 0.817521, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
@@ -436,6 +436,7 @@ texture = ExtResource("17_o2oup")
 
 [sub_resource type="Animation" id="Animation_b4rr0"]
 length = 0.001
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -452,7 +453,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_tcuig"]
 resource_name = "clcok"
 length = 36.0
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -511,8 +511,12 @@ events = [SubResource("InputEventKey_trcg4")]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lef2a"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vtnw7"]
+texture = ExtResource("55_70rbp")
+
 [sub_resource type="LabelSettings" id="LabelSettings_mnwqn"]
 font_size = 19
+font_color = Color(0.95, 0.95, 0.95, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iqalc"]
 
@@ -750,6 +754,7 @@ offset_bottom = 44.0
 theme_override_constants/icon_max_width = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_sxkij")
 icon = ExtResource("14_3rfmq")
+flat = true
 
 [node name="PauseMenu" type="Panel" parent="Camera2D/UI"]
 process_mode = 2
@@ -848,24 +853,25 @@ script = ExtResource("16_b17e5")
 [node name="Panel" type="Panel" parent="Camera2D/UI/Clock"]
 z_index = -1
 layout_mode = 0
-offset_left = 44.0
+offset_left = 94.0
 offset_top = 14.0
-offset_right = 295.0
+offset_right = 298.0
 offset_bottom = 105.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_bqxcv")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/UI/Clock/Panel"]
 layout_mode = 0
-offset_left = 94.0
-offset_right = 252.0
+offset_left = 44.0
+offset_right = 202.0
 offset_bottom = 92.0
 theme_override_constants/separation = 10
 
 [node name="pause" type="Button" parent="Camera2D/UI/Clock/Panel/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+size_flags_horizontal = 0
+theme_override_colors/icon_normal_color = Color(0.95, 0.95, 0.95, 1)
 theme_override_colors/icon_pressed_color = Color(1, 0.270588, 0.227451, 1)
-theme_override_colors/icon_hover_color = Color(0.261888, 0, 0.00368886, 1)
+theme_override_colors/icon_hover_color = Color(0.95, 0.6175, 0.623042, 1)
 theme_override_colors/icon_hover_pressed_color = Color(1, 0.270588, 0.227451, 0.862745)
 theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0.117647)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_i2eqw")
@@ -879,9 +885,9 @@ icon = ExtResource("18_ua0r3")
 
 [node name="play" type="Button" parent="Camera2D/UI/Clock/Panel/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.95, 0.95, 0.95, 1)
 theme_override_colors/icon_pressed_color = Color(0.203922, 0.780392, 0.34902, 1)
-theme_override_colors/icon_hover_color = Color(0.0431373, 0.133333, 0.00784314, 1)
+theme_override_colors/icon_hover_color = Color(0.677667, 0.95, 0.57, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0.203922, 1, 0.34902, 0.862745)
 theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0.117647)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_i2eqw")
@@ -896,9 +902,9 @@ icon = ExtResource("19_syb8d")
 
 [node name="fast" type="Button" parent="Camera2D/UI/Clock/Panel/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.95, 0.95, 0.95, 1)
 theme_override_colors/icon_pressed_color = Color(0.116663, 0.580387, 0.141678, 1)
-theme_override_colors/icon_hover_color = Color(0.0431373, 0.133333, 0.00784314, 1)
+theme_override_colors/icon_hover_color = Color(0.285333, 0.4, 0.24, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0.117647, 0.572549, 0.141176, 0.862745)
 theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0.117647)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_i2eqw")
@@ -912,11 +918,12 @@ icon = ExtResource("20_xga3y")
 
 [node name="TextureRect" type="TextureRect" parent="Camera2D/UI/Clock"]
 layout_mode = 0
-offset_left = 54.0
-offset_top = 22.0
-offset_right = 66.0
-offset_bottom = 68.0
-pivot_offset = Vector2(6, 40)
+offset_left = 50.0
+offset_top = -24.0
+offset_right = 75.0
+offset_bottom = 72.0
+scale = Vector2(0.45, 0.45)
+pivot_offset = Vector2(9.60547, 85.4775)
 texture = ExtResource("21_i42ou")
 
 [node name="ClockExpand" type="Button" parent="Camera2D/UI/Clock"]
@@ -1190,11 +1197,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -57.5
-offset_top = 5.0
-offset_right = 57.5
-offset_bottom = 38.0
+offset_left = -58.0
+offset_top = 4.0
+offset_right = 65.0
+offset_bottom = 44.0
 grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vtnw7")
 script = ExtResource("33_l2fwi")
 
 [node name="Monney ammount" type="Label" parent="Camera2D/UI/MoneyDisplay"]

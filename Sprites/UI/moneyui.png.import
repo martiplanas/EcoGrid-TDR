@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mpwd8xdgbf5r"
-path="res://.godot/imported/NuclearButton.png-6d216d7c11eb6ec151ac175e93d97bbb.ctex"
+uid="uid://dkrsespteg13g"
+path="res://.godot/imported/moneyui.png-0e450078ab7268b119924a21073fbe69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/NuclearButton.png"
-dest_files=["res://.godot/imported/NuclearButton.png-6d216d7c11eb6ec151ac175e93d97bbb.ctex"]
+source_file="res://Sprites/UI/moneyui.png"
+dest_files=["res://.godot/imported/moneyui.png-0e450078ab7268b119924a21073fbe69.ctex"]
 
 [params]
 
