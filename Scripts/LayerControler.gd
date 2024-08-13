@@ -16,16 +16,29 @@ func set_layer(layer):
 			tilemap.set_layer_enabled(WIND_LAYER, false)
 		if tilemap.is_layer_enabled(SOLAR_LAYER):
 			tilemap.set_layer_enabled(SOLAR_LAYER, false)
+		if tilemap.is_layer_enabled(GEO_LAYER):
+			tilemap.set_layer_enabled(GEO_LAYER, false)
 	if layer == 1:
 		if not tilemap.is_layer_enabled(WIND_LAYER):
 			tilemap.set_layer_enabled(WIND_LAYER, true)
 		if tilemap.is_layer_enabled(SOLAR_LAYER):
 			tilemap.set_layer_enabled(SOLAR_LAYER, false)
+		if tilemap.is_layer_enabled(GEO_LAYER):
+			tilemap.set_layer_enabled(GEO_LAYER, false)
 	if layer == 2:
 		if tilemap.is_layer_enabled(WIND_LAYER):
 			tilemap.set_layer_enabled(WIND_LAYER, false)
 		if not tilemap.is_layer_enabled(SOLAR_LAYER):
 			tilemap.set_layer_enabled(SOLAR_LAYER, true)
+		if tilemap.is_layer_enabled(GEO_LAYER):
+			tilemap.set_layer_enabled(GEO_LAYER, false)
+	if layer == 3:
+		if tilemap.is_layer_enabled(WIND_LAYER):
+			tilemap.set_layer_enabled(WIND_LAYER, false)
+		if tilemap.is_layer_enabled(SOLAR_LAYER):
+			tilemap.set_layer_enabled(SOLAR_LAYER, false)
+		if not tilemap.is_layer_enabled(GEO_LAYER):
+			tilemap.set_layer_enabled(GEO_LAYER, true)
 
 func _on_basic_view_pressed():
 	set_layer(0)
@@ -37,7 +50,7 @@ func _on_sun_view_pressed():
 	set_layer(2)
 
 func _on_geo_view_pressed():
-	set_layer(0)
+	set_layer(3)
 
 func _on_building_wt_pressed():
 	set_layer(1)
@@ -61,4 +74,4 @@ func _on_building_hp_pressed():
 	set_layer(0)
 
 func _on_building_gt_pressed():
-	set_layer(0)
+	set_layer(3)

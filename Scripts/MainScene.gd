@@ -61,7 +61,7 @@ var buildable_tiles = []
 	}
 }
 
-var building_type_layer = {"wt":6, "sp":8, "nc":0, "gt":0, "hp":0}
+var building_type_layer = {"wt":6, "sp":8, "nc":0, "gt":7, "hp":0}
 var button_to_id = {1 : "wt", 2 : "sp", 3 : "nc", 6 : "hp", 7 : "gt"}
 
 var color_modifier = {0 : 0.25, 1 : 0.5, 2 : 0.75, 3 : 1.25, 4 : 1.75}
@@ -83,9 +83,9 @@ var current_build_type
 @onready var tilemap = $TileMap  # Ensure you have a TileMap node in your scene
 
 func _ready():
-	var buildable_tiles_i = $TileMap.get_used_cells(9)
+	var buildable_tiles_i = $TileMap.get_used_cells(10)
 	for tile in buildable_tiles_i:
-		if tilemap.get_cell_source_id(9, tile) != 3:
+		if tilemap.get_cell_source_id(10, tile) != 3:
 			buildable_tiles.append(Vector2((tile.x*128)+64,(tile.y*128)+64))
 	
 	set_process_input(true)
@@ -127,7 +127,7 @@ func check_for_info(position):
 				
 				var title = building_data[key]["name"] + " info"
 				var description = load_text_file(building_data[key]["description"])
-				var generating_num = "Energy generation: " + str(building.get_meta("Energy_Production"))
+				var generating_num = "Energy generation: " + str(building.energy_production)
 				
 				newPanel.set_texts(title, description, generating_num, "", "")
 		for city in $TileMap/Cities.cities:
@@ -141,7 +141,7 @@ func check_for_info(position):
 				var info2 = "Population: " + str(scnl.cities[city.name]["population"])
 				var info3 = "Level: " + str(city.level) + "/5"
 				
-				newPanel.set_texts(title, description, info1, info2, "")
+				newPanel.set_texts(title, description, info1, info2, info3)
 
 func _process(_delta):
 	button_selected = ui_manager.current_button_selected
