@@ -61,7 +61,7 @@ var buildable_tiles = []
 	}
 }
 
-var building_type_layer = {"wt":6, "sp":8, "nc":0, "gt":7, "hp":0}
+var building_type_layer = {"wt":8, "sp":10, "nc":0, "gt":9, "hp":0}
 var button_to_id = {1 : "wt", 2 : "sp", 3 : "nc", 6 : "hp", 7 : "gt"}
 
 var color_modifier = {0 : 0.25, 1 : 0.5, 2 : 0.75, 3 : 1.25, 4 : 1.75}

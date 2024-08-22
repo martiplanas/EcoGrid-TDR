@@ -1,9 +1,9 @@
 extends TileMap
 
-const GRID_LAYER:int = 9
-const WIND_LAYER:int = 6
-const GEO_LAYER:int = 7
-const SOLAR_LAYER:int = 8
+const GRID_LAYER:int = 12
+const WIND_LAYER:int = 8
+const GEO_LAYER:int = 9
+const SOLAR_LAYER:int = 10
 
 var mouse = 0
 @onready var main = $".."

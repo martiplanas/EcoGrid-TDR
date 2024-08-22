@@ -5,9 +5,9 @@ extends Panel
 var buttons = {6 : $HBoxContainer/WindView, 8 : $HBoxContainer/SunView}
 
 const GRID_LAYER:int = 9
-const WIND_LAYER:int = 6
-const GEO_LAYER:int = 7
-const SOLAR_LAYER:int = 8
+const WIND_LAYER:int = 8
+const GEO_LAYER:int = 9
+const SOLAR_LAYER:int = 10
 
 #0 = none, 1 = WIND, 2 = SUN
 func set_layer(layer):
