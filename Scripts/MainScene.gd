@@ -129,6 +129,7 @@ func check_for_info(position):
 				var description = load_text_file(building_data[key]["description"])
 				var generating_num = "Energy generation: " + str(building.energy_production)
 				
+				newPanel.followNode = building
 				newPanel.set_texts(title, description, generating_num, "", "")
 		for city in $TileMap/Cities.cities:
 			if city.position == position and city.is_visible_in_tree():
@@ -141,6 +142,7 @@ func check_for_info(position):
 				var info2 = "Population: " + str(scnl.cities[city.name]["population"])
 				var info3 = "Level: " + str(city.level) + "/5"
 				
+				newPanel.followNode = city
 				newPanel.set_texts(title, description, info1, info2, info3)
 
 func _process(_delta):
@@ -153,77 +155,80 @@ func _process(_delta):
 	demolishmode = (button_selected == 5)
 	
 	if buildmode:
-		var id = button_to_id[button_selected]
-		if current_build_type != id:
-			current_build_type = id
-			if current_build_model != null:
-				current_build_model.queue_free()
-			current_build_model = building_data[id]["cursor"].instantiate()
-			add_child(current_build_model)
-		elif current_build_type == id:
-			if current_build_model != null:
-				current_build_model.position = snap_to_grid(get_global_mouse_position())
-				
-				var price_tag
-				var energy_tag
-				var position_tag
-				
-				var price_can = false
-				var position_can = false
-				
-				for childs in current_build_model.get_child(1).get_child(0).get_children():
-					if childs.name ==  "price":
-						price_tag = childs
-					if childs.name == "position":
-						position_tag = childs
-					if childs.name == "energy":
-						energy_tag = childs
-				
-				if price_tag != null:
-					if money.is_enough_money(building_data[id]["price"]):
-						price_tag.text = "Price: " + str(building_data[id]["price"])
-						price_tag.modulate = Color(0.5,255,0.5,1)
-						price_can = true
-					else:
-						price_can = false
-						price_tag.text = "Not enough money, price: " + str(building_data[id]["price"])
-						price_tag.modulate = Color(1,0.25,0.25,1)
-				
-				if position_tag != null:
-					var grid_position = snap_to_grid(get_global_mouse_position())
-					if grid_position not in occupied_positions and grid_position in buildable_tiles:
-						position_tag.text = "This position is avalible."
-						position_tag.modulate = Color(0.5,1,0.5,1)
-						position_can = true
-					else:
-						position_tag.text = "This position is not buildable."
-						position_tag.modulate = Color(1,0.25,0.25,1)
-						position_can = false
-				
-				if energy_tag != null and position_can:
-					var grid_position = snap_to_grid(get_global_mouse_position())
-					var layer_num = building_type_layer[id]
-					var modifier = get_position_modifier(layer_num, grid_position)
-					var building_base_production = building_data[id]["generation"]
-					var final_production = modifier * building_base_production
-					energy_tag.text = "Energy production at this position: " + str(final_production) + "."
-				else:
-					energy_tag.text = "Energy production at this position: 0"
-				
-				if price_can == false or position_can == false:
-					current_build_model.get_child(0).modulate = Color(1,0.25,0.25,0.75)
-				else:
-					current_build_model.get_child(0).modulate = Color(0.5,1,0.5,0.75)
-				
-				if is_mouse_over_ui:
-					current_build_model.visible = false
-				else:
-					current_build_model.visible = true
+		showBuildUI()
 	else:
 		if current_build_model != null:
 			current_build_model.queue_free()
 			current_build_model = null
 			current_build_type = null
+
+func showBuildUI():
+	var id = button_to_id[button_selected]
+	if current_build_type != id:
+		current_build_type = id
+		if current_build_model != null:
+			current_build_model.queue_free()
+		current_build_model = building_data[id]["cursor"].instantiate()
+		add_child(current_build_model)
+	elif current_build_type == id:
+		if current_build_model != null:
+			current_build_model.position = snap_to_grid(get_global_mouse_position())
+			
+			var price_tag
+			var energy_tag
+			var position_tag
+			
+			var price_can = false
+			var position_can = false
+			
+			for childs in current_build_model.get_child(1).get_child(0).get_children():
+				if childs.name ==  "price":
+					price_tag = childs
+				if childs.name == "position":
+					position_tag = childs
+				if childs.name == "energy":
+					energy_tag = childs
+			
+			if price_tag != null:
+				if money.is_enough_money(building_data[id]["price"]):
+					price_tag.text = "Price: " + str(building_data[id]["price"])
+					price_tag.modulate = Color(0.5,255,0.5,1)
+					price_can = true
+				else:
+					price_can = false
+					price_tag.text = "Not enough money, price: " + str(building_data[id]["price"])
+					price_tag.modulate = Color(1,0.25,0.25,1)
+			
+			if position_tag != null:
+				var grid_position = snap_to_grid(get_global_mouse_position())
+				if grid_position not in occupied_positions and grid_position in buildable_tiles:
+					position_tag.text = "This position is avalible."
+					position_tag.modulate = Color(0.5,1,0.5,1)
+					position_can = true
+				else:
+					position_tag.text = "This position is not buildable."
+					position_tag.modulate = Color(1,0.25,0.25,1)
+					position_can = false
+			
+			if energy_tag != null and position_can:
+				var grid_position = snap_to_grid(get_global_mouse_position())
+				var layer_num = building_type_layer[id]
+				var modifier = get_position_modifier(layer_num, grid_position)
+				var building_base_production = building_data[id]["generation"]
+				var final_production = modifier * building_base_production
+				energy_tag.text = "Energy production at this position: " + str(final_production) + "."
+			else:
+				energy_tag.text = "Energy production at this position: 0"
+			
+			if price_can == false or position_can == false:
+				current_build_model.get_child(0).modulate = Color(1,0.25,0.25,0.75)
+			else:
+				current_build_model.get_child(0).modulate = Color(0.5,1,0.5,0.75)
+			
+			if is_mouse_over_ui:
+				current_build_model.visible = false
+			else:
+				current_build_model.visible = true
 
 func place_building(position):
 	var grid_position = snap_to_grid(position)
