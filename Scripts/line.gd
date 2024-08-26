@@ -58,5 +58,3 @@ func initzialitzate_line():
 				city_deliver = city
 
 	city_deliver.lines.append(self)
-
-

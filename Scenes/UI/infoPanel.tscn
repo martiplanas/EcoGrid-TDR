@@ -8,15 +8,15 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uunwy"]
 texture = ExtResource("2_lgfko")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nn3gq"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y1vkq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8asal"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f5rf1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3k1lh"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8asal"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y1vkq"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nn3gq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ncojr"]
 
@@ -69,11 +69,11 @@ layout_mode = 2
 
 [node name="Close Button" type="Button" parent="Panel/Main Container/TopBar"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_nn3gq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y1vkq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8asal")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_f5rf1")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_3k1lh")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_8asal")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_y1vkq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nn3gq")
 icon = ExtResource("3_xejr5")
 flat = true
 
