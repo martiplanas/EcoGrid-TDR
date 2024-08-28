@@ -120,30 +120,18 @@ func check_for_info(position):
 	if not is_mouse_over_ui:
 		for building in buildings_created:
 			if building.position == position:
-				var key = building.get_meta("Type")
-				
 				var newPanel = infoPanel.instantiate()
 				ui.add_child(newPanel)
-				
-				var title = building_data[key]["name"] + " info"
-				var description = load_text_file(building_data[key]["description"])
-				var generating_num = "Energy generation: " + str(building.energy_production)
-				
 				newPanel.followNode = building
-				newPanel.set_texts(title, description, generating_num, "", "")
+				newPanel.type = "building"
+				newPanel.load_info()
 		for city in $TileMap/Cities.cities:
 			if city.position == position and city.is_visible_in_tree():
 				var newPanel = infoPanel.instantiate()
+				newPanel.type = "city"
 				ui.add_child(newPanel)
-				
-				var title = city.name + " info"
-				var description = load_text_file(scnl.cities[city.name]["description"])
-				var info1 = "Energy needs: " + str(city.current_needs)
-				var info2 = "Population: " + str(scnl.cities[city.name]["population"])
-				var info3 = "Level: " + str(city.level) + "/5"
-				
 				newPanel.followNode = city
-				newPanel.set_texts(title, description, info1, info2, info3)
+				newPanel.load_info()
 
 func _process(_delta):
 	button_selected = ui_manager.current_button_selected
