@@ -24,9 +24,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="0.99207081"
-     inkscape:cx="1548.2766"
-     inkscape:cy="463.17258"
+     inkscape:zoom="3.9682832"
+     inkscape:cx="1799.8967"
+     inkscape:cy="354.43539"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="1912"
@@ -2316,14 +2316,14 @@
      rx="9.0575686"
      ry="12.434673" />
   <rect
-     style="fill:#262626;fill-opacity:0.248889;stroke:#999999;stroke-width:0.478118;stroke-dasharray:none;stroke-opacity:0.9"
+     style="fill:#262626;fill-opacity:0.248889;stroke:#999999;stroke-width:0.44638;stroke-dasharray:none;stroke-opacity:0.9"
      id="rect19"
-     width="155.10989"
-     height="18.042717"
-     x="326.09241"
-     y="68.708313"
-     rx="1.1268947"
-     ry="1.321552"
+     width="134.96315"
+     height="18.074455"
+     x="326.07654"
+     y="68.692444"
+     rx="1.2987616"
+     ry="1.2987616"
      inkscape:export-filename="..\UI\Info Panel\titleBar.png"
      inkscape:export-xdpi="96"
      inkscape:export-ydpi="96" />
@@ -2339,6 +2339,18 @@
      inkscape:export-filename="..\UI\Info Panel\closeButton.png"
      inkscape:export-xdpi="96"
      inkscape:export-ydpi="96" />
+  <rect
+     style="fill:#262626;fill-opacity:0.248889;stroke:#999999;stroke-width:0.496251;stroke-dasharray:none;stroke-opacity:0.9"
+     id="rect19-8-9"
+     width="18.024582"
+     height="18.024582"
+     x="463.18256"
+     y="68.716995"
+     rx="1.3673669"
+     ry="1.3673669"
+     inkscape:export-filename="..\UI\Info Panel\offButton.png"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
   <g
      id="g22"
      style="fill:#262626;fill-opacity:0.248889;stroke:#b3b3b3;stroke-width:2.3;stroke-dasharray:none;stroke-opacity:1"
@@ -2351,5 +2363,53 @@
        style="fill:#262626;fill-opacity:0.248889;stroke:#b3b3b3;stroke-width:2.3;stroke-dasharray:none;stroke-opacity:1"
        d="M 319.50842,72.133374 309.27773,82.364055"
        id="path20" />
+  </g>
+  <g
+     id="g67"
+     inkscape:export-filename="..\UI\Info Panel\offButton.png"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96"
+     transform="translate(0,-0.52916667)">
+    <path
+       style="fill:#262626;fill-opacity:0.248889;stroke:#ff453a;stroke-width:2.09733;stroke-opacity:1"
+       d="M 472.1332,77.790979 V 71.680651"
+       id="path40"
+       inkscape:export-filename="..\UI\Info Panel\offButton.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;fill-opacity:0.248889;stroke:#ff453a;stroke-width:2.09733;stroke-opacity:1"
+       d="m 469.21483,74.209475 c -3.95681,2.191199 -2.83261,9.570865 2.79679,9.667087 6.26375,0.107065 6.91739,-7.762248 3.00956,-9.758285"
+       id="path42"
+       sodipodi:nodetypes="csc"
+       inkscape:export-filename="..\UI\Info Panel\closeButton.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+  </g>
+  <rect
+     style="fill:#262626;fill-opacity:0.248889;stroke:#999999;stroke-width:0.496251;stroke-dasharray:none;stroke-opacity:0.9"
+     id="rect19-8-9-7"
+     width="18.024582"
+     height="18.024582"
+     x="463.29333"
+     y="88.639984"
+     rx="1.3673669"
+     ry="1.3673669"
+     inkscape:export-filename="..\UI\Info Panel\onButton.png"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <g
+     id="g67-7"
+     transform="translate(0.11076385,19.39382)"
+     style="stroke:#30d158;stroke-opacity:1">
+    <path
+       style="fill:#262626;fill-opacity:0.248889;stroke:#30d158;stroke-width:2.09733;stroke-opacity:1"
+       d="M 472.1332,77.790979 V 71.680651"
+       id="path40-4" />
+    <path
+       style="fill:none;fill-opacity:0.248889;stroke:#30d158;stroke-width:2.09733;stroke-opacity:1"
+       d="m 469.21483,74.209475 c -3.95681,2.191199 -2.83261,9.570865 2.79679,9.667087 6.26375,0.107065 6.91739,-7.762248 3.00956,-9.758285"
+       id="path42-8"
+       sodipodi:nodetypes="csc" />
   </g>
 </svg>

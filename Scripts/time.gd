@@ -1,13 +1,15 @@
 extends Timer
 
 # Define the time speed
-enum TimeSpeed { PAUSED, NORMAL, FAST }
+enum TimeSpeed {PAUSED, NORMAL, FAST}
+var speeds = {TimeSpeed.PAUSED : 0, TimeSpeed.NORMAL : 1.0, TimeSpeed.FAST : 1.7}
 
 var time_speed = TimeSpeed.NORMAL
 var time_multiplier = 1.0
 
 @onready var clockui = get_node("../Camera2D/UI/Clock/AnimationPlayer")
 @onready var cities_manager = $"../TileMap/Cities"
+@onready var generators = $"../Generators"
 
 var GameSeconds = 0
 
@@ -23,15 +25,19 @@ func _ready():
 func update_timer():
 	match time_speed:
 		TimeSpeed.PAUSED:
-			time_multiplier = 0
+			time_multiplier = speeds[time_speed]
 			self.stop()
 		TimeSpeed.NORMAL:
-			time_multiplier = 1.0
+			time_multiplier = speeds[time_speed]
 			self.start(3 / time_multiplier)
 		TimeSpeed.FAST:
-			time_multiplier = 2.0  # You can change this value to adjust fast speed
+			time_multiplier = speeds[time_speed]
 			self.start(3 / time_multiplier)
 	clockui.setTimeSpeed(time_multiplier)
+	
+	for child in generators.get_children():
+		child.set_animation_speed(speeds[time_speed])
+	
 
 func set_time_speed(new_speed):
 	time_speed = new_speed
@@ -76,6 +82,4 @@ func increment_time():
 		print("Hour: %d, Day: %d" % [current_hour, current_day])
 
 func recolect_line_money():
-	for city in cities_manager.cities:
-		if city.visible and city != null:
-			city.get_money()
+	cities_manager.get_money()

@@ -4,15 +4,17 @@ extends Node2D
 @onready var ui = $Camera2D/UI
 @onready var scnl = $ScenarioLoader
 @onready var money = $Camera2D/UI/MoneyDisplay
-
+@onready var building_container = $Generators
+@onready var hover = $HoverC
+@onready var citymanager = $TileMap/Cities
 const GRID_SIZE = 128  # Adjust this value to your grid size
 
 var occupied_positions = {}
 var buildings_created = []
 var buildable_tiles = []
+var hoverable_items = []
 
 #---Buildings Arrays---
-
 @onready var building_data = {
 	"wt" : {
 		"name" : "Wind Turbine",
@@ -71,7 +73,6 @@ var infoPanel = preload("res://Scenes/UI/infoPanel.tscn")
 
 var is_mouse_over_ui = false
 
-#0=nobuilding/1=wt/2=sp/3=nc
 var button_selected = 0
 var buildmode = false
 var demolishmode = false
@@ -90,7 +91,27 @@ func _ready():
 	
 	set_process_input(true)
 
+func update_hoverable():
+	hoverable_items.clear()
+	hoverable_items.append_array(buildings_created)
+	for city in citymanager.cities:
+		if city.visible:
+			hoverable_items.append(city)
+
+func showornothover():
+	hover.visible = false
+	if button_selected == 0:
+		var mouse_pos_snap = snap_to_grid(get_global_mouse_position())
+		update_hoverable()
+		for item in hoverable_items:
+			if item.position == mouse_pos_snap:
+				print("a")
+				hover.visible = true
+				hover.position = item.position
+
 func _input(event):
+	showornothover()
+	
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			if button_selected == 0:
@@ -227,7 +248,7 @@ func place_building(position):
 				money.modify_money(-building_data[building_id]["price"])
 				var new_building = building_data[building_id]["scene"].instantiate()
 				buildings_created.append(new_building)
-				add_child(new_building)
+				building_container.add_child(new_building)
 				new_building.position = grid_position
 				
 				#Get modifier
@@ -238,11 +259,9 @@ func place_building(position):
 				occupied_positions[grid_position] = new_building
 				print("New building ", new_building, " created on ", str(grid_position) ,".")
 			else:
-				print("Not enough buildings of this type.")
+				print("Building not avalible.")
 		else:
-			print("You dont have money")
-	else:
-		print("position ocupied")
+			print("WE NEEED MONEHH ARTHUR AND GADDAM FAITH")
 
 func snap_to_grid(positions: Vector2) -> Vector2:
 	var map_coords = tilemap.local_to_map(positions)

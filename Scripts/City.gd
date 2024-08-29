@@ -5,7 +5,6 @@ extends Area2D
 @onready var update_timer = $upgrade
 @onready var downgrade_pretimer = $"downgrade pretimer"
 @onready var timer = get_node("../../../TimerJesus")
-@onready var money = $"../../../Camera2D/UI/MoneyDisplay"
 @onready var camera =  get_node("../../../Camera2D")
 @onready var gameover_screen = get_node("../../../Camera2D/UI/GameoverScreen")
 @onready var upgradeprogress = $upgradeProgress
@@ -14,6 +13,8 @@ extends Area2D
 const UPGRADE_TIME = 30
 
 const DOWNGRADE_TIME = 60
+
+var moneh_generation : int
 
 var is_upgrading = false
 var is_losing_timer = false
@@ -121,7 +122,9 @@ func _lose():
 	print("            PAYER LOST            ")
 	print("----------------------------------")
 
-func get_money():
+func update_money():
 	if current_needs != 0 and current_needs != null and $TextureProgressBar.value != null and $TextureProgressBar.value != 0:
 		var energy_delivered = ($TextureProgressBar.value / 100) * current_needs
-		money.modify_money(energy_delivered * 0.5)
+		moneh_generation = energy_delivered * 0.5
+	else:
+		moneh_generation = 0

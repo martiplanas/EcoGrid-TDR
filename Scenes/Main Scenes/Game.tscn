@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=3 uid="uid://dvvh6edgstumi"]
+[gd_scene load_steps=123 format=3 uid="uid://dvvh6edgstumi"]
 
 [ext_resource type="Script" path="res://Scripts/MainScene.gd" id="1_bgq80"]
 [ext_resource type="Texture2D" uid="uid://cnobxxldmlj0k" path="res://Sprites/Map/river tileset.png" id="2_ntn3v"]
@@ -62,6 +62,7 @@
 [ext_resource type="Texture2D" uid="uid://bsn5o6f7vv11u" path="res://Recources/UI/ToolBar/BulldozerHover.png" id="36_nnyks"]
 [ext_resource type="Script" path="res://Scripts/gameovercontroller.gd" id="37_2t5e3"]
 [ext_resource type="Texture2D" uid="uid://dkrsespteg13g" path="res://Sprites/UI/moneyui.png" id="55_70rbp"]
+[ext_resource type="Texture2D" uid="uid://b8oqjtjy5g14" path="res://Sprites/UI/hover.png" id="63_e5bsg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0pidl"]
 texture = ExtResource("2_ntn3v")
@@ -1375,6 +1376,16 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 script = ExtResource("35_qonuk")
+
+[node name="Generators" type="Node" parent="."]
+
+[node name="HoverC" type="Node2D" parent="."]
+visible = false
+z_index = 120
+
+[node name="Sprite2D" type="Sprite2D" parent="HoverC"]
+scale = Vector2(0.24015, 0.24015)
+texture = ExtResource("63_e5bsg")
 
 [connection signal="mouse_entered" from="Camera2D/UI/ToolBar" to="." method="_on_panel_container_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/UI/ToolBar" to="." method="_on_panel_container_mouse_exited"]

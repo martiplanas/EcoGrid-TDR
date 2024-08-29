@@ -6,7 +6,7 @@ var mod_gen_cache : float
 var base_generation : int = 3
 var energy_production :int
 var id : String
-@onready var main = get_node("../")
+@onready var main = get_node("../../")
 
 var state = true
 
@@ -24,10 +24,30 @@ func update_state():
 	if not state:
 		energy_production = 0 
 
+func update_apperence():
+	if state:
+		self.modulate = Color(1,1,1)
+	if not state:
+		self.modulate = Color(0.5,0.5,0.5)
+	
+	for child in self.get_children():
+		if child is AnimationPlayer:
+			if state:
+				child.play()
+			elif not state:
+				child.stop()
+
+func set_animation_speed(speed:float):
+	for child in self.get_children():
+		if child is AnimationPlayer:
+			child.speed_scale = speed
+
 func set_on():
 	state = true
 	update_state()
+	update_apperence()
 
 func set_off():
 	state = false
 	update_state()
+	update_apperence()

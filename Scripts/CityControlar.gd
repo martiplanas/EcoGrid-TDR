@@ -2,6 +2,7 @@ extends Node2D
 
 var cities = []
 var citypos = []
+@onready var money = $"../../Camera2D/UI/MoneyDisplay"
 
 func loadCities():
 	for child in get_children():
@@ -17,3 +18,13 @@ func loadCities():
 			parent.occupied_positions[citypos[i]]=city
 		i += 1
 
+func get_money():
+	var total_moneh : int = 0
+	
+	for child in self.get_children():
+		if child.visible and child != null:
+			child.update_money()
+			total_moneh = total_moneh + child.moneh_generation
+	
+	if total_moneh != 0:
+		money.modify_money(total_moneh)

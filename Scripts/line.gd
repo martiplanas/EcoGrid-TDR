@@ -9,7 +9,6 @@ var energy_generation
 
 var generators = []
 @onready var city_controler = $"../../TileMap/Cities"
-@onready var money = $"../../Camera2D/UI/MoneyDisplay"
 @onready var main = $"../../"
 
 # Called when the node enters the scene tree for the first time.
