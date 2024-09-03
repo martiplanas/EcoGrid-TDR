@@ -59,6 +59,7 @@ func _on_timeout():
 
 func _on_pause_pressed():
 	pause_game()
+	
 
 func _on_play_pressed():
 	play_game()

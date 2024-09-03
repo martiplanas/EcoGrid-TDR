@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b76v1cubiyuke"]
+[gd_scene load_steps=3 format=3 uid="uid://b76v1cubiyuke"]
 
 [ext_resource type="Script" path="res://Recources/Buildings/newGenerator.gd" id="1_fknw8"]
+[ext_resource type="Texture2D" uid="uid://kuojihhwmjpq" path="res://Recources/Buildings/Nuclear Power Plant/nuclear.png" id="2_6ved6"]
 
 [node name="Nuclear Power Plant" type="Node2D"]
 script = ExtResource("1_fknw8")
@@ -9,3 +10,4 @@ metadata/Type = "nc"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.0868416, -3.57628e-07)
 scale = Vector2(0.24, 0.241)
+texture = ExtResource("2_6ved6")

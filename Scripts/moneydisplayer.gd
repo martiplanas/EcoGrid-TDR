@@ -6,6 +6,7 @@ var remove_animation = preload("res://Scenes/UI/modify_text_animator.tscn")
 var add_animation = preload("res://Scenes/UI/modify_text_animator_add.tscn")
 
 #money stuff
+var starting_money = 20000000 
 var money:int
 
 func _ready():

@@ -12,7 +12,7 @@ var mouse = 0
 func _process(delta):
 	mouse = main.button_selected
 	
-	if mouse == 1 or mouse == 2 or mouse == 3 or mouse == 4 or mouse == 6 or mouse == 7:
+	if mouse == 1 or mouse == 2 or mouse == 3 or mouse == 6 or mouse == 5 or mouse == 7:
 		if not is_layer_enabled(GRID_LAYER):
 			self.set_layer_enabled(GRID_LAYER, true)
 	else:

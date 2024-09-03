@@ -4,6 +4,7 @@ var scenario_data = {}
 
 var cityScene = preload("res://Scenes/Buildings/City.tscn")
 @onready var cityContainer = get_node("../TileMap/Cities")
+@onready var generatorControler = get_node("../Generators")
 
 var cities = {
 	"Girona": {"position": Vector2(3264, 1600), "population": 100000, "l1": 500, "l2" : 1000, "l3" : 2000 , "l4" : 5000, "l5" : 10000 , "unlock_order" : 1, "description": "res://Recources/Critique/cities/Girona.txt"},
@@ -45,6 +46,8 @@ func load_cities():
 		newCity.needs.append(cities[city_name]["l3"])
 		newCity.needs.append(cities[city_name]["l4"])
 		newCity.needs.append(cities[city_name]["l5"])
-		
+	
 	cityContainer.loadCities()
-	SimulationManager.begin_simulation()
+
+func _on_load_scenario_retarder_timeout() -> void:
+	generatorControler.begin_load()

@@ -21,9 +21,11 @@ var hoverable_items = []
 		"description" : "res://Recources/Buildings/Wind Turbine/Wind.txt",
 		"scene" : preload("res://Recources/Buildings/Wind Turbine/wind_turbine.tscn"),
 		"cursor" : preload("res://Recources/Buildings/Wind Turbine/wind_turbine_cursor.tscn"),
-		"price" : 1200,
-		"generation" : 500, 
-		"unlocked" : true,
+		"price" : 700,
+		"generation" : 200, 
+		"pollution" : 0,
+		"upkeep" : 100,
+		"unlocked" : true
 	},
 	"sp" : {
 		"name" : "Solar Panels",
@@ -31,7 +33,9 @@ var hoverable_items = []
 		"scene" : preload("res://Recources/Buildings/Solar Panels/solar-panel-2.tscn"),
 		"cursor" : preload("res://Recources/Buildings/Solar Panels/solar_panel_cursor.tscn"),
 		"price" : 500,
-		"generation" : 200,
+		"generation" : 150,
+		"pollution" : 0,
+		"upkeep" : 80,
 		"unlocked" : true,
 	},
 	"nc" : {
@@ -40,7 +44,9 @@ var hoverable_items = []
 		"scene" : preload("res://Recources/Buildings/Nuclear Power Plant/nuclear_plant.tscn"),
 		"cursor" : preload("res://Recources/Buildings/Nuclear Power Plant/nuclear_plant_cursor.tscn"),
 		"price" : 100000,
-		"generation" : 10000,
+		"generation" : 1200,
+		"pollution" : 0.05,
+		"upkeep" : 800,
 		"unlocked" : true,
 	},
 	"gt" : {
@@ -48,8 +54,10 @@ var hoverable_items = []
 		"description" : "res://Recources/Buildings/Geotermical/Geo.txt",
 		"scene" : preload("res://Recources/Buildings/Geotermical/Geothermal.tscn"),
 		"cursor" : preload("res://Recources/Buildings/Geotermical/Geothermal_cursor.tscn"),
-		"price" : 5000,
-		"generation" : 1500,
+		"price" : 1200,
+		"generation" : 350,
+		"pollution" : 0,
+		"upkeep" : 150,
 		"unlocked" : true,
 	},
 	"hp" : {
@@ -59,6 +67,39 @@ var hoverable_items = []
 		"cursor" : preload("res://Recources/Buildings/Hydropower/Hydropower_cursor.tscn"),
 		"price" : 10000,
 		"generation" : 3000,
+		"unlocked" : false,
+	},
+	"cp" : {
+		"name" : "Coal Plant",
+		"description" : "res://Recources/Buildings/Coal Plant/Coal.txt",
+		#"scene" : preload(),
+		#"cursor" : preload(),
+		"price" : 2000,
+		"generation" : 900,
+		"pollution" : 0.4,
+		"upkeep" : 500,
+		"unlocked" : false,
+	},
+	"op" : {
+		"name" : "Oil Power Plant",
+		"description" : "res://Recources/Buildings/Oil Power Plant/Oil.txt",
+		#"scene" : preload(),
+		#"cursor" : preload(),
+		"price" : 2500,
+		"generation" : 1100,
+		"pollution" : 0.35,
+		"upkeep" : 600,
+		"unlocked" : false,
+	},
+	"ng" : {
+		"name" : "Natural Gas Plant",
+		"description" : "res://Recources/Buildings/Natural Gas Plant/NatGas.txt",
+		#"scene" : preload(),
+		#"cursor" : preload(),
+		"price" : 1800,
+		"generation" : 700,
+		"pollution" : 0.2,
+		"upkeep" : 400,
 		"unlocked" : false,
 	}
 }
@@ -80,13 +121,16 @@ var demolishmode = false
 var current_build_model
 var current_build_type
 
+var GRID_LAYER = 12
+
 @onready var ui_manager = get_node("Camera2D/UI")
 @onready var tilemap = $TileMap  # Ensure you have a TileMap node in your scene
 
 func _ready():
-	var buildable_tiles_i = $TileMap.get_used_cells(10)
+	#Set buildable positions minus river
+	var buildable_tiles_i = $TileMap.get_used_cells(GRID_LAYER)
 	for tile in buildable_tiles_i:
-		if tilemap.get_cell_source_id(10, tile) != 3:
+		if tilemap.get_cell_source_id(GRID_LAYER, tile) != 3:
 			buildable_tiles.append(Vector2((tile.x*128)+64,(tile.y*128)+64))
 	
 	set_process_input(true)
@@ -105,7 +149,6 @@ func showornothover():
 		update_hoverable()
 		for item in hoverable_items:
 			if item.position == mouse_pos_snap:
-				print("a")
 				hover.visible = true
 				hover.position = item.position
 
@@ -118,7 +161,7 @@ func _input(event):
 				check_for_info(snap_to_grid(get_global_mouse_position()))
 			if buildmode:
 				var mouse_pos = get_global_mouse_position()
-				place_building(mouse_pos)
+				place_building(mouse_pos, button_to_id[button_selected], true)
 			if demolishmode:
 				var mouse_pos = snap_to_grid(get_global_mouse_position())
 				for i in buildings_created:
@@ -239,29 +282,44 @@ func showBuildUI():
 			else:
 				current_build_model.visible = true
 
-func place_building(position):
-	var grid_position = snap_to_grid(position)
+func place_building(positiond, buildingID, pay:bool):
+	print(positiond)
+	var grid_position = snap_to_grid(positiond)
 	if grid_position not in occupied_positions and !is_mouse_over_ui and grid_position in buildable_tiles:
-		var building_id = button_to_id[button_selected]
-		if money.is_enough_money(building_data[building_id]["price"]):
-			if building_data[building_id]["unlocked"]:
-				money.modify_money(-building_data[building_id]["price"])
-				var new_building = building_data[building_id]["scene"].instantiate()
-				buildings_created.append(new_building)
-				building_container.add_child(new_building)
-				new_building.position = grid_position
-				
-				#Get modifier
-				var layer = building_type_layer[building_id]
-				
-				new_building.output_modifier = get_position_modifier(layer, grid_position)
-				
-				occupied_positions[grid_position] = new_building
-				print("New building ", new_building, " created on ", str(grid_position) ,".")
+		var building_id = buildingID
+		if pay:
+			if money.is_enough_money(building_data[building_id]["price"]):
+				if building_data[building_id]["unlocked"]:
+					money.modify_money(-building_data[building_id]["price"])
+					var new_building = building_data[building_id]["scene"].instantiate()
+					buildings_created.append(new_building)
+					building_container.add_child(new_building)
+					new_building.position = grid_position
+					
+					#Get modifier
+					var layer = building_type_layer[building_id]
+					
+					new_building.output_modifier = get_position_modifier(layer, grid_position)
+					
+					occupied_positions[grid_position] = new_building
+					print("New building ", new_building, " created on ", str(grid_position) ,".")
+				else:
+					print("Building not avalible.")
 			else:
-				print("Building not avalible.")
-		else:
-			print("WE NEEED MONEHH ARTHUR AND GADDAM FAITH")
+				print("WE NEEED MONEHH ARTHUR AND GADDAM FAITH")
+		elif not pay:
+			var new_building = building_data[building_id]["scene"].instantiate()
+			buildings_created.append(new_building)
+			building_container.add_child(new_building)
+			new_building.position = grid_position
+			
+			#Get modifier
+			var layer = building_type_layer[building_id]
+			
+			new_building.output_modifier = get_position_modifier(layer, grid_position)
+			
+			occupied_positions[grid_position] = new_building
+			print("Initial Building Created: ", new_building, " created on ", str(grid_position) ,".")
 
 func snap_to_grid(positions: Vector2) -> Vector2:
 	var map_coords = tilemap.local_to_map(positions)

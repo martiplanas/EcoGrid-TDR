@@ -3,6 +3,7 @@ extends Node2D
 var cities = []
 var citypos = []
 @onready var money = $"../../Camera2D/UI/MoneyDisplay"
+@onready var generatorcontroller = $"../../Generators"
 
 func loadCities():
 	for child in get_children():

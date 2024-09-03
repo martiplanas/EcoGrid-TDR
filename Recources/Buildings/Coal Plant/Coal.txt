@@ -1,0 +1,12 @@
+How it Works:
+Geothermal plants extract heat from beneath the Earth's surface. This heat is used to produce steam, which drives turbines connected to generators, producing electricity.
+
+Benefits:
+Taps into the Earth's internal heat, providing a stable and renewable energy source.
+Low greenhouse gas emissions and small land footprint.
+Reliable and capable of supplying base-load power.
+
+Downsides:
+High initial costs for drilling and plant construction.
+Limited to regions with suitable geothermal activity.
+Potential for land subsidence and release of harmful gases during extraction.
