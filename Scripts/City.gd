@@ -15,6 +15,7 @@ const UPGRADE_TIME = 30
 const DOWNGRADE_TIME = 60
 
 var moneh_generation : int
+var energy_price = 1
 
 var is_upgrading = false
 var is_losing_timer = false
@@ -32,6 +33,8 @@ func _ready():
 	downgrade_pretimer.timeout.connect(_lose)
 
 func _process(delta):
+	
+	
 	
 	if is_upgrading:
 		if upgrade_difference == 1:
@@ -125,6 +128,6 @@ func _lose():
 func update_money():
 	if current_needs != 0 and current_needs != null and $TextureProgressBar.value != null and $TextureProgressBar.value != 0:
 		var energy_delivered = ($TextureProgressBar.value / 100) * current_needs
-		moneh_generation = energy_delivered * 0.5
+		moneh_generation = energy_delivered * energy_price
 	else:
 		moneh_generation = 0

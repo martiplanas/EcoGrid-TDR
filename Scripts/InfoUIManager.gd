@@ -18,8 +18,17 @@ var off_button = preload("res://Recources/UI/Info Panel/offButton.png")
 @onready var on_off_button = $"Panel/Main Container/TopBar/on_off"
 var on_offState
 
+var type_to_description = {
+	"river" : "res://Recources/Critique/nature/river.txt",
+	"tree" : "res://Recources/Critique/nature/forest (trees).txt",
+	"seaA" : "res://Recources/Critique/nature/sea_a.txt",
+	"seaB" : "res://Recources/Critique/nature/sea_b.txt",
+	"seaC" : "res://Recources/Critique/nature/sea_c.txt",
+}
+
 var type: String
 var followNode
+var followPos
 var basePosModifier : Vector2 = Vector2(268,-110)
 
 func set_texts(a,b,c,d,e):
@@ -34,7 +43,9 @@ func set_texts(a,b,c,d,e):
 
 func _process(_delta):
 	if self.visible:
-		self.position = ((followNode.position - camera.position) * camera.zoom.x ) + Vector2(basePosModifier.x, basePosModifier.y*camera.zoom.y*0.5)
+		if followPos == null:
+			followPos = followNode.position
+		self.position = ((followPos - camera.position) * camera.zoom.x ) + Vector2(basePosModifier.x, basePosModifier.y*camera.zoom.y*0.5)
 		self.position = self.position.clamp(Vector2(-100,12), Vector2(572,200))
 	
 func close():
@@ -51,8 +62,9 @@ func update_info():
 		var title = main.building_data[key]["name"] + " info"
 		var description = main.load_text_file(main.building_data[key]["description"])
 		var generating_num = "Energy generation: " + str(followNode.energy_production)
+		var upkeep_text = "Upkeep cost: " + str(followNode.upkeep)
 		
-		set_texts(title, description, generating_num, "", "")
+		set_texts(title, description, generating_num, upkeep_text, "")
 	if type == "city":
 		var title = followNode.name + " info"
 		var description = main.load_text_file(scnl.cities[followNode.name]["description"])
@@ -61,6 +73,21 @@ func update_info():
 		var info3 = "Level: " + str(followNode.level) + "/5"
 		
 		set_texts(title, description, info1, info2, info3)
+	if type == "river":
+		var description = main.load_text_file(type_to_description[type])
+		set_texts(type, description, "", "", "")
+	if type == "tree":
+		var description = main.load_text_file(type_to_description[type])
+		set_texts("Forest", description, "", "", "")
+	if type == "seaA":
+		var description = main.load_text_file(type_to_description[type])
+		set_texts("Beach coast", description, "", "", "")
+	if type == "seaB":
+		var description = main.load_text_file(type_to_description[type])
+		set_texts("Sea", description, "", "", "")
+	if type == "seaC":
+		var description = main.load_text_file(type_to_description[type])
+		set_texts("Deep Sea", description, "", "", "")
 
 
 func _on_close_button_pressed():
@@ -69,11 +96,11 @@ func _on_close_button_pressed():
 func load_info():
 	self.visible = false
 	
-	if type == "city":
-		on_off_button.visible = false
-	else:
+	if type == "building":
 		on_offState = followNode.state
 		set_on_off_color()
+	else:
+		on_off_button.visible = false
 	
 	update_info()
 	

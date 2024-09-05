@@ -27,5 +27,7 @@ func get_money():
 			child.update_money()
 			total_moneh = total_moneh + child.moneh_generation
 	
+	total_moneh -= generatorcontroller.get_upkeep()
+	
 	if total_moneh != 0:
 		money.modify_money(total_moneh)

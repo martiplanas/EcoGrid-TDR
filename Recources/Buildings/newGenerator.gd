@@ -8,6 +8,8 @@ var energy_production :int
 var id : String
 @onready var main = get_node("../../")
 
+var upkeep
+
 var state = true
 
 func _process(delta):
@@ -17,6 +19,7 @@ func _process(delta):
 		modified_generation = true
 		energy_production = base_generation*output_modifier
 		mod_gen_cache = base_generation*output_modifier
+		upkeep = main.building_data[id]["upkeep"]
 
 func update_state():
 	if state:

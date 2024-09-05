@@ -14,6 +14,12 @@ var buildings_created = []
 var buildable_tiles = []
 var hoverable_items = []
 
+var forest_tiles = []
+var river_tiles = []
+var seaA_tiles = []
+var seaB_tiles = []
+var seaC_tiles = []
+
 #---Buildings Arrays---
 @onready var building_data = {
 	"wt" : {
@@ -122,11 +128,23 @@ var current_build_model
 var current_build_type
 
 var GRID_LAYER = 12
+var TREE_LAYER = 7
+var RIVER_LAYER = 13
+var SEAA_LAYER = 14
+var SEAB_LAYER = 15
+var SEAC_LAYER = 16
 
 @onready var ui_manager = get_node("Camera2D/UI")
 @onready var tilemap = $TileMap  # Ensure you have a TileMap node in your scene
 
 func _ready():
+	#Set tree array
+	forest_tiles = cells_to_cords($TileMap.get_used_cells(TREE_LAYER))
+	river_tiles = cells_to_cords($TileMap.get_used_cells(RIVER_LAYER))
+	seaA_tiles = cells_to_cords($TileMap.get_used_cells(SEAA_LAYER))
+	seaB_tiles = cells_to_cords($TileMap.get_used_cells(SEAB_LAYER))
+	seaC_tiles = cells_to_cords($TileMap.get_used_cells(SEAC_LAYER))
+	
 	#Set buildable positions minus river
 	var buildable_tiles_i = $TileMap.get_used_cells(GRID_LAYER)
 	for tile in buildable_tiles_i:
@@ -134,6 +152,14 @@ func _ready():
 			buildable_tiles.append(Vector2((tile.x*128)+64,(tile.y*128)+64))
 	
 	set_process_input(true)
+
+func cells_to_cords(arr):
+	var a = []
+	
+	for i in arr:
+		a.append(Vector2((i.x*128)+64,(i.y*128)+64))
+	
+	return a
 
 func update_hoverable():
 	hoverable_items.clear()
@@ -195,6 +221,41 @@ func check_for_info(position):
 				newPanel.type = "city"
 				ui.add_child(newPanel)
 				newPanel.followNode = city
+				newPanel.load_info()
+		for tree in forest_tiles:
+			if tree == position:
+				var newPanel = infoPanel.instantiate()
+				newPanel.type = "tree"
+				ui.add_child(newPanel)
+				newPanel.followPos = tree
+				newPanel.load_info()
+		for seaTileA in seaA_tiles:
+			if seaTileA == position:
+				var newPanel = infoPanel.instantiate()
+				newPanel.type = "seaA"
+				ui.add_child(newPanel)
+				newPanel.followPos = seaTileA
+				newPanel.load_info()
+		for seaTileB in seaB_tiles:
+			if seaTileB == position:
+				var newPanel = infoPanel.instantiate()
+				newPanel.type = "seaB"
+				ui.add_child(newPanel)
+				newPanel.followPos = seaTileB
+				newPanel.load_info()
+		for seaTileC in seaC_tiles:
+			if seaTileC == position:
+				var newPanel = infoPanel.instantiate()
+				newPanel.type = "seaC"
+				ui.add_child(newPanel)
+				newPanel.followPos = seaTileC
+				newPanel.load_info()
+		for river in river_tiles:
+			if river == position:
+				var newPanel = infoPanel.instantiate()
+				newPanel.type = "river"
+				ui.add_child(newPanel)
+				newPanel.followPos = river
 				newPanel.load_info()
 
 func _process(_delta):
