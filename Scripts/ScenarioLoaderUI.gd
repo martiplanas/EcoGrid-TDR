@@ -5,6 +5,9 @@ var buttonCAL
 var buttonSCD
 var buttonLoad
 
+@onready var CATHistoryModeCheckBox = $Panel/VBoxContainer/Scenarios/Catalunya/VBoxContainer/historyMode
+@onready var CATInfiniteMoenyCheckBox = $"Panel/VBoxContainer/Scenarios/Catalunya/VBoxContainer/infinite money"
+
 var currentScenarioSelected = 0
 # 0 = none, 1 = CAT, 2 = CAL, 3 = SCD
 
@@ -36,6 +39,9 @@ func _on_back_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/UI/Main Menu.tscn")
 
 func _on_load_scenario_pressed():
+	SimulationManager.historyMode = CATHistoryModeCheckBox.button_pressed
+	SimulationManager.infiniteMoney = CATInfiniteMoenyCheckBox.button_pressed
+	
 	if currentScenarioSelected == 1:
 		get_tree().change_scene_to_file("res://Scenes/Main Scenes/Game.tscn")
 

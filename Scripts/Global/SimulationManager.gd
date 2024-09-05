@@ -2,6 +2,10 @@ extends Node
 
 var line_container  = []
 
+#scenario loader
+var infiniteMoney : bool = false
+var historyMode : bool = true
+
 @onready var building_data = {
 	"wt" : {
 		"description" : "res://Recources/Buildings/Wind Turbine/Wind.txt",

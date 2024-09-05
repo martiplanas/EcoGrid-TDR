@@ -612,8 +612,10 @@ script = ExtResource("5_q1d6q")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1532, 1768)
+zoom = Vector2(0.12, 0.12)
 script = ExtResource("6_r2d8k")
 min_zoom = 0.3
+max_zoom = 5.0
 
 [node name="UI" type="Control" parent="Camera2D" groups=["ui"]]
 process_mode = 3
@@ -989,6 +991,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_t1uaf")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ko7ym")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_g4tex")
 toggle_mode = true
+button_pressed = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/UI/Clock"]
 libraries = {
@@ -1462,12 +1465,12 @@ texture = ExtResource("63_e5bsg")
 [connection signal="pressed" from="Camera2D/UI/PauseMenu/Box/ButtonsContainer/OptionsButton" to="Camera2D/UI" method="_on_options_button_pressed"]
 [connection signal="pressed" from="Camera2D/UI/PauseMenu/Box/ButtonsContainer/ExitButton" to="Camera2D/UI" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Camera2D/UI/PauseMenu/Box/ButtonsContainer/ExitMMButton" to="Camera2D/UI" method="_on_exit_mm_button_pressed"]
-[connection signal="pressed" from="Camera2D/UI/Clock/Panel/HBoxContainer/pause" to="TimerJesus" method="_on_pause_pressed"]
 [connection signal="pressed" from="Camera2D/UI/Clock/Panel/HBoxContainer/pause" to="Camera2D/UI/Pause indicator" method="_on_pause_pressed"]
-[connection signal="pressed" from="Camera2D/UI/Clock/Panel/HBoxContainer/play" to="TimerJesus" method="_on_play_pressed"]
+[connection signal="pressed" from="Camera2D/UI/Clock/Panel/HBoxContainer/pause" to="TimerJesus" method="_on_pause_pressed"]
 [connection signal="pressed" from="Camera2D/UI/Clock/Panel/HBoxContainer/play" to="Camera2D/UI/Pause indicator" method="_on_play_pressed"]
-[connection signal="pressed" from="Camera2D/UI/Clock/Panel/HBoxContainer/fast" to="TimerJesus" method="_on_fast_pressed"]
+[connection signal="pressed" from="Camera2D/UI/Clock/Panel/HBoxContainer/play" to="TimerJesus" method="_on_play_pressed"]
 [connection signal="pressed" from="Camera2D/UI/Clock/Panel/HBoxContainer/fast" to="Camera2D/UI/Pause indicator" method="_on_fast_pressed"]
+[connection signal="pressed" from="Camera2D/UI/Clock/Panel/HBoxContainer/fast" to="TimerJesus" method="_on_fast_pressed"]
 [connection signal="pressed" from="Camera2D/UI/Layers/HBoxContainer/basicView" to="Camera2D/UI/Layers" method="_on_basic_view_pressed"]
 [connection signal="pressed" from="Camera2D/UI/Layers/HBoxContainer/WindView" to="Camera2D/UI/Layers" method="_on_wind_view_pressed"]
 [connection signal="pressed" from="Camera2D/UI/Layers/HBoxContainer/SunView" to="Camera2D/UI/Layers" method="_on_sun_view_pressed"]

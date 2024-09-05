@@ -15,6 +15,8 @@ var current_button_selected = 0;
 
 @onready var pauseMenu = $PauseMenu
 
+var wellcome_screen = preload("res://Scenes/UI/wellcome_screen.tscn")
+
 var isPauseMenuActive = false
 
 var buttons = {}
@@ -59,6 +61,10 @@ func _process(delta):
 			get_tree().paused = false
 	
 	update_ToolBar()
+
+func begin_history_mode():
+	var ws = wellcome_screen.instantiate()
+	self.add_child(ws)
 
 func update_ToolBar():
 	pass

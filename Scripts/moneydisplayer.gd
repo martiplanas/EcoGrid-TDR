@@ -6,11 +6,20 @@ var remove_animation = preload("res://Scenes/UI/modify_text_animator.tscn")
 var add_animation = preload("res://Scenes/UI/modify_text_animator_add.tscn")
 
 #money stuff
-var starting_money = 20000000 
+var starting_money = 1200
+var starting_money_hm = 3000
 var money:int
 
 func _ready():
-	money = starting_money
+	if SimulationManager.infiniteMoney:
+		money = 999999999
+	else:
+		if SimulationManager.historyMode:
+			money = starting_money_hm
+		else:
+			money = starting_money
+	
+	moneyUI.text = str(money) + " $"
 
 func _process(delta):
 	for child in self.get_children():

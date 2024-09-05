@@ -5,6 +5,8 @@ var scenario_data = {}
 var cityScene = preload("res://Scenes/Buildings/City.tscn")
 @onready var cityContainer = get_node("../TileMap/Cities")
 @onready var generatorControler = get_node("../Generators")
+@onready var time_manager = get_node("../TimerJesus")
+@onready var ui = get_node("../Camera2D/UI")
 
 var cities = {
 	"Girona": {"position": Vector2(3264, 1600), "population": 100000, "l1": 500, "l2" : 1000, "l3" : 2000 , "l4" : 5000, "l5" : 10000 , "unlock_order" : 1, "description": "res://Recources/Critique/cities/Girona.txt"},
@@ -50,4 +52,8 @@ func load_cities():
 	cityContainer.loadCities()
 
 func _on_load_scenario_retarder_timeout() -> void:
-	generatorControler.begin_load()
+	if SimulationManager.historyMode:
+		generatorControler.begin_load()
+		time_manager.pause_game()
+		
+		ui.begin_history_mode()

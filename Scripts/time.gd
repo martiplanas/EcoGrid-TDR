@@ -8,6 +8,10 @@ var time_speed = TimeSpeed.NORMAL
 var time_multiplier = 1.0
 
 @onready var clockui = get_node("../Camera2D/UI/Clock/AnimationPlayer")
+@onready var clockUIPause = get_node("../Camera2D/UI/Clock/Panel/HBoxContainer/pause")
+@onready var clockUIPlay = get_node("../Camera2D/UI/Clock/Panel/HBoxContainer/play")
+@onready var clockUIFast = get_node("../Camera2D/UI/Clock/Panel/HBoxContainer/fast")
+@onready var pauseIndicator = get_node("../Camera2D/UI/Pause indicator")
 @onready var cities_manager = $"../TileMap/Cities"
 @onready var generators = $"../Generators"
 
@@ -46,6 +50,8 @@ func set_time_speed(new_speed):
 # Call these functions to change the speed
 func pause_game():
 	set_time_speed(TimeSpeed.PAUSED)
+	pauseIndicator.set_pause()
+	clockUIPause.button_pressed = true
 
 func play_game():
 	set_time_speed(TimeSpeed.NORMAL)

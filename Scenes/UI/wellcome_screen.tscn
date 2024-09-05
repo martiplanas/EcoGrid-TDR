@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://c23rebmj8hqa4"]
+
+[ext_resource type="Script" path="res://Scenes/UI/wellcome_screen.gd" id="1_nkm42"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mj4ap"]
+bg_color = Color(0.118581, 0.118581, 0.118581, 0.784314)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_pygm4"]
+font_size = 20
+outline_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jldur"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4twt6"]
+bg_color = Color(0.0392157, 0.517647, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="WellcomeScreen" type="Panel"]
+z_index = 1000
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nkm42")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(350, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mj4ap")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Wellcome to EcoGrid!"
+label_settings = SubResource("LabelSettings_pygm4")
+
+[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="wellcome text" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Thanks for playing! Your task is to transform Catalonia's energy grid into a green one. Start by building lines using the line tool before hitting play on the bottom left."
+autowrap_mode = 2
+
+[node name="Buttonok" type="Button" parent="Panel/MarginContainer"]
+custom_minimum_size = Vector2(80, 35)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxFlat_jldur")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4twt6")
+text = "OK"
+
+[connection signal="pressed" from="Panel/MarginContainer/Buttonok" to="." method="_on_buttonok_pressed"]

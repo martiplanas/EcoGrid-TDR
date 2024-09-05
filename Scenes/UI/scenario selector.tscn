@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://uq1s8aloayug"]
+[gd_scene load_steps=9 format=3 uid="uid://uq1s8aloayug"]
 
 [ext_resource type="Script" path="res://Scripts/ScenarioLoaderUI.gd" id="1_btkvu"]
 [ext_resource type="Texture2D" uid="uid://5kfq11iuarpq" path="res://Recources/Scenario loader Img/Screenshot 2024-07-11 at 17.01.49.png" id="1_wek0s"]
@@ -13,8 +13,12 @@ outline_size = 1
 [sub_resource type="ButtonGroup" id="ButtonGroup_1fseo"]
 allow_unpress = true
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_emyx4"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_hvrm0"]
 font_size = 25
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a308y"]
 
 [node name="ScenarioSelector" type="Control"]
 layout_mode = 3
@@ -77,35 +81,54 @@ size_flags_horizontal = 3
 toggle_mode = true
 button_group = SubResource("ButtonGroup_1fseo")
 
-[node name="LabelCatalunya" type="Label" parent="Panel/VBoxContainer/Scenarios/Catalunya"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/Scenarios/Catalunya"]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 23.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -133.5
+offset_right = 133.5
+offset_bottom = 359.0
 grow_horizontal = 2
+
+[node name="HSeparator3" type="HSeparator" parent="Panel/VBoxContainer/Scenarios/Catalunya/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+theme_override_styles/separator = SubResource("StyleBoxEmpty_emyx4")
+
+[node name="LabelCatalunya" type="Label" parent="Panel/VBoxContainer/Scenarios/Catalunya/VBoxContainer"]
+layout_mode = 2
 text = "Catalunya
 "
 label_settings = SubResource("LabelSettings_hvrm0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ImatgeCatalunya" type="TextureRect" parent="Panel/VBoxContainer/Scenarios/Catalunya"]
+[node name="HSeparator2" type="HSeparator" parent="Panel/VBoxContainer/Scenarios/Catalunya/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+theme_override_styles/separator = SubResource("StyleBoxEmpty_emyx4")
+
+[node name="ImatgeCatalunya" type="TextureRect" parent="Panel/VBoxContainer/Scenarios/Catalunya/VBoxContainer"]
 custom_minimum_size = Vector2(200, 250)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -125.0
-offset_right = 125.0
-offset_bottom = 125.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 texture = ExtResource("1_wek0s")
 expand_mode = 2
 stretch_mode = 4
+
+[node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer/Scenarios/Catalunya/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+theme_override_styles/separator = SubResource("StyleBoxEmpty_a308y")
+
+[node name="infinite money" type="CheckBox" parent="Panel/VBoxContainer/Scenarios/Catalunya/VBoxContainer"]
+layout_mode = 2
+text = "Infinite money "
+
+[node name="historyMode" type="CheckBox" parent="Panel/VBoxContainer/Scenarios/Catalunya/VBoxContainer"]
+layout_mode = 2
+button_pressed = true
+text = "Transform the grid GameMode"
 
 [node name="California" type="Button" parent="Panel/VBoxContainer/Scenarios"]
 custom_minimum_size = Vector2(300, 0)
@@ -116,6 +139,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_1fseo")
 
 [node name="LabelCalifornia" type="Label" parent="Panel/VBoxContainer/Scenarios/California"]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -151,6 +175,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_1fseo")
 
 [node name="LabelScandinavia" type="Label" parent="Panel/VBoxContainer/Scenarios/Scandinavia"]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
