@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://uq1s8aloayug"]
+[gd_scene load_steps=16 format=3 uid="uid://uq1s8aloayug"]
 
 [ext_resource type="Script" path="res://Scripts/ScenarioLoaderUI.gd" id="1_btkvu"]
 [ext_resource type="Texture2D" uid="uid://5kfq11iuarpq" path="res://Recources/Scenario loader Img/Screenshot 2024-07-11 at 17.01.49.png" id="1_wek0s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlbes"]
-bg_color = Color(0.419813, 0.419813, 0.419813, 1)
+bg_color = Color(0.2, 0.2, 0.2, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yx7el"]
 font_size = 30
@@ -13,12 +13,40 @@ outline_size = 1
 [sub_resource type="ButtonGroup" id="ButtonGroup_1fseo"]
 allow_unpress = true
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2ryq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwvva"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efnxu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5b2g4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxp0t"]
+
+[sub_resource type="Theme" id="Theme_tnlla"]
+Button/styles/disabled = SubResource("StyleBoxFlat_i2ryq")
+Button/styles/focus = SubResource("StyleBoxFlat_vwvva")
+Button/styles/hover = SubResource("StyleBoxFlat_efnxu")
+Button/styles/normal = SubResource("StyleBoxFlat_5b2g4")
+Button/styles/pressed = SubResource("StyleBoxFlat_hxp0t")
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_emyx4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hvrm0"]
 font_size = 25
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a308y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yirut"]
+bg_color = Color(0.0392157, 0.517647, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 
 [node name="ScenarioSelector" type="Control"]
 layout_mode = 3
@@ -90,6 +118,7 @@ offset_left = -133.5
 offset_right = 133.5
 offset_bottom = 359.0
 grow_horizontal = 2
+theme = SubResource("Theme_tnlla")
 
 [node name="HSeparator3" type="HSeparator" parent="Panel/VBoxContainer/Scenarios/Catalunya/VBoxContainer"]
 layout_mode = 2
@@ -98,7 +127,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_emyx4")
 
 [node name="LabelCatalunya" type="Label" parent="Panel/VBoxContainer/Scenarios/Catalunya/VBoxContainer"]
 layout_mode = 2
-text = "Catalunya
+text = "Catalonia
 "
 label_settings = SubResource("LabelSettings_hvrm0")
 horizontal_alignment = 1
@@ -121,14 +150,14 @@ layout_mode = 2
 theme_override_constants/separation = 25
 theme_override_styles/separator = SubResource("StyleBoxEmpty_a308y")
 
-[node name="infinite money" type="CheckBox" parent="Panel/VBoxContainer/Scenarios/Catalunya/VBoxContainer"]
-layout_mode = 2
-text = "Infinite money "
-
 [node name="historyMode" type="CheckBox" parent="Panel/VBoxContainer/Scenarios/Catalunya/VBoxContainer"]
 layout_mode = 2
 button_pressed = true
-text = "Transform the grid GameMode"
+text = "Transform the Grid"
+
+[node name="infinite money" type="CheckBox" parent="Panel/VBoxContainer/Scenarios/Catalunya/VBoxContainer"]
+layout_mode = 2
+text = "Infinite money "
 
 [node name="California" type="Button" parent="Panel/VBoxContainer/Scenarios"]
 custom_minimum_size = Vector2(300, 0)
@@ -211,6 +240,7 @@ alignment = 2
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_yirut")
 text = "Start New Game →"
 
 [connection signal="pressed" from="Panel/VBoxContainer/TopBar/BackButton" to="." method="_on_back_button_pressed"]

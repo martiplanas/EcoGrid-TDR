@@ -155,11 +155,12 @@ func _ready():
 
 func cells_to_cords(arr):
 	var a = []
-	
 	for i in arr:
 		a.append(Vector2((i.x*128)+64,(i.y*128)+64))
-	
 	return a
+
+func cords_to_cell(pos : Vector2) -> Vector2i:
+	return Vector2i(((pos.x-64)/128),((pos.y-64)/128))
 
 func update_hoverable():
 	hoverable_items.clear()
@@ -275,6 +276,13 @@ func _process(_delta):
 			current_build_model = null
 			current_build_type = null
 
+func check_for_tree(positions):
+	for tree in forest_tiles:
+		if tree == positions:
+			var grid_pos = cords_to_cell(tree)
+			tilemap.erase_cell(TREE_LAYER, grid_pos)
+			forest_tiles.erase(grid_pos)
+
 func showBuildUI():
 	var id = button_to_id[button_selected]
 	if current_build_type != id:
@@ -363,6 +371,8 @@ func place_building(positiond, buildingID, pay:bool):
 					new_building.output_modifier = get_position_modifier(layer, grid_position)
 					
 					occupied_positions[grid_position] = new_building
+					check_for_tree(grid_position)
+					
 					print("New building ", new_building, " created on ", str(grid_position) ,".")
 				else:
 					print("Building not avalible.")

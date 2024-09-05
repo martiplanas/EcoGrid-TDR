@@ -65,7 +65,7 @@ func update_info():
 		var upkeep_text = "Upkeep cost: " + str(followNode.upkeep)
 		
 		set_texts(title, description, generating_num, upkeep_text, "")
-	if type == "city":
+	elif type == "city":
 		var title = followNode.name + " info"
 		var description = main.load_text_file(scnl.cities[followNode.name]["description"])
 		var info1 = "Energy needs: " + str(followNode.current_needs)
@@ -73,19 +73,19 @@ func update_info():
 		var info3 = "Level: " + str(followNode.level) + "/5"
 		
 		set_texts(title, description, info1, info2, info3)
-	if type == "river":
+	elif type == "river":
 		var description = main.load_text_file(type_to_description[type])
 		set_texts(type, description, "", "", "")
-	if type == "tree":
+	elif type == "tree":
 		var description = main.load_text_file(type_to_description[type])
 		set_texts("Forest", description, "", "", "")
-	if type == "seaA":
+	elif type == "seaA":
 		var description = main.load_text_file(type_to_description[type])
 		set_texts("Beach coast", description, "", "", "")
-	if type == "seaB":
+	elif type == "seaB":
 		var description = main.load_text_file(type_to_description[type])
 		set_texts("Sea", description, "", "", "")
-	if type == "seaC":
+	elif type == "seaC":
 		var description = main.load_text_file(type_to_description[type])
 		set_texts("Deep Sea", description, "", "", "")
 
