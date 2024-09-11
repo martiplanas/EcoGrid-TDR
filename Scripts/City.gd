@@ -1,12 +1,12 @@
 extends Area2D
 
-@onready var ui_manager = get_node("../../../Camera2D/UI")
-@onready var lines_manager = get_node("../../../Lines")
+@onready var ui_manager = $"../../../Camera2D/UI"
+@onready var lines_manager = $"../../../Lines"
 @onready var update_timer = $upgrade
 @onready var downgrade_pretimer = $"downgrade pretimer"
-@onready var timer = get_node("../../../TimerJesus")
-@onready var camera =  get_node("../../../Camera2D")
-@onready var gameover_screen = get_node("../../../Camera2D/UI/GameoverScreen")
+@onready var timer = $"../../../TimerJesus"
+@onready var camera =  $"../../../Camera2D"
+@onready var gameover_screen = $"../../../Camera2D/UI/GameoverScreen"
 @onready var upgradeprogress = $upgradeProgress
 @onready var lose_progress = $loseProgres
 

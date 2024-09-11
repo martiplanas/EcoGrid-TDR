@@ -624,10 +624,8 @@ script = ExtResource("5_q1d6q")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1532, 1768)
-zoom = Vector2(0.12, 0.12)
+zoom = Vector2(0.15, 0.15)
 script = ExtResource("6_r2d8k")
-min_zoom = 0.3
-max_zoom = 5.0
 
 [node name="UI" type="Control" parent="Camera2D" groups=["ui"]]
 process_mode = 3
