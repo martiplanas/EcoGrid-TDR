@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bjde7s0i3hvjb"]
 
 [ext_resource type="Texture2D" uid="uid://biulihr837xln" path="res://Sprites/Map/city.png" id="1_g50mm"]
-[ext_resource type="Script" path="res://Scripts/City.gd" id="2_f1agc"]
+[ext_resource type="Script" path="res://Scripts/Mechanics/City.gd" id="2_f1agc"]
 [ext_resource type="Texture2D" uid="uid://jl4guo00yhjd" path="res://Sprites/UI/loseRingBackground.png" id="2_fw78d"]
 [ext_resource type="Texture2D" uid="uid://cksyo2i3bd24r" path="res://Sprites/UI/loseRingFill.png" id="3_c46ve"]
 [ext_resource type="Texture2D" uid="uid://dpj385w8c0hsa" path="res://Sprites/Map/citygreen.png" id="4_sxltp"]

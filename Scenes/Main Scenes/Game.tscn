@@ -1,26 +1,27 @@
 [gd_scene load_steps=130 format=3 uid="uid://dvvh6edgstumi"]
 
-[ext_resource type="Script" path="res://Scripts/MainScene.gd" id="1_bgq80"]
+[ext_resource type="Script" path="res://Scripts/Mechanics/MainScene.gd" id="1_bgq80"]
 [ext_resource type="Texture2D" uid="uid://cnobxxldmlj0k" path="res://Sprites/Map/river tileset.png" id="2_ntn3v"]
 [ext_resource type="Texture2D" uid="uid://bivh12xor2vft" path="res://Sprites/Map/maptileset.png" id="3_20i7s"]
 [ext_resource type="Texture2D" uid="uid://bkp2jsob13qku" path="res://Sprites/Map/grid.png" id="3_exq7n"]
-[ext_resource type="Script" path="res://Scripts/TileMap.gd" id="4_xq5yc"]
-[ext_resource type="Script" path="res://Scripts/CityControlar.gd" id="5_q1d6q"]
+[ext_resource type="Script" path="res://Scripts/Mechanics/TileMap.gd" id="4_xq5yc"]
+[ext_resource type="Script" path="res://Scripts/Mechanics/CityControlar.gd" id="5_q1d6q"]
 [ext_resource type="Texture2D" uid="uid://diddyymvstja3" path="res://Sprites/Map/gridblock.png" id="5_up1v6"]
 [ext_resource type="Texture2D" uid="uid://de8d8fbhr5ujm" path="res://Sprites/Map/terrainStats.png" id="6_fgubn"]
-[ext_resource type="Script" path="res://Scripts/CameraControler.gd" id="6_r2d8k"]
+[ext_resource type="Script" path="res://Scripts/Mechanics/CameraControler.gd" id="6_r2d8k"]
 [ext_resource type="Texture2D" uid="uid://bsluf6l0rmlw6" path="res://Sprites/Map/trees.png" id="7_1orou"]
-[ext_resource type="Script" path="res://Scripts/UIManager.gd" id="7_jpdud"]
-[ext_resource type="Theme" uid="uid://deqerf02xsbny" path="res://GameBar.tres" id="8_ft4ia"]
+[ext_resource type="Script" path="res://Scripts/UI/UIManager.gd" id="7_jpdud"]
+[ext_resource type="Theme" uid="uid://deqerf02xsbny" path="res://Recources/Godot/GameBar.tres" id="8_ft4ia"]
 [ext_resource type="Texture2D" uid="uid://bh837uw43x3iu" path="res://Recources/UI/ToolBar/bar.png" id="11_gqc04"]
 [ext_resource type="Texture2D" uid="uid://dr6i2jxgenn0a" path="res://Recources/UI/ToolBar/mouse.png" id="12_jyovq"]
 [ext_resource type="Texture2D" uid="uid://c25o477c8ekmw" path="res://Recources/UI/ToolBar/mouseHighlit.png" id="13_06dfl"]
 [ext_resource type="Texture2D" uid="uid://bcn2xlgvvtewr" path="res://Recources/UI/ToolBar/solar.png" id="13_gdttr"]
+[ext_resource type="Script" path="res://Scripts/UI/pause_indicator.gd" id="13_m85g8"]
 [ext_resource type="Texture2D" uid="uid://b6np1w1ntt1bf" path="res://Sprites/UI/pause button.png" id="14_3rfmq"]
 [ext_resource type="Texture2D" uid="uid://dr8lb03384yuk" path="res://Recources/UI/ToolBar/wind.png" id="14_4btxw"]
 [ext_resource type="Texture2D" uid="uid://huio2nwtngv8" path="res://Recources/UI/ToolBar/mouseHover.png" id="14_260ey"]
 [ext_resource type="Texture2D" uid="uid://c2yyvdvgbybd1" path="res://Sprites/UI/clockcircle.png" id="15_um4ka"]
-[ext_resource type="Script" path="res://Scripts/ClockUIControler.gd" id="16_b17e5"]
+[ext_resource type="Script" path="res://Scripts/UI/ClockUIControler.gd" id="16_b17e5"]
 [ext_resource type="Texture2D" uid="uid://2lnbey5l5het" path="res://Recources/UI/ToolBar/water.png" id="17_8p5fk"]
 [ext_resource type="Texture2D" uid="uid://16pjndew7cu" path="res://Recources/UI/ToolBar/SolarHighlit.png" id="17_c41sx"]
 [ext_resource type="Texture2D" uid="uid://deek8ixgoslxx" path="res://Sprites/UI/clockselectorbackground.png" id="17_o2oup"]
@@ -35,40 +36,39 @@
 [ext_resource type="Texture2D" uid="uid://b0713cyo7jpsf" path="res://Recources/UI/ToolBar/windHover.png" id="21_bouke"]
 [ext_resource type="Texture2D" uid="uid://bphktps1iv7ti" path="res://Sprites/UI/clockarrow.png" id="21_i42ou"]
 [ext_resource type="Texture2D" uid="uid://ba50ethtl4oor" path="res://Recources/UI/ToolBar/bulldozer.png" id="21_rk6b7"]
-[ext_resource type="Script" path="res://Scripts/clockanimation.gd" id="22_6aelk"]
+[ext_resource type="Script" path="res://Scripts/UI/clockanimation.gd" id="22_6aelk"]
 [ext_resource type="Texture2D" uid="uid://c1fhs5diq5nn6" path="res://Recources/UI/ToolBar/WaterHighlit.png" id="23_ogeh1"]
 [ext_resource type="Texture2D" uid="uid://d0a2prutl3aad" path="res://Sprites/UI/layerselectorbackgroud.png" id="23_yewxs"]
 [ext_resource type="Texture2D" uid="uid://dh6yjxlcrhk2a" path="res://Recources/UI/ToolBar/waterHover.png" id="24_j3grv"]
-[ext_resource type="Script" path="res://Scripts/LayerControler.gd" id="24_oq7sf"]
+[ext_resource type="Script" path="res://Scripts/Mechanics/LayerControler.gd" id="24_oq7sf"]
 [ext_resource type="Texture2D" uid="uid://yoybagdaatf6" path="res://Sprites/UI/emptylayer.png" id="25_lly4k"]
 [ext_resource type="Texture2D" uid="uid://bgmf3uktw8ntp" path="res://Recources/UI/ToolBar/geoHighlit.png" id="26_nuytu"]
 [ext_resource type="Texture2D" uid="uid://c53xy15gbcj5d" path="res://Sprites/UI/wind.png" id="26_y304v"]
 [ext_resource type="Texture2D" uid="uid://big0vbovfsef2" path="res://Recources/UI/ToolBar/geoHover.png" id="27_bbu4x"]
 [ext_resource type="Texture2D" uid="uid://8h3na7jdibl6" path="res://Sprites/UI/sun.png" id="27_c2p5t"]
 [ext_resource type="Texture2D" uid="uid://ca6d8a6ju6h8v" path="res://Sprites/UI/geo.png" id="28_h1w2f"]
-[ext_resource type="Script" path="res://Scripts/ScenarioLoader.gd" id="29_ad4t6"]
+[ext_resource type="Script" path="res://Scripts/Other/ScenarioLoader.gd" id="29_ad4t6"]
 [ext_resource type="Texture2D" uid="uid://cmhn8ljvwlen8" path="res://Recources/UI/ToolBar/nuclearHighlit.png" id="29_aygme"]
 [ext_resource type="Texture2D" uid="uid://dl7wgfg8ci26h" path="res://Sprites/UI/lineUNCreatedCircle.png" id="29_n68kx"]
-[ext_resource type="Script" path="res://Scripts/LineUI.gd" id="29_qoeu6"]
+[ext_resource type="Script" path="res://Scripts/UI/LineUI.gd" id="29_qoeu6"]
 [ext_resource type="Texture2D" uid="uid://d1iyry85l3j3g" path="res://Recources/UI/ToolBar/nuclearHover.png" id="30_7jk8c"]
 [ext_resource type="Texture2D" uid="uid://c1sfrhcwipf83" path="res://Sprites/UI/close.png" id="30_b2jrd"]
-[ext_resource type="Script" path="res://Scripts/Lines.gd" id="30_tcs58"]
-[ext_resource type="Script" path="res://Scripts/time.gd" id="31_udwig"]
+[ext_resource type="Script" path="res://Scripts/Mechanics/Lines.gd" id="30_tcs58"]
+[ext_resource type="Script" path="res://Scripts/Mechanics/time.gd" id="31_udwig"]
 [ext_resource type="Texture2D" uid="uid://1socw7dbnb2v" path="res://Recources/UI/ToolBar/lineHiglit.png" id="32_g6vjw"]
 [ext_resource type="Texture2D" uid="uid://dbcv1xcsbd7u" path="res://Recources/UI/ToolBar/lineHover.png" id="33_bpe81"]
-[ext_resource type="Script" path="res://Scripts/moneydisplayer.gd" id="33_l2fwi"]
-[ext_resource type="Script" path="res://Scripts/line.gd" id="35_qonuk"]
+[ext_resource type="Script" path="res://Scripts/UI/moneydisplayer.gd" id="33_l2fwi"]
+[ext_resource type="Script" path="res://Scripts/Mechanics/line.gd" id="35_qonuk"]
 [ext_resource type="Texture2D" uid="uid://cout4w1qjd760" path="res://Recources/UI/ToolBar/BulldozerHighlit.png" id="35_u6yot"]
 [ext_resource type="Texture2D" uid="uid://bsn5o6f7vv11u" path="res://Recources/UI/ToolBar/BulldozerHover.png" id="36_nnyks"]
-[ext_resource type="Script" path="res://Scripts/gameovercontroller.gd" id="37_2t5e3"]
+[ext_resource type="Script" path="res://Scripts/UI/gameovercontroller.gd" id="37_2t5e3"]
 [ext_resource type="Texture2D" uid="uid://dkrsespteg13g" path="res://Sprites/UI/moneyui.png" id="55_70rbp"]
 [ext_resource type="Texture2D" uid="uid://woogc72618yk" path="res://Recources/UI/Ecometer/brownBar.png" id="59_pshei"]
 [ext_resource type="Texture2D" uid="uid://co1dud4ch8ywq" path="res://Recources/UI/Ecometer/greenBar.png" id="60_oun7l"]
 [ext_resource type="Texture2D" uid="uid://c0s2tbiiec4x6" path="res://Sprites/UI/pause indicator.png" id="61_hw71q"]
-[ext_resource type="Script" path="res://Scenes/Main Scenes/pause_indicator.gd" id="62_lpjj0"]
-[ext_resource type="Script" path="res://Scenes/Main Scenes/eco_meter_controller.gd" id="63_3x7so"]
+[ext_resource type="Script" path="res://Scripts/UI/eco_meter_controller.gd" id="63_cp5hi"]
 [ext_resource type="Texture2D" uid="uid://b8oqjtjy5g14" path="res://Sprites/UI/hover.png" id="63_e5bsg"]
-[ext_resource type="Script" path="res://Scenes/Main Scenes/GenScenarioLoader.gd" id="65_u5g6d"]
+[ext_resource type="Script" path="res://Scripts/Other/GenScenarioLoader.gd" id="68_g8k4j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0pidl"]
 texture = ExtResource("2_ntn3v")
@@ -648,7 +648,7 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_jgjsa")
-script = ExtResource("62_lpjj0")
+script = ExtResource("13_m85g8")
 
 [node name="ToolBar" type="PanelContainer" parent="Camera2D/UI" groups=["ui"]]
 z_index = 120
@@ -1352,7 +1352,7 @@ value = 94.0
 fill_mode = 2
 texture_under = ExtResource("59_pshei")
 texture_progress = ExtResource("60_oun7l")
-script = ExtResource("63_3x7so")
+script = ExtResource("63_cp5hi")
 
 [node name="ScenarioLoader" type="Node" parent="."]
 script = ExtResource("29_ad4t6")
@@ -1426,7 +1426,7 @@ end_cap_mode = 2
 script = ExtResource("35_qonuk")
 
 [node name="Generators" type="Node" parent="."]
-script = ExtResource("65_u5g6d")
+script = ExtResource("68_g8k4j")
 
 [node name="HoverC" type="Node2D" parent="."]
 visible = false

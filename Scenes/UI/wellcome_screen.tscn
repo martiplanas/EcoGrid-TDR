@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c23rebmj8hqa4"]
 
-[ext_resource type="Script" path="res://Scenes/UI/wellcome_screen.gd" id="1_nkm42"]
+[ext_resource type="Script" path="res://Scripts/UI/wellcome_screen.gd" id="1_jrtyo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mj4ap"]
 bg_color = Color(0.118581, 0.118581, 0.118581, 0.784314)
@@ -29,7 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_nkm42")
+script = ExtResource("1_jrtyo")
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(350, 200)

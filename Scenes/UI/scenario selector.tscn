@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://uq1s8aloayug"]
 
-[ext_resource type="Script" path="res://Scripts/ScenarioLoaderUI.gd" id="1_btkvu"]
+[ext_resource type="Script" path="res://Scripts/UI/ScenarioLoaderUI.gd" id="1_btkvu"]
 [ext_resource type="Texture2D" uid="uid://5kfq11iuarpq" path="res://Recources/Scenario loader Img/Screenshot 2024-07-11 at 17.01.49.png" id="1_wek0s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlbes"]
