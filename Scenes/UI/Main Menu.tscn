@@ -162,13 +162,13 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_14tgo")
 theme_override_styles/normal = SubResource("StyleBoxFlat_qiu8h")
 text = "Exit"
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Version" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 1008.0
-offset_top = 618.0
-offset_right = 1146.0
-offset_bottom = 641.0
-text = "v0.6 (PROTOTYPE)"
+offset_left = 994.0
+offset_top = 619.0
+offset_right = 1145.0
+offset_bottom = 642.0
+text = "v0.6.1 (PROTOTYPE)"
 
 [connection signal="pressed" from="Panel/VBoxContainer2/VBoxContainer/Play Button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer2/VBoxContainer/Dailly Challange Button" to="." method="_on_dailly_challange_button_pressed"]
