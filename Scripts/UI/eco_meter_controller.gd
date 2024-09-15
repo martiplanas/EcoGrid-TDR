@@ -28,6 +28,7 @@ func update_bar():
 				production_eco += production
 	
 	var eco_percent : float = (production_eco / total_production) * 100
+	print(eco_percent)
 	self.value = eco_percent
 
 func _on_timer_jesus_timeout() -> void:

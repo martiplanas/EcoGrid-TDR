@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqlxo1xlg7v50"]
+
+[ext_resource type="Texture2D" uid="uid://b41yxc7ssugyn" path="res://Recources/Buildings/Coal Plant/CoalPlant.png" id="1_gly7q"]
+
+[node name="Coal Plant" type="Node2D"]
+z_index = 100
+metadata/Type = "cp"
+metadata/Energy_Production = 2000
+
+[node name="sprite" type="Sprite2D" parent="."]
+z_index = 79
+position = Vector2(0.235579, 12.1201)
+scale = Vector2(0.240185, 0.240185)
+texture = ExtResource("1_gly7q")
+
+[node name="Panel" type="Panel" parent="."]
+z_index = 80
+offset_left = 63.0
+offset_top = -111.0
+offset_right = 413.0
+offset_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Box" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/MarginContainer/Box"]
+layout_mode = 2
+text = "Coal Plant"
+
+[node name="energy" type="Label" parent="Panel/MarginContainer/Box"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="Panel/MarginContainer/Box"]
+layout_mode = 2
+
+[node name="price" type="Label" parent="Panel/MarginContainer/Box"]
+layout_mode = 2
+text = "sdasd"

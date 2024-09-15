@@ -1,12 +1,12 @@
 How it Works:
-Geothermal plants extract heat from beneath the Earth's surface. This heat is used to produce steam, which drives turbines connected to generators, producing electricity.
+Coal power plants burn coal to heat water, producing steam that drives turbines connected to generators. This process converts the energy from burning coal into electricity.
 
 Benefits:
-Taps into the Earth's internal heat, providing a stable and renewable energy source.
-Low greenhouse gas emissions and small land footprint.
-Reliable and capable of supplying base-load power.
+Provides reliable, large-scale energy production.  
+Can meet high energy demands with stable output, ensuring base-load power.  
+Infrastructure is well-established in many regions.
 
 Downsides:
-High initial costs for drilling and plant construction.
-Limited to regions with suitable geothermal activity.
-Potential for land subsidence and release of harmful gases during extraction.
+Major source of CO2 emissions, driving climate change.  
+Releases harmful pollutants like sulfur dioxide and nitrogen oxides, affecting air quality.  
+Coal extraction damages ecosystems, and long-term dependence locks in environmental harm.  

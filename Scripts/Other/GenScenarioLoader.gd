@@ -31,6 +31,41 @@ var data = {
 			"name" : "Trucafort",
 			"position" : Vector2(832, 3008),
 			"type" : "wt"
+		},
+		5 : {
+			"name" : "Barcelona I",
+			"position" : Vector2(1600,3008),
+			"type" : "cp"
+		},
+		6 : {
+			"name" : "Barcelona II",
+			"position" : Vector2(1472,2880),
+			"type" : "cp"
+		},
+		7 : {
+			"name" : "Barcelona III",
+			"position" : Vector2(2496,2624),
+			"type" : "cp"
+		},
+		8 : {
+			"name" : "Barcelona IV",
+			"position" : Vector2(2368,2496),
+			"type" : "cp"
+		},
+		9 : {
+			"name" : "Barcelona V",
+			"position" : Vector2(2240,2496),
+			"type" : "cp"
+		},
+		10 : {
+			"name" : "Tarragona I",
+			"position" : Vector2(2240,2880),
+			"type" : "cp"
+		},
+		11 : {
+			"name" : "Tarragona II",
+			"position" : Vector2(2112,2880),
+			"type" : "cp"
 		}
 	}
 }

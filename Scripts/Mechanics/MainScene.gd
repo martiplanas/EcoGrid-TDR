@@ -7,7 +7,8 @@ extends Node2D
 @onready var building_container = $Generators
 @onready var hover = $HoverC
 @onready var citymanager = $TileMap/Cities
-const GRID_SIZE = 128  # Adjust this value to your grid size
+
+const GRID_SIZE = 128
 
 var occupied_positions = {}
 var buildings_created = []
@@ -31,7 +32,8 @@ var seaC_tiles = []
 		"generation" : 200, 
 		"pollution" : 0,
 		"upkeep" : 100,
-		"unlocked" : true
+		"unlocked" : true,
+		"layer" : 8
 	},
 	"sp" : {
 		"name" : "Solar Panels",
@@ -43,6 +45,7 @@ var seaC_tiles = []
 		"pollution" : 0,
 		"upkeep" : 80,
 		"unlocked" : true,
+		"layer" : 10
 	},
 	"nc" : {
 		"name" : "Nuclear Power Plant",
@@ -54,6 +57,7 @@ var seaC_tiles = []
 		"pollution" : 0.05,
 		"upkeep" : 800,
 		"unlocked" : true,
+		"layer" : 0
 	},
 	"gt" : {
 		"name" : "Geothermal Power Plant",
@@ -65,6 +69,7 @@ var seaC_tiles = []
 		"pollution" : 0,
 		"upkeep" : 150,
 		"unlocked" : true,
+		"layer" : 9
 	},
 	"hp" : {
 		"name" : "Hydropower",
@@ -74,47 +79,24 @@ var seaC_tiles = []
 		"price" : 10000,
 		"generation" : 3000,
 		"unlocked" : false,
+		"layer" : 0
 	},
 	"cp" : {
 		"name" : "Coal Plant",
 		"description" : "res://Recources/Buildings/Coal Plant/Coal.txt",
-		#"scene" : preload(),
-		#"cursor" : preload(),
+		"scene" : preload("res://Recources/Buildings/Coal Plant/coal_plant.tscn"),
+		"cursor" : preload("res://Recources/Buildings/Coal Plant/coal_plant_cursor.tscn"),
 		"price" : 2000,
 		"generation" : 900,
-		"pollution" : 0.4,
+		"pollution" : 0.8,
 		"upkeep" : 500,
 		"unlocked" : false,
-	},
-	"op" : {
-		"name" : "Oil Power Plant",
-		"description" : "res://Recources/Buildings/Oil Power Plant/Oil.txt",
-		#"scene" : preload(),
-		#"cursor" : preload(),
-		"price" : 2500,
-		"generation" : 1100,
-		"pollution" : 0.35,
-		"upkeep" : 600,
-		"unlocked" : false,
-	},
-	"ng" : {
-		"name" : "Natural Gas Plant",
-		"description" : "res://Recources/Buildings/Natural Gas Plant/NatGas.txt",
-		#"scene" : preload(),
-		#"cursor" : preload(),
-		"price" : 1800,
-		"generation" : 700,
-		"pollution" : 0.2,
-		"upkeep" : 400,
-		"unlocked" : false,
+		"layer" : 0
 	}
 }
 
-var building_type_layer = {"wt":8, "sp":10, "nc":0, "gt":9, "hp":0}
 var button_to_id = {1 : "wt", 2 : "sp", 3 : "nc", 6 : "hp", 7 : "gt"}
-
 var color_modifier = {0 : 0.25, 1 : 0.5, 2 : 0.75, 3 : 1.25, 4 : 1.75}
-
 
 var infoPanel = preload("res://Scenes/UI/infoPanel.tscn")
 
@@ -135,7 +117,7 @@ var SEAB_LAYER = 15
 var SEAC_LAYER = 16
 
 @onready var ui_manager = get_node("Camera2D/UI")
-@onready var tilemap = $TileMap  # Ensure you have a TileMap node in your scene
+@onready var tilemap = $TileMap
 
 func _ready():
 	#Set tree array
@@ -171,7 +153,7 @@ func update_hoverable():
 
 func showornothover():
 	hover.visible = false
-	if button_selected == 0:
+	if button_selected == 0 and not is_mouse_over_ui:
 		var mouse_pos_snap = snap_to_grid(get_global_mouse_position())
 		update_hoverable()
 		for item in hoverable_items:
@@ -333,7 +315,7 @@ func showBuildUI():
 			
 			if energy_tag != null and position_can:
 				var grid_position = snap_to_grid(get_global_mouse_position())
-				var layer_num = building_type_layer[id]
+				var layer_num = building_data[id]["layer"]
 				var modifier = get_position_modifier(layer_num, grid_position)
 				var building_base_production = building_data[id]["generation"]
 				var final_production = modifier * building_base_production
@@ -366,7 +348,7 @@ func place_building(positiond, buildingID, pay:bool):
 					new_building.position = grid_position
 					
 					#Get modifier
-					var layer = building_type_layer[building_id]
+					var layer = building_data[building_id]["layer"]
 					
 					new_building.output_modifier = get_position_modifier(layer, grid_position)
 					
@@ -385,7 +367,7 @@ func place_building(positiond, buildingID, pay:bool):
 			new_building.position = grid_position
 			
 			#Get modifier
-			var layer = building_type_layer[building_id]
+			var layer = building_data[building_id]["layer"]
 			
 			new_building.output_modifier = get_position_modifier(layer, grid_position)
 			

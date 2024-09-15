@@ -49,6 +49,7 @@ func _process(_delta):
 		self.position = self.position.clamp(Vector2(-100,12), Vector2(572,200))
 	
 func close():
+	main.is_mouse_over_ui = false
 	self.queue_free()
 
 func _input(event):
@@ -126,3 +127,22 @@ func _on_on_off_pressed() -> void:
 		followNode.set_on()
 	update_info()
 	set_on_off_color()
+
+
+func _on_panel_mouse_entered() -> void:
+	main.is_mouse_over_ui = true
+
+func _on_panel_mouse_exited() -> void:
+	main.is_mouse_over_ui = false
+
+func _on_on_off_mouse_entered() -> void:
+	main.is_mouse_over_ui = true
+
+func _on_on_off_mouse_exited() -> void:
+	main.is_mouse_over_ui = false
+
+func _on_close_button_mouse_entered() -> void:
+	main.is_mouse_over_ui = true
+
+func _on_close_button_mouse_exited() -> void:
+	main.is_mouse_over_ui = false

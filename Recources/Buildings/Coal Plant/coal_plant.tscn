@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnp7qdu7vg7hq"]
+
+[ext_resource type="Script" path="res://Recources/Buildings/newGenerator.gd" id="1_krfml"]
+[ext_resource type="Texture2D" uid="uid://b41yxc7ssugyn" path="res://Recources/Buildings/Coal Plant/CoalPlant.png" id="2_h46c6"]
+
+[node name="Coal Plant" type="Node2D"]
+script = ExtResource("1_krfml")
+metadata/Type = "cp"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.0868416, -3.57628e-07)
+scale = Vector2(0.24, 0.241)
+texture = ExtResource("2_h46c6")
