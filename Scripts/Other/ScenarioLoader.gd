@@ -9,11 +9,11 @@ var cityScene = preload("res://Scenes/Buildings/City.tscn")
 @onready var ui = get_node("../Camera2D/UI")
 
 var cities = {
-	"Girona": {"position": Vector2(3264, 1600), "population": 100000, "l1": 500, "l2" : 1000, "l3" : 2000 , "l4" : 5000, "l5" : 10000 , "unlock_order" : 1, "description": "res://Recources/Critique/cities/Girona.txt"},
-	"Barcelona": {"position": Vector2(2368, 2752), "population": 1600000, "l1": 2000, "l2" : 10000, "l3" : 50000 , "l4" : 100000, "l5" : 600000, "unlock_order" : 4, "description": "res://Recources/Critique/cities/Barcelona.txt"},
-	"Lleida": {"position": Vector2(320, 2112), "population": 138000, "l1": 1000, "l2" : 2000, "l3" : 5000 , "l4" : 7500, "l5" : 20000, "unlock_order" : 3, "description": "res://Recources/Critique/cities/Lleida.txt"},
-	"Tarragona": {"position": Vector2(1344, 3008), "population": 134000, "l1": 750, "l2" : 1000, "l3" : 2000 , "l4" : 5000, "l5" : 20000, "unlock_order" : 2, "description": "res://Recources/Critique/cities/Tarragona.txt"},
-	"Manresa": {"position": Vector2(1856, 1984), "population": 76000, "l1": 200, "l2" : 500, "l3" : 1000 , "l4" : 2500, "l5" : 5000, "unlock_order" : 0, "description": "res://Recources/Critique/cities/Manresa.txt"}
+	"Girona": {"position": Vector2(3264, 1600), "population": 100000, "l1": 1000, "l2" : 2500, "l3" : 5000 , "l4" : 12000, "l5" : 25000 , "unlock_order" : 1, "description": "res://Recources/Critique/cities/Girona.txt"},
+	"Barcelona": {"position": Vector2(2368, 2752), "population": 1600000, "l1": 5000, "l2" : 10000, "l3" : 25000 , "l4" : 50000, "l5" : 150000, "unlock_order" : 4, "description": "res://Recources/Critique/cities/Barcelona.txt"},
+	"Lleida": {"position": Vector2(320, 2112), "population": 138000, "l1": 1500, "l2" : 3500, "l3" : 10000 , "l4" : 20000, "l5" : 30000, "unlock_order" : 3, "description": "res://Recources/Critique/cities/Lleida.txt"},
+	"Tarragona": {"position": Vector2(1344, 3008), "population": 134000, "l1": 1000, "l2" : 3000, "l3" : 7000 , "l4" : 10000, "l5" : 20000, "unlock_order" : 2, "description": "res://Recources/Critique/cities/Tarragona.txt"},
+	"Manresa": {"position": Vector2(1856, 1984), "population": 76000, "l1": 500, "l2" : 1500, "l3" : 2500 , "l4" : 5000, "l5" : 10000, "unlock_order" : 0, "description": "res://Recources/Critique/cities/Manresa.txt"}
 }
 
 var buildings = {

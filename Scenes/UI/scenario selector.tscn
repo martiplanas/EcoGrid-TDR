@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://uq1s8aloayug"]
+[gd_scene load_steps=27 format=3 uid="uid://uq1s8aloayug"]
 
 [ext_resource type="Script" path="res://Scripts/UI/ScenarioLoaderUI.gd" id="1_btkvu"]
 [ext_resource type="Texture2D" uid="uid://5kfq11iuarpq" path="res://Recources/Scenario loader Img/Screenshot 2024-07-11 at 17.01.49.png" id="1_wek0s"]
@@ -37,8 +37,30 @@ font_size = 25
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a308y"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1tyb6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6qhdj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wqwsl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yfuqt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vaoia"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3cwn6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d6bg1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d0jh8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jw1hp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k5bmy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_or0gc"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yirut"]
-bg_color = Color(0.0392157, 0.517647, 1, 1)
+bg_color = Color(0.000172886, 0.51109, 0.998273, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -150,14 +172,31 @@ layout_mode = 2
 theme_override_constants/separation = 25
 theme_override_styles/separator = SubResource("StyleBoxEmpty_a308y")
 
+[node name="Tutotrial" type="CheckBox" parent="Panel/VBoxContainer/Scenarios/Catalunya/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1tyb6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_6qhdj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wqwsl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yfuqt")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_vaoia")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_3cwn6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d6bg1")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_d0jh8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jw1hp")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_k5bmy")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_or0gc")
+button_pressed = true
+text = "Enable Tutorial (Recomended)"
+
 [node name="historyMode" type="CheckBox" parent="Panel/VBoxContainer/Scenarios/Catalunya/VBoxContainer"]
 layout_mode = 2
-button_pressed = true
 text = "Transform the Grid"
+flat = true
 
 [node name="infinite money" type="CheckBox" parent="Panel/VBoxContainer/Scenarios/Catalunya/VBoxContainer"]
 layout_mode = 2
 text = "Infinite money "
+flat = true
 
 [node name="California" type="Button" parent="Panel/VBoxContainer/Scenarios"]
 custom_minimum_size = Vector2(300, 0)
@@ -240,6 +279,8 @@ alignment = 2
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+theme_override_styles/hover = SubResource("StyleBoxFlat_yirut")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yirut")
 theme_override_styles/normal = SubResource("StyleBoxFlat_yirut")
 text = "Start New Game →"
 

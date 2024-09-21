@@ -33,9 +33,6 @@ func _ready():
 	downgrade_pretimer.timeout.connect(_lose)
 
 func _process(delta):
-	
-	
-	
 	if is_upgrading:
 		if upgrade_difference == 1:
 			upgradeprogress.visible = true

@@ -5,6 +5,7 @@ var tutorial = preload("res://Scenes/UI/tutorialManager.tscn")
 
 
 func _on_buttonok_pressed() -> void:
-	var tt = tutorial.instantiate()
-	ui.add_child(tt)
+	if SimulationManager.tutorial_enabled:
+		var tt = tutorial.instantiate()
+		ui.add_child(tt)
 	self.queue_free()

@@ -28,10 +28,10 @@ var seaC_tiles = []
 		"description" : "res://Recources/Buildings/Wind Turbine/Wind.txt",
 		"scene" : preload("res://Recources/Buildings/Wind Turbine/wind_turbine.tscn"),
 		"cursor" : preload("res://Recources/Buildings/Wind Turbine/wind_turbine_cursor.tscn"),
-		"price" : 700,
-		"generation" : 200, 
+		"price" : 1000,
+		"generation" : 180, 
 		"pollution" : 0,
-		"upkeep" : 100,
+		"upkeep" : 120,
 		"unlocked" : true,
 		"layer" : 8
 	},
@@ -40,10 +40,10 @@ var seaC_tiles = []
 		"description" : "res://Recources/Buildings/Solar Panels/Solar.txt",
 		"scene" : preload("res://Recources/Buildings/Solar Panels/solar-panel-2.tscn"),
 		"cursor" : preload("res://Recources/Buildings/Solar Panels/solar_panel_cursor.tscn"),
-		"price" : 500,
-		"generation" : 150,
+		"price" : 1500,
+		"generation" : 250,
 		"pollution" : 0,
-		"upkeep" : 80,
+		"upkeep" : 90,
 		"unlocked" : true,
 		"layer" : 10
 	},
@@ -52,10 +52,10 @@ var seaC_tiles = []
 		"description" : "res://Recources/Buildings/Nuclear Power Plant/Nuclear.txt",
 		"scene" : preload("res://Recources/Buildings/Nuclear Power Plant/nuclear_plant.tscn"),
 		"cursor" : preload("res://Recources/Buildings/Nuclear Power Plant/nuclear_plant_cursor.tscn"),
-		"price" : 100000,
-		"generation" : 1200,
+		"price" : 200000,
+		"generation" : 4000,
 		"pollution" : 0.05,
-		"upkeep" : 800,
+		"upkeep" : 2000,
 		"unlocked" : true,
 		"layer" : 0
 	},
@@ -64,10 +64,10 @@ var seaC_tiles = []
 		"description" : "res://Recources/Buildings/Geotermical/Geo.txt",
 		"scene" : preload("res://Recources/Buildings/Geotermical/Geothermal.tscn"),
 		"cursor" : preload("res://Recources/Buildings/Geotermical/Geothermal_cursor.tscn"),
-		"price" : 1200,
-		"generation" : 350,
+		"price" : 10000,
+		"generation" : 600,
 		"pollution" : 0,
-		"upkeep" : 150,
+		"upkeep" : 300,
 		"unlocked" : true,
 		"layer" : 9
 	},
@@ -76,8 +76,9 @@ var seaC_tiles = []
 		"description" : "res://Recources/Buildings/Hydropower/Hydro.txt",
 		"scene" : preload("res://Recources/Buildings/Hydropower/Hydropower.tscn"),
 		"cursor" : preload("res://Recources/Buildings/Hydropower/Hydropower_cursor.tscn"),
-		"price" : 10000,
-		"generation" : 3000,
+		"price" : 50000,
+		"generation" : 5500,
+		"upkeep" : 2500,
 		"unlocked" : false,
 		"layer" : 0
 	},
@@ -86,16 +87,16 @@ var seaC_tiles = []
 		"description" : "res://Recources/Buildings/Coal Plant/Coal.txt",
 		"scene" : preload("res://Recources/Buildings/Coal Plant/coal_plant.tscn"),
 		"cursor" : preload("res://Recources/Buildings/Coal Plant/coal_plant_cursor.tscn"),
-		"price" : 2000,
-		"generation" : 900,
-		"pollution" : 0.8,
-		"upkeep" : 500,
-		"unlocked" : false,
+		"price" : 8000,
+		"generation" : 2000,
+		"pollution" : 1,
+		"upkeep" : 1200,
+		"unlocked" : true,
 		"layer" : 0
 	}
 }
 
-var button_to_id = {1 : "wt", 2 : "sp", 3 : "nc", 6 : "hp", 7 : "gt"}
+var button_to_id = {1 : "wt", 2 : "sp", 3 : "nc", 6 : "cp", 7 : "gt"}
 var color_modifier = {0 : 0.25, 1 : 0.5, 2 : 0.75, 3 : 1.25, 4 : 1.75}
 
 var infoPanel = preload("res://Scenes/UI/infoPanel.tscn")
@@ -284,7 +285,14 @@ func showBuildUI():
 			var price_can = false
 			var position_can = false
 			
-			for childs in current_build_model.get_child(1).get_child(0).get_children():
+			var childses
+			
+			if id == "cp":
+				childses = current_build_model.get_child(1).get_child(0).get_child(0).get_children()
+			else:
+				childses = current_build_model.get_child(1).get_child(0).get_children()
+			
+			for childs in childses:
 				if childs.name ==  "price":
 					price_tag = childs
 				if childs.name == "position":

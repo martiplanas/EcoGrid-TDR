@@ -730,10 +730,7 @@ stretch_mode = 5
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_vertical = 4
-tooltip_text = "Hydraulic Power Plant:
-Price: 10000
-Energy Generation: 3000"
-disabled = true
+tooltip_text = "Carbon Power Plant:"
 toggle_mode = true
 button_group = SubResource("ButtonGroup_k7lsc")
 shortcut = SubResource("Shortcut_jqdee")
@@ -1348,7 +1345,7 @@ offset_top = 192.0
 offset_right = 166.0
 offset_bottom = 1192.0
 scale = Vector2(0.25, 0.25)
-value = 94.0
+value = 45.0
 fill_mode = 2
 texture_under = ExtResource("59_pshei")
 texture_progress = ExtResource("60_oun7l")

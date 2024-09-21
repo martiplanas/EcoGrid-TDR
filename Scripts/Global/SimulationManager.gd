@@ -5,6 +5,7 @@ var line_container  = []
 #scenario loader
 var infiniteMoney : bool = false
 var historyMode : bool = true
+var tutorial_enabled : bool = true
 
 @onready var building_data = {
 	"wt" : {
